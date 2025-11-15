@@ -1,0 +1,14 @@
+\section{Extreme rays of OHMET(4,2)}
+We have 3 orbits of facets
+\begin{equation*}
+\begin{array}{|c|cccccccc|}
+\hline
+&+1&+2&+3&+4&-1&-2&-3&-4\\
+\hline
+O_{1}&0&0&0&1&0&0&1&0\\
+O_{2}&0&0&1&1&0&1&0&0\\
+O_{3}&0&1&1&1&1&0&0&0\\
+\hline
+\end{array}\end{equation*}
+\\
+\\

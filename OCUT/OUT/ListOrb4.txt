@@ -1,0 +1,8 @@
+ d12 d13 d14 d23 d24 d34 w2 w3 w4
+nbOrb=3
+iOrb=1 |inc|=8 |stab|=8
+ 1 -1 1 1 -1 1 -1 1 -1
+iOrb=2 |inc|=10 |stab|=4
+ 0 0 0 1 -1 1 0 0 0
+iOrb=3 |inc|=10 |stab|=4
+ 0 1 0 0 0 0 0 0 0

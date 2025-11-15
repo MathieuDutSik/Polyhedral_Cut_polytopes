@@ -1,0 +1,110 @@
+#!/usr/bin/perl
+
+# We will generate the inequalities of the cone QMET_n
+# For higher cones you will to change 10 to a bigger constant
+# but this is a very far perspective
+
+$uu=scalar(@ARGV);
+
+if ($uu ne 2)
+{
+    print "VertexSplitting is used as\n";
+    print "VertexSplitting [file] [n] [kind] [vertex]\n";
+    print "with [file] a list of facets of OMCUT_n or extreme rays of OMCUT_n\n";
+    print "with [n] the asked order\n";
+    print "with [kind=1] for extreme rays of QMET_n\n";
+    print "with [kind=2] for facets of OMCUT_n\n";
+    print "with [vertex] the vertex to be splitted\n";
+    print "It does Vertex splitting for extreme rays of QMET_n and Zero extension for facets of OMCUTn\n";
+    die;
+}
+
+$File=$ARGV[0];
+$n=$ARGV[1];
+$kind=$ARGV[2];
+$vertex=$ARGV[3];
+#
+$dimension=$n*($n-1);
+$np1=$n+1;
+$dimensionp1=$np1*($np1-1);
+#
+$k=1; 
+for ($i=1; $i<=$n; $i++)
+{
+    for ($j=1; $j<=$n; $j++)
+    {
+	if ($i ne $j)
+	{
+	    $RoR[($n+1)*$i+$j]=$k;
+	    $k++;
+	}
+    }
+}
+
+open(INFILE, $File) or die "impossible to open ".$File;
+@ELT=<INFILE>;
+close(INFILE);
+
+for ($iElt=1; $iElt<=scalar(@ELT); $iElt++)
+{
+    @VEC=split(" ", $ELT[$iElt-1]);
+    print " 0";
+    if ($kind eq 1)
+    {
+	for ($i=1; $i<=$np1; $i++)
+	{
+	    for ($j=1; $j<=$np1; $j++)
+	    {
+		if ($i ne $j)
+		{
+		    if ($i eq $np1)
+		    {
+			$ireal=$vertex;
+		    }
+		    if ($j eq $np1)
+		    {
+			$jreal=$vertex;
+		    }
+		    if ($ireal eq $jreal)
+		    {
+			print " 0";
+		    }
+		    else
+		    {
+			$ind=$RoR[($n+1)*$ireal+$jreal];
+			print " ".$VEC[$ind];
+		    }
+		}
+	    }
+	}
+    }
+    else
+    {
+	for ($i=1; $i<=$np1; $i++)
+	{
+	    for ($j=1; $j<=$np1; $j++)
+	    {
+		if ($i ne $j)
+		{
+		    if ($i eq $np1)
+		    {
+			$lhs=0;
+		    }
+		    else
+		    {
+			if ($j eq $np1)
+			{
+			    $lhs=0;
+			}
+			else
+			{
+			    $ind=$RoR[($n+1)*$i+$j];
+			    print " ".$VEC[$ind];
+			}
+		    }
+		}
+	    }
+	}
+    }
+    print "\n";
+}

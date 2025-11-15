@@ -1,0 +1,39 @@
+#!/usr/bin/perl
+
+$uu=scalar(@ARGV);
+
+if ($uu ne 1)
+{
+    print "CreateCircleSymbol is used as\n";
+    print "./CreateCircleSymbol [File]\n\n";
+    print "with [File] the list of descriptions";
+    die;
+}
+
+$File=$ARGV[0];
+
+open(INFILE, $File) or die "impossible to open ".$File;
+@FIL=<INFILE>;
+close(INFILE);
+
+for ($iFil=1; $iFil<=scalar(@FIL); $iFil++)
+{
+    $line=$FIL[$iFil-1];
+    @U=split(" ", $line);
+    $ucx=1; 
+    for ($iU=1; $iU<=scalar(@U); $iU++)
+    {
+	for ($iE=1; $iE<=$U[$iU-1]; $iE++)
+	{
+	    print " ".$ucx;
+	    $ucx++;
+	}
+	if ($iU< scalar(@U))
+	{
+	    print " #";
+	}
+    }
+    print "\n";
+
+}
+

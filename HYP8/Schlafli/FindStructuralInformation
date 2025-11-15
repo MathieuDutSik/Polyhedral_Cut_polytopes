@@ -1,0 +1,76 @@
+Read("Functions/BaranovskiSearch");
+Read("Functions/MyPersoFunctions.g");
+Read("Functions/PermutedImprovedFunc.g");
+Read("Functions/RecognitionDelaunay.g");
+
+
+ListHypSymbol:=[];
+ListHypIneq:=[];
+
+ComputeHypermetricInformations:=function()
+  local n, GRP, LORB, V, TheORB;
+  n:=8;
+  GRP:=SymmetricGroup(n);
+  LORB:=GetConjecturalListFacetHYPn(n);
+  for V in LORB
+  do
+    TheORB:=Orbit(GRP, V, Permuted);
+    Append(ListHypSymbol, TheORB);
+  od;
+  ListHypIneq:=List(ListHypSymbol, FromHypermetricVectorToHypermetricFace);
+end;
+
+Print("Before determination of all facets\n");
+ComputeHypermetricInformations();
+Print("After determination of all facets\n");
+
+
+
+
+
+EXT27:=ReadAsFunction("Functions/TheSchlafli")();;
+DM27:=FuncDistMat(EXT27);
+GRP27:=AutomorphismGroupEdgeColoredGraph(DM27);
+DDA27:=DualDescriptionAdjacencies(EXT27);
+GRA27:=DDA27.SkeletonGraph;
+
+
+PresentStructuralInformations:=function(TheOrb)
+  local DM, DistVect, ListIncidentIndexes, ListIncidentIneq, ListIncidentSymbol, GRP, TheStab, ListPermGens, eGen, eList, eFacet, PermGRP, BF, Ladj, IsRespawn, IsBankSave, TmpDir, DataPolyhedral, FuncStabilizer, FuncIsomorphy, WorkingDim, eAdj, iAdj, LS, Hcoord, ListIneqCoord, TheSub, ListAdjacent, TheList, MiddleVect, VertexList, RPLift, TheLift, TheDistVect, GRPinner;
+  DM:=List(DM27{TheOrb}, x->x{TheOrb});
+  WorkingDim:=27;
+  DistVect:=DistanceMatrixToDistanceVector(DM);
+  ListIncidentIndexes:=Filtered([1..Length(ListHypIneq)], x->ListHypIneq[x]*DistVect=0);
+  ListIncidentIneq:=ListHypIneq{ListIncidentIndexes};
+  ListIncidentSymbol:=ListHypSymbol{ListIncidentIndexes};
+  #
+  TheStab:=OnPairMapping(8, AutomorphismGroupEdgeColoredGraph(DM));
+  ListPermGens:=[];
+  for eGen in TheStab
+  do
+    eList:=[];
+    for eFacet in ListIncidentIneq
+    do
+      Add(eList, Position(ListIncidentIneq, Permuted(eFacet, eGen)));
+    od;
+    Add(ListPermGens, PermList(eList));
+  od;
+  PermGRP:=Group(ListPermGens);
+  GRPinner:=__TheCore_Automorphism(ColumnReduction(ListIncidentIneq).EXT);
+  Print("|Incd|=", Length(ListIncidentIneq), "  |Stab|=", Order(TheStab), "  |GRPinner|=", Order(GRPinner), "\n");
+end;
+
+
+ListORB1:=ReadAsFunction("ListAffineSpanningDouble")();;
+ListORB2:=ReadAsFunction("ListAffineZSpanning")();;
+
+ListORB:=[];
+Append(ListORB, ListORB1);
+Append(ListORB, ListORB2);
+
+for iOrb in [1..Length(ListORB)]
+do
+  eOrb:=ListORB[iOrb];
+  Print("iOrb=", iOrb, "   ");
+  PresentStructuralInformations(eOrb);
+od;

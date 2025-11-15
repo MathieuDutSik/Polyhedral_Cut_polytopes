@@ -1,0 +1,192 @@
+#!/usr/bin/perl
+
+$uu=scalar(@ARGV);
+
+if ($uu ne 3)
+{
+    print "SetTheScene is used as\n";
+    print "./SetTheScene [m] [s] [n]\n\n";
+    print "with [m] indicating the order of the supermetric\n";
+    print "with [s] the Staline parameter\n";
+    print "with [n] the size of the set on which we consider the supermetric\n";
+    die;
+}
+
+$m=$ARGV[0];
+$s=$ARGV[1];
+$n=$ARGV[2];
+print "m=".$m."  s=".$s."  n=".$n."\n";
+
+$order="./Set-mn ".$m." ".$n;
+print $order."\n";
+system $order;
+
+$k=$m+1;
+$ks=$m+2;
+$SetFile="Scene/".$k."-Sets-".$n;
+$SecondSetFile="Scene/".$ks."-Sets-".$n;
+$ReprFile="Scene/".$k."-ReprSym-".$n;
+open(INFILE, $SetFile) or die "impossible to open ".$SetFile."\n, you should run Set-mn";
+@SET=<INFILE>;
+close(INFILE);
+$Cnk=scalar(@SET);
+
+open(INFILE, $SecondSetFile) or die "impossible to open ".$SecondSetFile."\n, you should run Set-mn";
+@SSET=<INFILE>;
+close(INFILE);
+$Cnks=scalar(@SSET);
+
+
+# Create the nonnegativity facets file
+print "Creating the non-negativity facets\n";
+open(OUTO, "> Scene/NN");
+open(OUTS, "> Scene/NN-symbol");
+for ($iL=1; $iL<=scalar(@SET); $iL++)
+{
+    @line=split(" ", $SET[$iL-1]);
+    print OUTO " 0";
+    for ($iCol=1; $iCol<=$Cnk; $iCol++)
+    {
+	if ($iCol ne $iL)
+	{
+	    print OUTO " 0";
+	}
+	else
+	{
+	    print OUTO " 1";
+	}	    
+    }
+    print OUTO "\n";
+    print OUTS "NN_{";
+    for ($iC=1; $iC<=$n; $iC++)
+    {
+	if ($line[$iC-1] eq 1)
+	{
+	    print OUTS $iC;
+	}
+    }
+    print OUTS "}\n";
+}
+close(OUTO);
+close(OUTS);
+
+sub GiveIndex($)
+{
+    my ($line)=@_;
+    my $idx=1;
+    while (1)
+    {
+        if ($SET[$idx-1] eq $line)
+        {
+            last;
+        }
+        $idx++;
+
+    }
+    return $idx;
+}
+
+# now create the s strong simplex facets
+print "Creating the ".$s."-strong simplex facets\n";
+open(OUTO, "> Scene/sSS");
+open(OUTS, "> Scene/sSS-symbol");
+for ($iL=1; $iL<=$Cnks; $iL++)
+{
+    @lineref=split(" ", $SSET[$iL-1]);
+    $idx=0;
+    for ($iCol=1; $iCol<=$n; $iCol++)
+    {
+	if ($lineref[$iCol-1] eq 1)
+	{
+	    $idx++;
+	    $U[$idx]=$iCol;
+	}
+    }
+    for ($iLine=1; $iLine<=$ks; $iLine++)
+    {
+	for ($iCol=1; $iCol<=$n; $iCol++)
+	{
+	    $ZE[$iCol-1]=0;
+	}
+	for ($iCol=1; $iCol<=$ks; $iCol++)
+	{
+	   if ($iCol ne $iLine)
+	   {
+	       $ZE[$U[$iCol]-1]=1;
+	   }
+	}
+	$line="";
+	for ($iCol=1; $iCol<=$n; $iCol++)
+	{
+	    $line=$line." ".$ZE[$iCol-1];
+	}
+	$Index[$iLine]=GiveIndex($line."\n");
+    }
+    for ($ii=1; $ii<=$ks; $ii++)
+    {
+	print OUTS "SS_{";
+	for ($u=1; $u<=$ks; $u++)
+	{
+	    if ($u ne $ii)
+	    {
+		print OUTS $U[$u];
+	    }
+	}
+	print OUTS ",".$U[$ii]."}\n";
+	#
+	print OUTO " 0";
+	for ($i=1; $i<=$Cnk; $i++)
+	{
+	    $Vect[$i]=0;
+	}
+	for ($i=1; $i<=$ks; $i++)
+	{
+	    if ($i ne $ii)
+	    {
+		$Vect[$Index[$i]]=1;
+	    }
+	}
+	$Vect[$Index[$ii]]="-".$s;
+	for ($i=1; $i<=$Cnk; $i++)
+	{
+	    print OUTO " ".$Vect[$i];
+	}
+	print OUTO "\n";
+    }
+}
+close(OUTO);
+close(OUTS);
+
+$order="./removeFractions Scene/sSS > Scene/sSS.nnf";
+print $order."\n";
+system $order;
+
+$order="cat Scene/sSS.nnf Scene/NN > Scene/Desc && cat Scene/sSS-symbol Scene/NN-symbol > Scene/Desc-symbol";
+print $order."\n";
+system $order;
+
+
+#
+#
+# Create the complete graphs cuts
+
+$order="./CreateOrbitPartitions ".$m." ".$n." | uniq > Scene/".$m."-HCUT".$n."-Orbits";
+print $order."\n";
+system $order;
+
+$order="./PartitionElements ".$m." ".$n." | sort | uniq > Scene/".$m."-HCUT".$n."-partition";
+print $order."\n";
+system $order;
+
+$order="./CreateHCUTS ".$SetFile." Scene/".$m."-HCUT".$n."-partition ".$m." ".$n." > Scene/".$m."-HCUT".$n."-vectors";
+print $order."\n";
+system $order;
+
+$order="ln -sf ".$m."-HCUT".$n."-partition Scene/Part && ln -sf ".$m."-HCUT".$n."-vectors Scene/PartVector";
+print $order."\n";
+system $order;
+
+$order="./BuildOrbitFiles Scene/".$m."-HCUT".$n."-vectors ".$ReprFile." 2";
+print $order."\n";
+system $order;
+

@@ -1,0 +1,42 @@
+#
+#
+# We are analysing a 7-dim polytope with 38 vertices
+# whose rank is 2.
+# Its two limit forms are schlafli and Gosset polytopes.
+Read("Functions/MyPersoFunctions.g");
+EXT:=ReadAsFunction("Polytope38")();;
+
+AffBas:=CreateAffineBasis(EXT);
+Hcoord:=HypermetricCoordinates(AffBas, EXT);
+Mat:=MatrixHypermetricInequalities(Hcoord);
+HypDim:=RankMat(EXT);
+DimHyp:=1+HypDim*(HypDim-1)/2;
+V:=ListWithIdenticalEntries(DimHyp, 0);
+V[1]:=1;
+Add(Mat, V);
+DistSpace:=NullspaceMat(TransposedMat(Mat));
+
+RelDist:=DistSpace[2]+20*DistSpace[1];
+
+DMfound:=DistanceConstructionDelaunay(RelDist, Hcoord);
+
+
+
+
+GRP:=__TheCore_Automorphism(EXT);
+LORB:=OrbitSemiCubes(EXT, GRP);
+
+
+EXT27:=ReadAsFunction("Functions/TheSchlafli")();
+DM27:=FuncDistMat(EXT27);
+GRP27:=AutomorphismGroupEdgeColoredGraph(DM27);
+
+AllEmbed:=FindIsometricEmbedding(DM27, GRP27, DMfound, GRP);
+EXTreord:=Concatenation(EXT{AllEmbed[1]}, Difference(Set(EXT), Set(EXT{AllEmbed[1]})));
+
+AffBas:=CreateAffineBasis(EXT{AllEmbed[1]});
+Add(AffBas, Difference(Set(EXT), Set(EXT{AllEmbed[1]}))[1]);
+LCOORD:=HypermetricCoordinates(AffBas, EXTreord);
+
+ORBsch:=Orbit(GRP, Set(AllEmbed[1]), OnSets);
+

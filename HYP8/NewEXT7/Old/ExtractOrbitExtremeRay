@@ -1,0 +1,41 @@
+R:=ReadAsFunction("NewExt7")();
+EXT:=R.EXT;
+SymGrp:=ReadAsFunction("SymGrp")();
+
+
+OrbAffBas:=ReadAsFunction("OrbitAffineBasis")();
+HypDim:=Length(OrbAffBas[1]);
+DistMatrix:=DistanceConstructionDelaunay(R.distvector, EXT);
+
+
+Sym8:=SymmetricGroup(HypDim);
+
+METGrp8:=MET_Group(Sym8, HypDim);
+SizeSym:=Order(METGrp8);
+
+output:=OutputTextFile("InfoOnExtreme rays", true);;
+nbDone:=0;
+NumberOfExtremeRay:=0;
+for eOrb in OrbAffBas
+do
+  dv:=[0];
+  for i in [1..HypDim-1]
+  do
+    for j in [i+1..HypDim]
+    do
+      Add(dv, DistMatrix[eOrb[i]][eOrb[j]]);
+    od;
+  od;
+  Stab:=Stabilizer(METGrp8, dv, Permuted);
+  NumberOfExtremeRay:=NumberOfExtremeRay+SizeSym/Order(Stab);
+  #
+  WriteVector(output, dv);
+  AppendTo(output, "|Stab|=", Order(Stab), "\n");
+  #
+  Print("Order of Stabilizer=", Order(Stab), "\n");
+  Print("Actual number of ext ray=", NumberOfExtremeRay, "\n");
+  nbDone:=nbDone+1;
+  Print("Number Treated=", nbDone, "\n");
+  Print("\n");
+od;
+CloseStream(output);

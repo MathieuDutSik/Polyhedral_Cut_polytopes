@@ -1,0 +1,23 @@
+Vertices of the polytope QMETP3
+|GRP|=48 |FAC|=20
+nbOrb=3
+iOrb=1 |inc|=12 |stab|=12 |O|=4
+ 0 0 0
+ 0 0 0
+ 0 0 0
+   denominator=1
+iOrb=2 |inc|=10 |stab|=8 |O|=6
+ 0 0 0
+ 1 0 0
+ 1 1 0
+   denominator=1
+iOrb=3 |inc|=10 |stab|=4 |O|=12
+ 0 0 1
+ 0 0 1
+ 0 0 0
+   denominator=1
+TotalNumberVertices=22
+nbOrbit Vertices=3
+|eRec.FAC|=20
+nbOrbit Facet=2
+dim=6

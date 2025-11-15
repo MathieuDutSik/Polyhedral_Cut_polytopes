@@ -1,0 +1,6 @@
+GramMat:=ReadAsFunction("GramMatP38")();;
+
+
+GRP:=Method2AutomorphismLattice(GramMat);
+
+DelCO:=DelaunayDescriptionStandard(GramMat, GRP);

@@ -1,0 +1,475 @@
+ ┌───────┐   GAP, Version 4.6.4 of 04-May-2013 (free software, GPL)
+ │  GAP  │   http://www.gap-system.org
+ └───────┘   Architecture: x86_64-unknown-linux-gnu-gcc-default64
+ Libs used:  gmp
+ Loading the library and packages ...
+#I  GAP: entering InitializePackagesInfoRecords
+#I  GAP: return from InitializePackagesInfoRecords
+#I  GAP: trying to load needed packages
+#I       gapdoc (>= 1.2)
+#I  GAPDoc: entering LoadPackage 
+#I  GAPDoc: PackageAvailabilityInfo for version 1.5.1
+#I          (required: >= 1.2)
+#I  GAPDoc: PackageAvailabilityInfo: the AvailabilityTest function returned 't\
+rue'
+#I  GAPDoc: PackageAvailabilityInfo: no needed packages
+#I  GAPDoc: PackageAvailabilityInfo: check suggested packages
+#I          IO (>= 2.3)
+#I  IO: PackageAvailabilityInfo for version 4.2
+#I      (required: >= 2.3)
+#I  IO: PackageAvailabilityInfo: the AvailabilityTest function returned fail
+#I  IO: PackageAvailabilityInfo: no installed version fits
+#I  GAPDoc: PackageAvailabilityInfo: check of suggested packages done
+#I  GAPDoc: PackageAvailabilityInfo: version 1.5.1 is available
+#I  GAPDoc: start loading needed/suggested/self packages
+#I          gapdoc
+#I  GAPDoc: start reading file 'init.g'
+#I  GAPDoc: finish reading file 'init.g'
+#I  GAPDoc: return from LoadPackage
+#I  GAP: needed packages loaded
+#I  GAP: read the impl. part of the GAP library
+#I  GAPDoc: start reading file 'read.g'
+#I  GAPDoc: finish reading file 'read.g'
+#I  GAP: trying to load suggested packages
+#I       grape
+#I       poset
+#I       l1emb
+#I       MyPolyhedral
+#I       addipolyhedral
+#I       plangraph
+#I  GAP: considering for autoloading: grape
+#I  GRAPE: entering LoadPackage 
+#I  GRAPE: PackageAvailabilityInfo for version 4.6.1
+#I  GRAPE: [34mnauty/dreadnaut binary not installed,[0m
+#I         [34mfunctions depending on nauty will not work[0m
+#I  GRAPE: PackageAvailabilityInfo: the AvailabilityTest function returned 'true'
+#I  GRAPE: PackageAvailabilityInfo: no needed packages
+#I  GRAPE: PackageAvailabilityInfo: check suggested packages
+#I  GRAPE: PackageAvailabilityInfo: check of suggested packages done
+#I  GRAPE: PackageAvailabilityInfo: version 4.6.1 is available
+#I  GRAPE: start loading needed/suggested/self packages
+#I         grape
+#I  GRAPE: start reading file 'init.g'
+#I  GRAPE: finish reading file 'init.g'
+#I  GRAPE: return from LoadPackage
+#I  GAP: grape loaded
+#I  GAP: considering for autoloading: poset
+#I  poset: entering LoadPackage 
+#I  poset: PackageAvailabilityInfo for version 0.0
+#I  poset: PackageAvailabilityInfo: the AvailabilityTest function returned 'true'
+#I  poset: PackageAvailabilityInfo: check needed packages
+#I         plangraph (>= 0.8)
+#I         grape (>= 4.2)
+#I  PlanGraph: PackageAvailabilityInfo for version 0.8
+#I             (required: >= 0.8)
+#I  PlanGraph: PackageAvailabilityInfo: the AvailabilityTest function returned 'true'
+#I  PlanGraph: PackageAvailabilityInfo: check needed packages
+#I             MyPolyhedral (>= 0.0)
+#I             GRAPE (>= 4.2)
+#I  MyPolyhedral: PackageAvailabilityInfo for version 1.0
+#I                (required: >= 0.0)
+#I  MyPolyhedral: PackageAvailabilityInfo: the AvailabilityTest function returned 'true'
+#I  MyPolyhedral: PackageAvailabilityInfo: check needed packages
+#I                grape (>= 4.2)
+#I                hap (>= 1.8.2)
+#I                cryst (>= 4.1.0)
+#I  HAP: PackageAvailabilityInfo for version 1.10.10.2
+#I       (required: >= 1.8.2)
+#I  HAP: PackageAvailabilityInfo: the AvailabilityTest function returned 'true'
+#I  HAP: PackageAvailabilityInfo: check needed packages
+#I       polycyclic (>=1.1)
+#I  Polycyclic: PackageAvailabilityInfo for version 2.11
+#I              (required: >=1.1)
+#I  Polycyclic: PackageAvailabilityInfo: the AvailabilityTest function returned 'true'
+#I  Polycyclic: PackageAvailabilityInfo: check needed packages
+#I              alnuth (1.0)
+#I              autpgrp (1.4)
+#I  Alnuth: PackageAvailabilityInfo for version 3.0.0
+#I          (required: 1.0)
+#I  Alnuth: PackageAvailabilityInfo: the AvailabilityTest function returned 'true'
+#I  Alnuth: PackageAvailabilityInfo: check needed packages
+#I          polycyclic (>=1.1)
+#I  Alnuth: PackageAvailabilityInfo: check of needed packages done
+#I  Alnuth: PackageAvailabilityInfo: check suggested packages
+#I  Alnuth: PackageAvailabilityInfo: check of suggested packages done
+#I  Alnuth: PackageAvailabilityInfo: version 3.0.0 is available
+#I  AutPGrp: PackageAvailabilityInfo for version 1.5
+#I           (required: 1.4)
+#I  AutPGrp: PackageAvailabilityInfo: the AvailabilityTest function returned 'true'
+#I  AutPGrp: PackageAvailabilityInfo: no needed packages
+#I  AutPGrp: PackageAvailabilityInfo: check suggested packages
+#I  AutPGrp: PackageAvailabilityInfo: check of suggested packages done
+#I  AutPGrp: PackageAvailabilityInfo: version 1.5 is available
+#I  Polycyclic: PackageAvailabilityInfo: check of needed packages done
+#I  Polycyclic: PackageAvailabilityInfo: check suggested packages
+#I  Polycyclic: PackageAvailabilityInfo: check of suggested packages done
+#I  Polycyclic: PackageAvailabilityInfo: version 2.11 is available
+#I  HAP: PackageAvailabilityInfo: check of needed packages done
+#I  HAP: PackageAvailabilityInfo: check suggested packages
+#I       aclib (>=1.1)
+#I       gapdoc (>=0.0)
+#I       nq (>=1.1)
+#I       nql (>=0.0)
+#I       homology (>=0.0)
+#I       edim (>=1.2.2)
+#I       singular (>=06.07.23)
+#I       congruence (>=0,0)
+#I       HAPcryst (>0.0)
+#I  AClib: PackageAvailabilityInfo for version 1.2
+#I         (required: >=1.1)
+#I  AClib: PackageAvailabilityInfo: the AvailabilityTest function returned 'true'
+#I  AClib: PackageAvailabilityInfo: no needed packages
+#I  AClib: PackageAvailabilityInfo: check suggested packages
+#I         polycyclic (>=1.0)
+#I         crystcat (>=1.1)
+#I  CrystCat: PackageAvailabilityInfo for version 1.1.6
+#I            (required: >=1.1)
+#I  CrystCat: PackageAvailabilityInfo: the AvailabilityTest function returned 'true'
+#I  CrystCat: PackageAvailabilityInfo: check needed packages
+#I            Cryst (>=4.1.8)
+#I  Cryst: PackageAvailabilityInfo for version 4.1.11
+#I         (required: >=4.1.8)
+#I  Cryst: PackageAvailabilityInfo: the AvailabilityTest function returned 'true'
+#I  Cryst: PackageAvailabilityInfo: check needed packages
+#I         polycyclic (>=2.9)
+#I  Cryst: PackageAvailabilityInfo: check of needed packages done
+#I  Cryst: PackageAvailabilityInfo: check suggested packages
+#I         CrystCat (>=1.1.4)
+#I         Carat (>=2.1.1)
+#I         XGAP (>=4.22)
+#I  Carat: PackageAvailabilityInfo for version 2.1.4
+#I         (required: >=2.1.1)
+#I  Carat: [34mCarat binaries must be compiled[0m
+#I  Carat: PackageAvailabilityInfo: the AvailabilityTest function returned false
+#I  Carat: PackageAvailabilityInfo: no installed version fits
+#I  XGAP: PackageAvailabilityInfo for version 4.23
+#I        (required: >=4.22)
+#I  XGAP: PackageAvailabilityInfo: the AvailabilityTest function returned false
+#I  XGAP: PackageAvailabilityInfo: no installed version fits
+#I  Cryst: PackageAvailabilityInfo: check of suggested packages done
+#I  Cryst: PackageAvailabilityInfo: version 4.1.11 is available
+#I  CrystCat: PackageAvailabilityInfo: check of needed packages done
+#I  CrystCat: PackageAvailabilityInfo: check suggested packages
+#I  CrystCat: PackageAvailabilityInfo: check of suggested packages done
+#I  CrystCat: PackageAvailabilityInfo: version 1.1.6 is available
+#I  AClib: PackageAvailabilityInfo: check of suggested packages done
+#I  AClib: PackageAvailabilityInfo: version 1.2 is available
+#I  nq: PackageAvailabilityInfo for version 2.4
+#I      (required: >=1.1)
+#I  Package ``nq'': The executable program is not available
+#I  nq: PackageAvailabilityInfo: the AvailabilityTest function returned fail
+#I  nq: PackageAvailabilityInfo: no installed version fits
+#I  nql: PackageAvailabilityInfo: no installed version fits
+#I  homology: PackageAvailabilityInfo: no installed version fits
+#I  EDIM: PackageAvailabilityInfo for version 1.3.1
+#I        (required: >=1.2.2)
+#I  EDIM: [34mThe EDIM kernel function 'ElementaryDivisorsPPartRkExpSmall'[0m
+#I        [34mis not available.[0m
+#I        [34mIt is recommended to compile this function, see[0m
+#I        [34m'?Installation of the EDIM package'[0m
+#I  EDIM: PackageAvailabilityInfo: the AvailabilityTest function returned 'true'
+#I  EDIM: PackageAvailabilityInfo: check needed packages
+#I        GAPDoc (>= 1.5)
+#I  EDIM: PackageAvailabilityInfo: check of needed packages done
+#I  EDIM: PackageAvailabilityInfo: check suggested packages
+#I  EDIM: PackageAvailabilityInfo: check of suggested packages done
+#I  EDIM: PackageAvailabilityInfo: version 1.3.1 is available
+#I  singular: PackageAvailabilityInfo for version 12.04.28
+#I            (required: >=06.07.23)
+#I  singular: PackageAvailabilityInfo: the AvailabilityTest function returned 'true'
+#I  singular: PackageAvailabilityInfo: no needed packages
+#I  singular: PackageAvailabilityInfo: check suggested packages
+#I            GapDoc (>= 1.5.1)
+#I  singular: PackageAvailabilityInfo: check of suggested packages done
+#I  singular: PackageAvailabilityInfo: version 12.04.28 is available
+#I  Congruence: PackageAvailabilityInfo for version 1.0.3
+#I              (required: >=0,0)
+#I  Congruence: PackageAvailabilityInfo: the AvailabilityTest function returned 'true'
+#I  Congruence: PackageAvailabilityInfo: check needed packages
+#I              GAPDoc (>= 1.5.1)
+#I  Congruence: PackageAvailabilityInfo: check of needed packages done
+#I  Congruence: PackageAvailabilityInfo: check suggested packages
+#I  Congruence: PackageAvailabilityInfo: check of suggested packages done
+#I  Congruence: PackageAvailabilityInfo: version 1.0.3 is available
+#I  HAPcryst: PackageAvailabilityInfo for version 0.1.10
+#I            (required: >0.0)
+#I  HAPcryst: PackageAvailabilityInfo: the AvailabilityTest function returned 'true'
+#I  HAPcryst: PackageAvailabilityInfo: check needed packages
+#I            Polycyclic (>=2.8.1)
+#I            AClib (>=1.1)
+#I            cryst (>=4.1.5)
+#I            HAP (>=1.8)
+#I            polymaking (>=0.7.6)
+#I  polymaking: PackageAvailabilityInfo for version 0.7.8
+#I              (required: >=0.7.6)
+#I  polymaking: PackageAvailabilityInfo: the AvailabilityTest function returned 'true'
+#I  polymaking: PackageAvailabilityInfo: no needed packages
+#I  polymaking: PackageAvailabilityInfo: check suggested packages
+#I              GAPDoc (>= 0.99)
+#I  polymaking: PackageAvailabilityInfo: check of suggested packages done
+#I  polymaking: PackageAvailabilityInfo: version 0.7.8 is available
+#I  HAPcryst: PackageAvailabilityInfo: check of needed packages done
+#I  HAPcryst: PackageAvailabilityInfo: check suggested packages
+#I            Carat (>=1.1)
+#I            CrystCat (>=1.1.2)
+#I            GAPDoc (>= 0.99)
+#I  Carat: PackageAvailabilityInfo for version 2.1.4
+#I         (required: >=1.1)
+#I  Carat: [34mCarat binaries must be compiled[0m
+#I  Carat: PackageAvailabilityInfo: the AvailabilityTest function returned false
+#I  Carat: PackageAvailabilityInfo: no installed version fits
+#I  HAPcryst: PackageAvailabilityInfo: check of suggested packages done
+#I  HAPcryst: PackageAvailabilityInfo: version 0.1.10 is available
+#I  HAP: PackageAvailabilityInfo: check of suggested packages done
+#I  HAP: PackageAvailabilityInfo: version 1.10.10.2 is available
+#I  MyPolyhedral: PackageAvailabilityInfo: check of needed packages done
+#I  MyPolyhedral: PackageAvailabilityInfo: check suggested packages
+#I  MyPolyhedral: PackageAvailabilityInfo: check of suggested packages done
+#I  MyPolyhedral: PackageAvailabilityInfo: version 1.0 is available
+#I  PlanGraph: PackageAvailabilityInfo: check of needed packages done
+#I  PlanGraph: PackageAvailabilityInfo: check suggested packages
+#I  PlanGraph: PackageAvailabilityInfo: check of suggested packages done
+#I  PlanGraph: PackageAvailabilityInfo: version 0.8 is available
+#I  poset: PackageAvailabilityInfo: check of needed packages done
+#I  poset: PackageAvailabilityInfo: check suggested packages
+#I  poset: PackageAvailabilityInfo: check of suggested packages done
+#I  poset: PackageAvailabilityInfo: version 0.0 is available
+#I  poset: start loading needed/suggested/self packages
+#I         autpgrp
+#I  AutPGrp: start reading file 'init.g'
+#I  AutPGrp: finish reading file 'init.g'
+#I  AutPGrp: start reading file 'read.g'
+#I  AutPGrp: finish reading file 'read.g'
+#I  poset: start loading needed/suggested/self packages
+#I         congruence
+#I  Congruence: start reading file 'init.g'
+#I  Congruence: finish reading file 'init.g'
+#I  Congruence: start reading file 'read.g'
+#I  Congruence: finish reading file 'read.g'
+#I  poset: start loading needed/suggested/self packages
+#I         edim
+#I  EDIM: start reading file 'init.g'
+#I  EDIM: finish reading file 'init.g'
+#I  EDIM: start reading file 'read.g'
+#I  EDIM: finish reading file 'read.g'
+#I  poset: start loading needed/suggested/self packages
+#I         polymaking
+#I  polymaking: start reading file 'init.g'
+#I  polymaking: finish reading file 'init.g'
+#I  polymaking: start reading file 'read.g'
+#I  polymake command not found. Please set POLYMAKE_COMMAND by hand
+#I  polymaking: finish reading file 'read.g'
+#I  poset: start loading needed/suggested/self packages
+#I         singular
+#I  singular: start reading file 'init.g'
+#I  singular: finish reading file 'init.g'
+#I  poset: start loading needed/suggested/self packages
+#I         alnuth
+#I         polycyclic
+#I  Alnuth: start reading file 'init.g'
+#I  Alnuth: finish reading file 'init.g'
+#I  Polycyclic: start reading file 'init.g'
+#I  Polycyclic: finish reading file 'init.g'
+#I  Alnuth: start reading file 'read.g'
+#I  Alnuth: finish reading file 'read.g'
+#I  Polycyclic: start reading file 'read.g'
+#I  Polycyclic: finish reading file 'read.g'
+#I  poset: start loading needed/suggested/self packages
+#I         cryst
+#I         crystcat
+#I  Cryst: start reading file 'init.g'
+#I  Cryst: finish reading file 'init.g'
+#I  CrystCat: start reading file 'init.g'
+#I  CrystCat: finish reading file 'init.g'
+#I  Cryst: start reading file 'read.g'
+#I  Cryst: finish reading file 'read.g'
+#I  CrystCat: start reading file 'read.g'
+#I  CrystCat: finish reading file 'read.g'
+#I  poset: start loading needed/suggested/self packages
+#I         aclib
+#I  AClib: start reading file 'init.g'
+#I  AClib: finish reading file 'init.g'
+#I  AClib: start reading file 'read.g'
+#I  AClib: finish reading file 'read.g'
+#I  poset: start loading needed/suggested/self packages
+#I         hap
+#I         hapcryst
+#I  HAP: start reading file 'init.g'
+#I  HAP warning: Set POLYMAKE_PATH manually if needed. 
+#I  HAP: finish reading file 'init.g'
+#I  HAPcryst: start reading file 'init.g'
+#I  HAPcryst: finish reading file 'init.g'
+#I  HAP: start reading file 'read.g'
+#I  HAP: finish reading file 'read.g'
+#I  HAPcryst: start reading file 'read.g'
+#I  HAPcryst: finish reading file 'read.g'
+#I  poset: start loading needed/suggested/self packages
+#I         mypolyhedral
+#I  MyPolyhedral: start reading file 'init.g'
+#I  MyPolyhedral: finish reading file 'init.g'
+#I  poset: start loading needed/suggested/self packages
+#I         plangraph
+#I  PlanGraph: start reading file 'init.g'
+#I  PlanGraph: [34mDo not call `LoadPackage( "grape", ... )' in the package file[0m
+#I             [34m/home/mathieu/opt/gap4r6/pkg/plangraph/lib/common,[0m
+#I             [34muse `IsPackageMarkedForLoading' instead[0m
+#I  GRAPE: entering LoadPackage 
+#I  GRAPE: return from LoadPackage, package was already loaded
+#I  PlanGraph: [34mDo not call `LoadPackage( "grape", ... )' in the package file[0m
+#I             [34m/home/mathieu/opt/gap4r6/pkg/plangraph/lib/planar.g,[0m
+#I             [34muse `IsPackageMarkedForLoading' instead[0m
+#I  GRAPE: entering LoadPackage 
+#I  GRAPE: return from LoadPackage, package was already loaded
+#I  PlanGraph: finish reading file 'init.g'
+#I  poset: start loading needed/suggested/self packages
+#I         poset
+#I  poset: start reading file 'init.g'
+#I  poset: finish reading file 'init.g'
+#I  poset: return from LoadPackage
+#I  GAP: poset loaded
+#I  GAP: considering for autoloading: l1emb
+#I  l1emb: entering LoadPackage 
+#I  l1emb: PackageAvailabilityInfo for version 0.8
+#I  l1emb: PackageAvailabilityInfo: the AvailabilityTest function returned 'true'
+#I  l1emb: PackageAvailabilityInfo: check needed packages
+#I         plangraph (>= 0.8)
+#I         grape (>= 4.2)
+#I  l1emb: PackageAvailabilityInfo: check of needed packages done
+#I  l1emb: PackageAvailabilityInfo: check suggested packages
+#I  l1emb: PackageAvailabilityInfo: check of suggested packages done
+#I  l1emb: PackageAvailabilityInfo: version 0.8 is available
+#I  l1emb: start loading needed/suggested/self packages
+#I         l1emb
+#I  l1emb: start reading file 'init.g'
+#I  l1emb: [34mDo not call `LoadPackage( "grape", ... )' in the package file[0m
+#I         [34m/home/mathieu/opt/gap4r6/pkg/l1emb/lib/invlingRoussoPoulos.g,[0m
+#I         [34muse `IsPackageMarkedForLoading' instead[0m
+#I  GRAPE: entering LoadPackage 
+#I  GRAPE: return from LoadPackage, package was already loaded
+#I  l1emb: finish reading file 'init.g'
+#I  l1emb: return from LoadPackage
+#I  GAP: l1emb loaded
+#I  GAP: considering for autoloading: addipolyhedral
+#I  addipolyhedral: entering LoadPackage 
+#I  addipolyhedral: PackageAvailabilityInfo for version 0.0
+#I  addipolyhedral: PackageAvailabilityInfo: the AvailabilityTest function returned 'true'
+#I  addipolyhedral: PackageAvailabilityInfo: check needed packages
+#I                  MyPolyhedral (>= 1.0)
+#I                  grape (>= 4.2)
+#I  addipolyhedral: PackageAvailabilityInfo: check of needed packages done
+#I  addipolyhedral: PackageAvailabilityInfo: check suggested packages
+#I  addipolyhedral: PackageAvailabilityInfo: check of suggested packages done
+#I  addipolyhedral: PackageAvailabilityInfo: version 0.0 is available
+#I  addipolyhedral: start loading needed/suggested/self packages
+#I                  addipolyhedral
+#I  addipolyhedral: book `AddiPolyhedral': no manual index file `doc/manual.six', ignored
+#I  addipolyhedral: start reading file 'init.g'
+#I  addipolyhedral: finish reading file 'init.g'
+#I  addipolyhedral: return from LoadPackage
+#I  GAP: addipolyhedral loaded
+#I  GAP: suggested packages loaded
+#I  GAP: call LoadPackageDocumentation for not loaded packages
+#I  polyhedral: book `Polyhedral': no manual index file `doc/manual.six', ignored
+#I  GAP: LoadPackageDocumentation for not loaded packages done
+#I  GAP: return from AutoloadPackages
+ Components: trans 1.0, prim 2.1, small* 1.0, id* 1.0
+ Packages:   AClib 1.2, addipolyhedral 0.0, Alnuth 3.0.0, AutPGrp 1.5, 
+             Congruence 1.0.3, Cryst 4.1.11, CrystCat 1.1.6, EDIM 1.3.1, 
+             GAPDoc 1.5.1, GRAPE 4.6.1, HAP 1.10.10.2, HAPcryst 0.1.10, 
+             l1emb 0.8, MyPolyhedral 1.0, PlanGraph 0.8, Polycyclic 2.11, 
+             polymaking 0.7.8, poset 0.0, singular 12.04.28
+ Try '?help' for help. See also  '?copyright' and  '?authors'
+gap> "./TheWork/TheBank/"
+gap> The main bank file exist
+The bank file has been read
+nbRec=4023
+Size 201 attained 8 times
+Size 202 attained 34 times
+Size 203 attained 5 times
+Size 204 attained 332 times
+Size 205 attained 1 times
+Size 206 attained 13 times
+Size 207 attained 22 times
+Size 208 attained 415 times
+Size 210 attained 91 times
+Size 212 attained 95 times
+Size 213 attained 1 times
+Size 214 attained 14 times
+Size 215 attained 4 times
+Size 216 attained 557 times
+Size 218 attained 8 times
+Size 220 attained 46 times
+Size 221 attained 1 times
+Size 222 attained 36 times
+Size 224 attained 269 times
+Size 225 attained 4 times
+Size 226 attained 2 times
+Size 228 attained 124 times
+Size 229 attained 4 times
+Size 230 attained 9 times
+Size 231 attained 5 times
+Size 232 attained 81 times
+Size 233 attained 2 times
+Size 234 attained 123 times
+Size 235 attained 2 times
+Size 236 attained 39 times
+Size 237 attained 3 times
+Size 238 attained 19 times
+Size 239 attained 1 times
+Size 240 attained 338 times
+Size 241 attained 1 times
+Size 242 attained 21 times
+Size 243 attained 28 times
+Size 244 attained 43 times
+Size 246 attained 31 times
+Size 247 attained 2 times
+Size 248 attained 39 times
+Size 249 attained 1 times
+Size 250 attained 5 times
+Size 251 attained 1 times
+Size 252 attained 216 times
+Size 254 attained 5 times
+Size 255 attained 1 times
+Size 256 attained 121 times
+Size 258 attained 17 times
+Size 260 attained 11 times
+Size 261 attained 4 times
+Size 264 attained 127 times
+Size 266 attained 1 times
+Size 268 attained 7 times
+Size 270 attained 43 times
+Size 272 attained 48 times
+Size 276 attained 20 times
+Size 280 attained 10 times
+Size 288 attained 154 times
+Size 296 attained 5 times
+Size 300 attained 4 times
+Size 304 attained 17 times
+Size 306 attained 16 times
+Size 308 attained 1 times
+Size 312 attained 29 times
+Size 316 attained 1 times
+Size 318 attained 4 times
+Size 320 attained 34 times
+Size 322 attained 1 times
+Size 324 attained 72 times
+Size 326 attained 1 times
+Size 328 attained 3 times
+Size 330 attained 1 times
+Size 336 attained 35 times
+Size 342 attained 1 times
+Size 352 attained 17 times
+Size 360 attained 23 times
+Size 368 attained 3 times
+Size 384 attained 28 times
+Size 408 attained 8 times
+Size 416 attained 3 times
+Size 424 attained 1 times
+Size 432 attained 29 times
+Size 448 attained 2 times
+Size 480 attained 7 times
+Size 512 attained 3 times
+Size 544 attained 1 times
+Size 576 attained 6 times
+Size 640 attained 2 times
+gap> 

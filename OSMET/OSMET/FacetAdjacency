@@ -1,0 +1,17 @@
+Read("OSMET.g");
+ 
+ 
+FCcompute:=function(n,m)
+  local U, GroupFAC, FAC;
+  U:=OSMET__FacetInequalities(n,m);
+  GroupFAC:=U.GroupFac;
+  FAC:=U.ListIneq;
+  return SkeletonGraph(GroupFAC, FAC, []);
+end;
+
+SaveSkeleton:=function(n,m)
+  local FileName, Skel;
+  FileName:=Concatenation("FileSkeleton", String(n), "_", String(m));
+  Skel:=FCcompute(n,m);
+  SaveDataToFile(FileName, Skel);
+end;

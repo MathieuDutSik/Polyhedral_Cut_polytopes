@@ -1,0 +1,59 @@
+Read("OSMET.g");
+ 
+ 
+FCcompute:=function(n,m)
+  local U, GroupFAC, FAC;
+  U:=OSMET__FacetInequalities(n,m);
+  GroupFAC:=U.GroupFac;
+  FAC:=U.ListIneq;
+  return SkeletonGraph(GroupFAC, FAC, []);
+end;
+
+SaveSkeleton:=function(n,m)
+  local FileName, Skel;
+  FileName:=Concatenation("FileSkeleton", String(n), "_", String(m));
+  Skel:=FCcompute(n,m);
+  SaveDataToFile(FileName, Skel);
+end;
+
+PrintOutData:=function(n,m)
+  local FileData, FileName, GR, GRco, VRL, output, GroupFac, ListORB, iOrb, eOrb, eRep, Hlist, iRand;
+  FileData:=Concatenation("FileSkeleton", String(n), "_", String(m));
+  FileName:=Concatenation("FileSection", String(n), "_", String(m));
+  GR:=ReadAsFunction(FileData)();
+  GRco:=ComplementGraph(GR);
+  VRL:=OSMET__FacetInequalities(n,m);
+  output:=OutputTextFile(FileName, true);;
+  AppendTo(output, "\\section{Dual skeleton of OHMET(", String(n), ",", String(m), ")}\n");
+  GroupFac:=VRL.GroupFac;
+  ListORB:=Orbits(GroupFac, [1..Length(VRL.ListIneq)], OnPoints);
+  for iOrb in [1..Length(ListORB)]
+  do
+    eOrb:=ListORB[iOrb];
+    AppendTo(output, "Orbit ", iOrb, " of size ", Length(eOrb), "\\\\\n");
+    for iRand in [1..10]
+    do
+      eRep:=Random(eOrb);
+      AppendTo(output, "with representative ", VRL.ListSymbol[eRep], " non-adjacent to\\\\\n");
+      Hlist:=VRL.ListSymbol{Adjacency(GRco, eRep)};
+      LatexPrintInTab(output, Hlist, 4, 1);
+      AppendTo(output, "\\\\\n");
+    od;
+    AppendTo(output, "\\\\\n");
+    AppendTo(output, "\\\\\n");
+  od;
+  CloseStream(output);
+end;
+
+
+OS__DualDescription1_1:=function(n,m)
+  local VRL, FAC, GroupFAC, DDA;
+  VRL:=OSMET__FacetInequalities(n,m);
+  FAC:=VRL.ListIneq;
+  Print("Dimension=", Length(FAC[1])-1, "  nbFac=", Length(FAC), "\n");
+  GroupFAC:=VRL.GroupFac;
+  DDA:=DualDescriptionAdjacencies(FAC);
+  Print(NullMat(5));
+
+
+end;

@@ -1,0 +1,54 @@
+Read("FCTDescription.g");
+#n:=4;
+#n:=5;
+#n:=6;
+n:=7;
+#n:=8;
+#n:=9;
+
+  IsRespawn:=function(OrdGRP, EXT, TheDepth)
+    if OrdGRP>=50000 and TheDepth<=2 then
+      return true;
+    fi;
+    if OrdGRP<100 then
+      return false;
+    fi;
+    if Length(EXT)<35 then
+      return false;
+    fi;
+    if TheDepth=2 then
+      return false;
+    fi;
+    return true;
+  end;
+  IsBankSave:=function(EllapsedTime, OrdGRP, EXT, TheDepth)
+    if TheDepth=0 then
+      return false;
+    fi;
+#    if EllapsedTime>=600 then
+#      return true;
+#    fi;
+    if Length(EXT)<=30 then
+      return false;
+    fi;
+    return true;
+  end;
+
+  PathSave:=Concatenation("./POLYHEDRAL_CUT", String(n), "/");
+  TheTMP:=Concatenation("./tmp", String(n), "/");
+  Exec("mkdir -p ", PathSave);
+  Exec("mkdir -p ", TheTMP);
+
+  DataPolyhedral:=rec(IsBankSave:=IsBankSave, 
+TheDepth:=0, IsRespawn:=IsRespawn, 
+Saving:=true, ThePathSave:=PathSave, 
+DualDescriptionFunction:=__DualDescriptionCDD_Reduction,
+ThePath:=TheTMP, GroupFormalism:=OnSetsGroupFormalism());
+
+FCR:=FCT__CutPolytope(n, DataPolyhedral);
+#ord:=Order(FCR.GRP);
+
+
+#EXT:=FCR.DD();
+
+ORB:=DualDescriptionStandard(FCR.EXT, FCR.GRP);

@@ -1,0 +1,86 @@
+#!/usr/bin/perl
+
+# This procedure use a list of sets and present
+# the associated induced permutations.
+
+$uu=scalar(@ARGV);
+
+if ($uu ne 2)
+{
+    print "PerminduitesHMETn is used as:\n\n";
+    print "Perminduites [SetFile] [SetOfElt]\n";
+    print "with [SetFile] a list of sets\n";
+    print "presented as 0/1 vectors\n";
+    print "[SetOfElt] a Set of Elements of Sn";
+    die;
+}
+
+$SetFile=$ARGV[0];
+$GrpFile=$ARGV[1];
+
+open(INFILE, $SetFile) or die "impossible to open ".$SetFile."\n";
+@SET=<INFILE>;
+close(INFILE);
+
+
+open(INFILE, $GrpFile) or die "impossible to open ".$GrpFile."\n";
+@GRP=<INFILE>;
+close(INFILE);
+@EGRP=split(" ", $GRP[0]);
+@ESET=split(" ", $SET[0]);
+
+
+if (scalar(@EGRP) ne scalar(@ESET))
+{
+    print "dimension disagreement between Subgroup of Sym(".scalar(@EGRP).")\n";
+    print "And sets included in V(".scalar(@ESET).")\n";
+    die;
+}
+$n=scalar(@ESET);
+$Cnk=scalar(@SET);
+#
+#
+# This procedure return the image by permutation of a k set
+sub Permind($$)
+{
+    my ($line, $idx)=@_;
+    my $u;
+    @U=split(" ", $line);
+    @Elt=split(" ", $GRP[$idx-1]);
+    $Chain="";
+    for ($u=1; $u<=$n; $u++)
+    {
+	$Chain=$Chain." ".$U[$Elt[$u-1]-1];
+    }
+    return $Chain."\n";
+}
+
+sub GiveIndex($)
+{
+    my ($line)=@_;
+    my $idx=1;
+    while (1)
+    {
+	if ($SET[$idx-1] eq $line)
+	{
+	    last;
+	}
+	$idx++;
+
+    }
+    return $idx;
+}
+
+for ($iGrp=1; $iGrp<=scalar(@GRP); $iGrp++)
+{
+    for ($u=1; $u<=$Cnk; $u++)
+    {
+	$permLine=Permind($SET[$u-1], $iGrp);
+	$Idx=GiveIndex($permLine);
+	print $Idx." ";
+    }
+    print "\n";
+}
+
+
+

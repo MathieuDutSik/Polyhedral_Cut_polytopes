@@ -1,0 +1,100 @@
+#!/usr/bin/perl
+
+# This procedure takes as argument a list of sets and
+# a list of vectors and return the graph obtained by keeping the
+# nonzero coordinate (subgraph of a Johnson Graph)
+
+$uu=scalar(@ARGV);
+
+if ($uu ne 3)
+{
+    print "PerminduitesHMETn is used as:\n\n";
+    print "Perminduites [SetFile] [VectorFile] [nb]\n";
+    print "with [SetFile] a list of sets presented as 0/1 vectors\n";
+    print "with [VectorFile] a list of vectors\n";
+    print "with [nb] a line number in [VectorFile]\n";
+    print "output is the graph Hv, inverse line graph of Gv\n";
+    die;
+}
+
+$SetFile=$ARGV[0];
+$VectorFile=$ARGV[1];
+$LineNumber=$ARGV[2];
+
+open(INFILE, $SetFile) or die "impossible to open ".$SetFile."\n";
+@SET=<INFILE>;
+close(INFILE);
+
+open(INFILE, $VectorFile) or die "impossible to open ".$VectorFile."\n";
+@VECT=<INFILE>;
+close(INFILE);
+@ESET=split(" ", $SET[0]);
+@EVEC=split(" ", $VECT[$LineNumber-1]);
+$dimension=scalar(@EVEC)-1;
+
+#
+#
+# Get the basic infos
+if ($dimension ne scalar(@SET))
+{
+    print "dimension disagreement between Vectors : dim=".$dimension."\n";
+    print "And number of considered sets :".scalar(@SET).")\n";
+    die;
+}
+$n=scalar(@ESET);
+$Cnk=scalar(@SET);
+
+for ($iE=1; $iE<=$n; $iE++)
+{
+    $APPEND[$iE]="";
+}
+
+$Edges="";
+
+for ($iCol=1; $iCol<=$dimension; $iCol++)
+{
+    if ($EVEC[$iCol] ne 0)
+    {
+	@SD=split(" ", $SET[$iCol-1]);
+	$iCe=1;
+	for ($iE=1; $iE<=$n; $iE++)
+	{
+	    if ($SD[$iE-1] eq 0)
+	    {
+		$SST[$iCe]=$iE;
+		$iCe++;
+	    }
+	}
+	$APPEND[$SST[1]]=$APPEND[$SST[1]]." ".$SST[2];
+	$APPEND[$SST[2]]=$APPEND[$SST[2]]." ".$SST[1];
+	if ($EVEC[$iCol] ne 1)
+	{
+	    $Chain=" Value ".$EVEC[$iCol];
+	}
+	else
+	{
+	    $Chain="";
+	}
+	$Edges=$Edges.$Chain." \$(".$SST[1].$SST[2].")\$,";
+    }
+}
+
+open(OUT, "> Scene/Hv.nauty");
+$Q=$n+1;
+print OUT "n=".$Q.";\n";
+print OUT "g\n";
+for ($u=1; $u<=$n; $u++)
+{
+    print OUT $u." :";
+    print OUT $APPEND[$u];
+    print OUT ";\n";
+}
+print OUT "x\n";
+print OUT "o\n";
+close(OUT);
+
+print "A Graph with edge set ".$Edges."\n";
+$order="cat Scene/Hv.nauty";
+print $order."\n";
+system $order;
+

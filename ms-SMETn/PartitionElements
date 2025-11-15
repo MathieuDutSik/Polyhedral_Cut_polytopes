@@ -1,0 +1,86 @@
+#!/usr/bin/perl
+
+# This script create a single file named Orbitwise
+# In order to create paritions
+# output should be unicized
+
+$uu=scalar(@ARGV);
+
+if ($uu ne 2)
+{
+    print "PartitionElements is used as\n";
+    print "./PartitionElements [m] [n]\n\n";
+    print "with [m] indicating the order of the supermetric\n";
+    print "with [n] the size of the set on which we consider the supermetric\n";
+    die;
+}
+
+$m=$ARGV[0];
+$n=$ARGV[1];
+
+if ($m+1> $n)
+{
+    $R=$m+1;
+    print "impossible to partition a set of ".$n." elements\n";
+    print "into ".$R." non-empty subsets\n";
+    die;
+}
+
+$File="Scene/".$m."-HCUT".$n."-Orbits";
+open(INFILE, $File) or die "impossible to open ".$File;
+@MNO=<INFILE>;
+close(INFILE);
+
+$File="Scene/Sym-".$n;
+open(INFILE, $File) or die "impossible to open ".$File;
+@PERM=<INFILE>;
+close(INFILE);
+
+for ($iOrb=1; $iOrb<=scalar(@MNO); $iOrb++)
+{
+    @line=split(" ", $MNO[$iOrb-1]);
+    for ($iP=1; $iP<=scalar(@PERM); $iP++)
+    {
+	@perm=split(" ", $PERM[$iP-1]);
+	$idx=0;
+	for ($iElt=1; $iElt<=$n; $iElt++)
+	{
+	    $InvTK[$iElt]=-1;
+	}
+	for ($iC=1; $iC<=$m+1; $iC++)
+	{
+	    $size=$line[$iC-1];
+	    @V=();
+	    for ($iCol=1; $iCol<=$size; $iCol++)
+	    {
+		@V=(@V, $perm[$idx]);
+		$idx++;
+	    }
+	    @W=sort(@V);
+	    $Z="";
+	    for ($iElt=1; $iElt<=scalar(@W); $iElt++)
+	    {
+		$Z=$Z." ".$W[$iElt-1];
+	    }
+	    $TK[$iC]=$Z;
+	    $InvTK[$W[0]]=$iC;
+
+	    $TKsort[$iC]=$W[0];
+	}
+	$U="";
+	$iC=0;
+	for ($iElt=1; $iElt<=$n; $iElt++)
+	{
+	    if ($InvTK[$iElt] ne -1)
+	    {
+		$U=$U.$TK[$InvTK[$iElt]];
+		$iC++;
+		if ($iC<=$m)
+		{
+		    $U=$U." #";
+		}
+	    }
+	}
+	print $U."\n";
+    }
+}

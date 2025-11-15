@@ -1,0 +1,4 @@
+ d12 d13 d23 w2 w3
+nbOrb=1
+iOrb=1 |inc|=4 |stab|=8
+ 0 1 0 0 0

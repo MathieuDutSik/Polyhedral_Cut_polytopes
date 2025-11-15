@@ -1,0 +1,34 @@
+Ridge graph of the polytope QMETP3
+|GRP|=48 |FAC|=20
+diameter=2
+nbRep facet=4
+iRep=1  Representative OT(12,3) |nonadj|=6 |stab|=6
+  OT(32,1)
+  OT(13,2)
+  C(213)
+  NN(12)
+  NM(13)
+  NM(32)
+iRep=2  Representative C(123) |nonadj|=6 |stab|=6
+  OT(32,1)
+  OT(13,2)
+  OT(21,3)
+  NN(12)
+  NN(23)
+  NN(31)
+iRep=3  Representative NN(12) |nonadj|=7 |stab|=4
+  OT(12,3)
+  C(123)
+  NM(13)
+  NN(21)
+  NN(23)
+  NN(31)
+  NM(32)
+iRep=4  Representative NM(12) |nonadj|=7 |stab|=4
+  OT(32,1)
+  OT(13,2)
+  NN(13)
+  NM(21)
+  NM(23)
+  NM(31)
+  NN(32)

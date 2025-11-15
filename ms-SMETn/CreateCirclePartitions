@@ -1,0 +1,26 @@
+#!/usr/bin/perl
+
+# This script create a single file named Orbitwise
+# In order to create paritions
+# output should be unicized
+
+$uu=scalar(@ARGV);
+
+if ($uu ne 1)
+{
+    print "CreateCirclePartitions is used as\n";
+    print "./CreateCirclePartitions [n]\n\n";
+    print "with [n] the size of the set on which we consider the supermetric\n";
+    die;
+}
+
+$n=$ARGV[0];
+
+for ($nK=1; $nK<=$n; $nK++)
+{
+    for ($mK=0; $mK<=$nK-1; $mK++)
+    {
+	$order="./CreateOrbitPartitions ".$mK." ".$nK." | uniq ";
+	system $order;
+    }
+}

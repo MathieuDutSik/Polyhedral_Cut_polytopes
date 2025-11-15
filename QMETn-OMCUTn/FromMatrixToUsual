@@ -1,0 +1,60 @@
+#!/usr/bin/perl
+
+
+# this script takes a facets inequality or a quasimetric
+# presented in matrix form and output it in usual form
+
+
+$uu=scalar(@ARGV);
+
+if ($uu ne 1)
+{
+    print "FromMatrixToUsual is used as\n";
+    print "FromMatrixToUsual [file]\n";
+    die;
+}
+
+
+$NameFile=$ARGV[0];
+
+
+open(INFILE, $NameFile) or die "impossible to open ".$NameFile."\n";
+@LP=<INFILE>;
+close(INFILE);
+
+$n=scalar(@LP);
+
+
+for ($iLine=1; $iLine<=$n; $iLine++)
+{
+    $line=$LP[$iLine-1];
+    @LG=split(" ", $line);
+    if (scalar(@LG) ne $n)
+    {
+	print "Error\n";
+	print "line ".$iLine." should have ".$n." elements\n";
+	die;
+    }
+    if ($LG[$iLine-1] ne 0)
+    {
+	print "Error\n";
+	print "Element A[".$iLine.",".$iLine."] should be null\n";
+	die;
+    }
+}
+
+print " 0";
+for ($iLine=1; $iLine<=$n; $iLine++)
+{
+    $line=$LP[$iLine-1];
+    @LG=split(" ", $line);
+
+    for ($iCol=1; $iCol<=$n; $iCol++)
+    {
+	if ($iCol ne $iLine)
+	{
+	    print " ".$LG[$iCol-1];
+	}
+    }
+}
+print "\n";

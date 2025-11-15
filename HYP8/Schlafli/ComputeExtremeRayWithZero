@@ -1,0 +1,29 @@
+EXT:=ReadAsFunction("Fucntions/TheSchlafli")();;
+
+DDA:=DualDescriptionAdjacencies(EXT);
+Print("|FAC|=", Length(DDA.FAC), "\n");
+
+GroupEXT:=AutGroupGraph(DDA.SkeletonGraph);
+Print("|G|=", Order(GroupEXT), "\n");
+
+
+
+
+OrbAffBas:=FindAllOrbitAffineBasis(EXT, GroupEXT);
+
+ListInHYP8:=[];
+for eOrb in OrbAffBas
+do
+  Stab:=Stabilizer(GroupEXT, eOrb, OnSets);
+  O:=Orbits(Stab, eOrb, OnPoints);
+  for eO in O
+  do
+    SCE:=[];
+    for i in [1..Length(eOrb)]
+    do
+      Add(SCE, eOrb[i]);
+    od;
+    Add(SCE, eO[1]);
+    Add(ListInHYP8, SCE);
+  od;
+od;

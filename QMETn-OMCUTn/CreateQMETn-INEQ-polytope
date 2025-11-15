@@ -1,0 +1,135 @@
+#!/usr/bin/perl
+
+# We will generate the inequalities of the cone QMET_n
+# For higher cones you will to change 10 to a bigger constant
+# but this is a very far perspective
+
+
+$n=4;
+$card=$n*($n-1);
+$oR[0]=0;
+$R[0]=0;
+$k=1; 
+for ($i=1; $i<=$n; $i++)
+{
+    for ($j=1; $j<=$n; $j++)
+    {
+	if ($i ne $j)
+	{
+	    $oR[$k]=10*$i+$j;
+	    $k++;
+	}
+    }
+}
+
+sub GiveIndex($)
+{
+    my ($ind) =@_;
+#    print "ind=".$ind."\n";
+    $uust=1;
+    while (1)
+    {
+	if ($oR[$uust] eq $ind)
+	{
+	    $u=$uust;
+	    last;
+	}
+	$uust++
+    }
+    return $u;
+}
+
+
+for ($i=1; $i<=$n; $i++)
+{
+    for ($j=1; $j<=$n; $j++)
+    {
+	for ($k=1; $k<=$n; $k++)
+	{
+#	    print "i=".$i." j=".$j." k=".$k."\n";
+	    if ( $i ne $j && $i ne $k && $j ne $k)
+	    {
+		for ($iter=1; $iter<=$card; $iter++)
+		{
+		    $R[$iter]=0;
+		}
+		print " 0";
+		$u=10*$i+$j;
+		$v=10*$i+$k;
+		$w=10*$k+$j;
+		$indu=GiveIndex($u);
+		$indv=GiveIndex($v);
+		$indw=GiveIndex($w);
+		$R[$indu]=-1;
+		$R[$indv]=1;
+		$R[$indw]=1;
+		for ($iter=1; $iter<=$card; $iter++)
+		{
+		    print " ".$R[$iter];
+		}
+		print "\n";
+	    }
+	}
+    }
+}
+
+
+for ($i=1; $i<=$n; $i++)
+{
+    for ($j=1; $j<=$n; $j++)
+    {
+	for ($k=1; $k<=$n; $k++)
+	{
+#	    print "i=".$i." j=".$j." k=".$k."\n";
+	    if ( $i ne $j && $i ne $k && $j ne $k)
+	    {
+		for ($iter=1; $iter<=$card; $iter++)
+		{
+		    $R[$iter]=0;
+		}
+		print " 2";
+		$u=10*$i+$j;
+		$v=10*$i+$k;
+		$w=10*$k+$j;
+		$indu=GiveIndex($u);
+		$indv=GiveIndex($v);
+		$indw=GiveIndex($w);
+		$R[$indu]=-1;
+		$R[$indv]=-1;
+		$R[$indw]=-1;
+		for ($iter=1; $iter<=$card; $iter++)
+		{
+		    print " ".$R[$iter];
+		}
+		print "\n";
+	    }
+	}
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+for ($i=1; $i<=$card; $i++)
+{
+    print " 0";
+    for ($j=1; $j<=$card; $j++)
+    {
+	if ($i eq $j)
+	{
+	    print " 1";
+	}
+	else
+	{
+	    print " 0";
+	}
+    }
+    print "\n";
+}

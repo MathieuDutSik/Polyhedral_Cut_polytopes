@@ -1,0 +1,74 @@
+dim:=12;
+
+SpecialFacet:=function(n)
+  local V, i;
+  V:=[n-4, 1, 1];
+  for i in [1..n-3]
+  do
+    Add(V, -1);
+  od;
+  return V;
+end;
+
+
+
+ListIncicentEXT:=function(V)
+  local n, ListCut, ListSet, eCut, SPC, i;
+  n:=Length(V);
+  ListCut:=[];
+  ListSet:=[];
+  for eCut in ProductList([[1]], BuildSet(n-1,[0,1]))
+  do
+    if Position(eCut, 0)<>fail then
+      SPC:=eCut*V;
+      if SPC=0 or SPC=1 then
+        Add(ListCut, FromCutToCutVector(eCut, "extreme"));
+        Add(ListSet, eCut);
+      fi;
+    fi;
+  od;
+  return rec(ListCut:=ListCut, ListSet:=ListSet);
+end;
+
+Vec:=SpecialFacet(dim);
+LSC:=ListIncicentEXT(Vec);
+
+#for iSet in [1..Length(LSC.ListSet)]
+#do
+#  Print("eCut=", LSC.ListSet[iSet], "\n");
+#od;
+#
+#Print("\n");
+
+Print(Vec, "\n");
+Print("adajacent to\n");
+ListAdjacent:=[];
+for iSet in [1..Length(LSC.ListSet)]
+do
+  eCut:=LSC.ListSet[iSet];
+  SystemCut:=Difference(LSC.ListSet, [eCut]);
+  SYST:=ListHypermetricContainingCutFace(SystemCut);
+  SYSTnew:=[];
+  for eV in SYST
+  do
+    test:=0;
+    for eS in eV
+    do
+      if eS<>0 and eS<>1 then
+        test:=1;
+      fi;
+    od;
+    if test=1 then
+      Add(SYSTnew, eV);
+    fi;
+  od;
+#  Print("SYST=", SYSTnew);
+  if Length(SYSTnew)<>2 then
+    Print("DID NOT FIND THE RIGHT NUMBER\n\n\n");
+  fi;
+  Sort(SYSTnew);
+  RemoveSet(SYSTnew, Vec);
+  Vnew:=SYSTnew[1];
+  Print("eCut=", eCut, " INEQ=", Vnew, "\n");
+  Add(ListAdjacent, Vnew);
+od;

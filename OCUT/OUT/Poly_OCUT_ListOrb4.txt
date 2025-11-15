@@ -1,0 +1,12 @@
+Facets of the polytope OCUTP4
+c d12 d13 d14 d23 d24 d34 w2 w3 w4
+nbOrb=2
+iOrb=1 |inc|=36 |stab|=24 |O|=16
+ 0 1 0 -1 0 1 0 0 0 0
+iOrb=2 |inc|=32 |stab|=16 |O|=24
+ 0 0 1 0 0 0 0 0 0 0
+TotalNumberFacets=40
+nbOrb Facet=2
+|EXT|=64
+nbOrb Vertices=3
+dim=9

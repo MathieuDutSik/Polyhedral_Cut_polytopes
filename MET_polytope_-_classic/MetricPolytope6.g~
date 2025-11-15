@@ -1,0 +1,17 @@
+GRA:=CompleteGraph(SymmetricGroup(6), 6);
+
+
+eRecFCT:=CMC_GetCutPolytope(GRA);
+
+
+eREC:=eRecFCT.GetMET_info();
+GRPtot:=LinPolytope_Automorphism(eREC.EXT);
+
+ListOrbitFull:=DualDescriptionStandard(eREC.EXT, GRPtot);
+
+FACcone:=Filtered(eREC.EXT, x->x[1]=0);
+FACconeRed:=ColumnReduction(FACcone).EXT;
+
+GRPcone:=LinPolytope_Automorphism(FACcone);
+
+ListOrbitCone:=DualDescriptionStandard(FACconeRed, GRPcone);

@@ -1,0 +1,52 @@
+#!/usr/bin/perl
+
+$m=4;
+$k=$m+1;
+$s="5/2";
+$n=$m+2;
+
+$order="rm -f Scene/*";
+print $order."\n";
+system $order;
+
+$order="./SetSupermetric 2  ".$s." 5";
+print $order."\n";
+system $order;
+
+$order="cat Scene/sSS.nnf > Scene/NudeFacets";
+print $order."\n";
+system $order;
+
+$order="../Canonic/HAddHeaderFooter Scene/NudeFacets 1 > Scene/Fac.ine";
+print $order."\n";
+system $order;
+
+$order="cddr+_gmp Scene/Fac.ine";
+print $order."\n";
+system $order;
+
+die;
+
+$order="../Canonic/Nudify Scene/Fac.ext > Scene/Fac.ext.Nude";
+print $order."\n";
+system $order;
+
+$order="./removeFractions Scene/Fac.ext.Nude > Scene/Fac.ext.NNF";
+print $order."\n";
+system $order;
+
+$order="cd ../Adjacencies && ./ComputeAdjacencies";
+print $order."\n";
+system $order;
+
+$order="./TranslationFile FOUND-adj/DoublOrbitAdjacencies ../ms-SMETn/Scene/Desc ../ms-SMETn/Scene/Desc-symbol | less";
+print $order."\n";
+system $order;
+
+$order="cd ../ms-SMETn";
+print $order."\n";
+system $order;
+
+
+
+

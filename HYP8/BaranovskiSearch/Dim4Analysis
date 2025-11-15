@@ -1,0 +1,9 @@
+n:=4;
+
+
+V:=[3,2,-2,-2];
+
+eV:=FromHypermetricVectorToHypermetricFace(V);
+
+MET_FAC:=MET_Facets(n, "cone");
+LinRes:=LinearProgrammingConeVersion(MET_FAC, eV);

@@ -1,0 +1,269 @@
+#!/usr/bin/perl
+
+$uu=scalar(@ARGV);
+
+if ($uu ne 3)
+{
+    print "SetTheScene is used as\n";
+    print "./SetOrientedSupermetric [m] [s] [n]\n\n";
+    print "with [m] indicating the order of the supermetric\n";
+    print "with [s] the Staline parameter\n";
+    print "with [n] the size of the set on which we consider the supermetric\n";
+    die;
+}
+
+$m=$ARGV[0];
+$s=$ARGV[1];
+$n=$ARGV[2];
+print "m=".$m."  s=".$s."  n=".$n."\n";
+
+$File="Scene/Sets-".$n;
+$order="./GenerateSets ".$n." > ".$File;
+print $order."\n";
+system $order;
+
+$k=$m+1;
+$File="Scene/".$k."-Sets-".$n;
+$order="./SelectSets Scene/Sets-".$n." ".$k." | sort -r > ".$File;
+print $order."\n";
+system $order;
+
+open(INFILE, $File) or die "impossible to open ".$File;
+@SET=<INFILE>;
+close(INFILE);
+$Cnk=scalar(@SET);
+
+$File="Scene/Oriented".$k."-Sets-".$n;
+open(OUT, "> ".$File);
+for ($iSet=1; $iSet<=$Cnk; $iSet++)
+{
+    $line=$SET[$iSet-1];
+    @Chain=();
+    @LS=split(" ", $line);
+    for ($iCol=1; $iCol<=$n; $iCol++)
+    {
+	if ($LS[$iCol-1] eq 1)
+	{
+	    @Chain=(@Chain, $iCol);
+	}
+    }
+    for ($iChain=1; $iChain<=$k; $iChain++)
+    {
+	print OUT " ".$Chain[$iChain-1];
+    }
+    print OUT "\n";
+    $sw=$Chain[1];
+    $Chain[1]=$Chain[0];
+    $Chain[0]=$sw;
+    for ($iChain=1; $iChain<=$k; $iChain++)
+    {
+	print OUT " ".$Chain[$iChain-1];
+    }
+    print OUT "\n";
+}
+close(OUT);
+
+open(INFILE, $File) or die "impossible to open ".$File;
+@OSET=<INFILE>;
+close(INFILE);
+
+sub GiveIndex($)
+{
+    my ($line)=@_;
+    my $idx=1;
+    my $sign=1;
+    my @LS, @U, $iE, $jE, $sw;
+    @LS=split(" ", $line);
+    for ($iE=1; $iE<=scalar(@LS)-1; $iE++)
+    {
+	for ($jE=$iE+1; $jE<=scalar(@LS); $jE++)
+	{
+	    if ($LS[$jE-1]<$LS[$iE-1])
+	    {
+		$sign=-$sign;
+	    }
+	}
+    }
+    @U=sort{$a<=>$b}(@LS);
+    if ($sign eq -1)
+    {
+	$sw=$U[1];
+	$U[1]=$U[0];
+	$U[0]=$sw;
+    }
+    $Chain="";
+    for ($iChain=1; $iChain<=$k; $iChain++)
+    {
+	$Chain=$Chain." ".$U[$iChain-1];
+    }
+    $Chain=$Chain."\n";
+    
+    while (1)
+    {
+        if ($OSET[$idx-1] eq $Chain)
+        {
+            last;
+        }
+        $idx++;
+#	print $idx."\n";
+    }
+    return $idx;
+}
+
+
+# Create the nonnegativity facets file
+print "Creating the non-negativity facets\n";
+open(OUTO, "> Scene/OrientedNN");
+open(OUTS, "> Scene/OrientedNN-symbol");
+for ($iL=1; $iL<=2*$Cnk; $iL++)
+{
+    $_=$OSET[$iL-1];
+    s/\n//;
+    @line=split(" ", $_);
+    print OUTO " 0";
+    for ($iCol=1; $iCol<=2*$Cnk; $iCol++)
+    {
+	if ($iCol ne $iL)
+	{
+	    print OUTO " 0";
+	}
+	else
+	{
+	    print OUTO " 1";
+	}	    
+    }
+    print OUTO "\n";
+    print OUTS "NN_{";
+    for ($iC=1; $iC<=$k; $iC++)
+    {
+	print OUTS $line[$iC-1];
+    }
+    print OUTS "}\n";
+}
+close(OUTO);
+close(OUTS);
+
+# now create the s strong simplex facets
+print "Creating the ".$s."-strong simplex facets\n";
+open(OUTO, "> Scene/OrientedsSS");
+open(OUTS, "> Scene/OrientedsSS-symbol");
+for ($iL=1; $iL<=2*$Cnk; $iL++)
+{
+    @lineref=split(" ", $OSET[$iL-1]);
+    for ($iElt=1; $iElt<=$n; $iElt++)
+    {
+	$test=1;
+	for ($iK=1; $iK<=$k; $iK++)
+	{
+	    if ($lineref[$iK-1] eq $iElt)
+	    {
+		$test=0;
+	    }
+	}
+	if ($test eq 1)
+	{
+	    for ($iCol=0; $iCol<=2*$Cnk; $iCol++)
+	    {
+		$COR[$iCol]=0;
+	    }
+	    $COR[$iL]="-".$s;
+	    for ($iK=1; $iK<=$k; $iK++)
+	    {
+		@lineS=@lineref;
+		$lineS[$iK-1]=$iElt;
+		$Chain="";
+		for ($iChain=1; $iChain<=$k; $iChain++)
+		{
+		    $Chain=$Chain." ".$lineS[$iChain-1];
+		}
+		$Col=GiveIndex($Chain);
+		$COR[$Col]=1;
+	    }
+	    print OUTS "NN_{";
+	    for ($iC=1; $iC<=$k; $iC++)
+	    {
+		print OUTS $lineref[$iC-1];
+	    }
+	    print OUT ",".$iElt;
+	    print OUTS "}\n";
+	    #
+	    for ($iCol=0; $iCol<=2*$Cnk; $iCol++)
+	    {
+		print OUTO " ".$COR[$iCol];
+	    }
+	    print OUTO "\n";
+	}
+    }
+}
+close(OUTO);
+close(OUTS);
+
+$order="./removeFractions Scene/OrientedsSS > Scene/OrientedsSS.nnf";
+print $order."\n";
+system $order;
+
+$order="cat Scene/OrientedsSS.nnf Scene/OrientedNN > Scene/OrientedDesc && cat Scene/OrientedsSS-symbol Scene/OrientedNN-symbol > Scene/OrientedDesc-symbol";
+print $order."\n";
+system $order;
+
+#
+#
+# The symmetry group
+
+$File="Scene/Sym-".$n;
+$order="./PermGen ".$n." > ".$File;
+print $order."\n";
+system $order;
+
+
+open(INFILE, $File) or die "impossible to open ".$File;
+@PERM=<INFILE>;
+close(INFILE);
+
+open(OUTO, "> Scene/ReprGrp-red");
+for ($iPerm=1; $iPerm<=scalar(@PERM); $iPerm++)
+{
+    @P=split(" ", $PERM[$iPerm-1]);
+    for ($ioSet=1; $ioSet<=2*$Cnk; $ioSet++)
+    {
+	@U=split(" ", $OSET[$ioSet-1]);
+	$Chain="";
+	for ($iU=1; $iU<=$k; $iU++)
+	{
+	    $Chain=$Chain." ".$P[$U[$iU-1]-1];
+	}
+	$Col=GiveIndex($Chain);
+	print OUTO " ".$Col;
+    }
+    print OUTO "\n";
+
+}
+close(OUTO);
+
+$order="mv ".$File." Scene/ReprGrp-red.symbol";
+print $order."\n";
+system $order;
+
+open(INFILE, "Scene/ReprGrp-red");
+@REPR=<INFILE>;
+close(INFILE);
+
+
+open(OUTG, "> Scene/ReprGrp");
+open(OUTS, "> Scene/ReprGrp.symbol");
+for ($iPerm=1; $iPerm<=scalar(@PERM); $iPerm++)
+{
+    print OUTG $REPR[$iPerm-1];
+    print OUTS $PERM[$iPerm-1];
+    #
+    @U=split(" ", $REPR[$iPerm-1]);
+    for ($iCol=1; $iCol<=$Cnk; $iCol++)
+    {
+	print OUTG " ".$U[2*$iCol-1]." ".$U[2*$iCol-2];
+    }
+    print OUTG "\n";
+    print OUTS "Reversal + ".$PERM[$iPerm-1];
+    
+}
+close(OUTG);
+close(OUTS);

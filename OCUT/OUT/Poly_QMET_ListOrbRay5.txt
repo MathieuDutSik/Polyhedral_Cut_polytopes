@@ -1,0 +1,2752 @@
+Vertices of the polytope QMETP5
+|GRP|=3840 |FAC|=120
+nbOrb=392
+iOrb=1 |inc|=80 |stab|=240 |O|=16
+ 0 0 0 0 0
+ 0 0 0 0 0
+ 0 0 0 0 0
+ 0 0 0 0 0
+ 0 0 0 0 0
+   denominator=1
+iOrb=2 |inc|=68 |stab|=48 |O|=80
+ 0 0 0 0 0
+ 0 0 0 0 0
+ 1 1 0 1 1
+ 0 0 0 0 0
+ 0 0 0 0 0
+   denominator=1
+iOrb=3 |inc|=62 |stab|=48 |O|=80
+ 0 1 1 1 1
+ 0 0 0 0 1
+ 0 0 0 0 1
+ 0 0 0 0 1
+ 0 0 0 0 0
+   denominator=1
+iOrb=4 |inc|=62 |stab|=24 |O|=160
+ 0 0 0 1 1
+ 0 0 0 1 1
+ 0 0 0 1 1
+ 0 0 0 0 0
+ 0 0 0 1 0
+   denominator=1
+iOrb=5 |inc|=62 |stab|=24 |O|=160
+ 0 1 0 1 1
+ 0 0 0 0 0
+ 0 1 0 1 1
+ 0 0 0 0 0
+ 0 0 0 0 0
+   denominator=1
+iOrb=6 |inc|=60 |stab|=32 |O|=120
+ 0 0 0 0 0
+ 1 0 1 1 1
+ 1 0 0 1 0
+ 1 0 0 0 0
+ 1 0 1 1 0
+   denominator=1
+iOrb=7 |inc|=60 |stab|=32 |O|=120
+ 0 0 0 0 0
+ 1 0 1 0 1
+ 1 0 0 0 1
+ 1 0 1 0 1
+ 0 0 0 0 0
+   denominator=1
+iOrb=8 |inc|=60 |stab|=16 |O|=240
+ 0 1 1 1 1
+ 0 0 0 0 1
+ 0 1 0 0 1
+ 0 1 0 0 1
+ 0 0 0 0 0
+   denominator=1
+iOrb=9 |inc|=60 |stab|=16 |O|=240
+ 0 1 0 1 1
+ 0 0 0 0 1
+ 0 1 0 1 1
+ 0 1 0 0 1
+ 0 0 0 0 0
+   denominator=1
+iOrb=10 |inc|=60 |stab|=16 |O|=240
+ 0 0 0 0 0
+ 1 0 1 1 1
+ 0 0 0 0 0
+ 1 0 1 0 0
+ 1 0 1 0 0
+   denominator=1
+iOrb=11 |inc|=42 |stab|=2 |O|=1920
+ 0 0 0 0 0
+ 1 0 0 0 0
+ 2 1 0 0 1
+ 2 1 0 0 1
+ 1 1 0 0 0
+   denominator=2
+iOrb=12 |inc|=42 |stab|=2 |O|=1920
+ 0 0 0 0 0
+ 1 0 0 0 0
+ 2 1 0 1 1
+ 1 1 0 0 0
+ 1 1 0 0 0
+   denominator=2
+iOrb=13 |inc|=39 |stab|=2 |O|=1920
+ 0 0 0 0 0
+ 1 0 0 0 0
+ 2 2 0 2 2
+ 2 1 0 0 1
+ 1 1 0 0 0
+   denominator=2
+iOrb=14 |inc|=38 |stab|=2 |O|=1920
+ 0 2 1 1 1
+ 0 0 0 0 0
+ 0 1 0 1 0
+ 0 1 0 0 0
+ 0 1 1 1 0
+   denominator=2
+iOrb=15 |inc|=37 |stab|=1 |O|=3840
+ 0 0 0 0 0
+ 1 0 0 0 0
+ 2 1 0 1 1
+ 2 1 0 0 1
+ 1 1 0 0 0
+   denominator=2
+iOrb=16 |inc|=36 |stab|=2 |O|=1920
+ 0 0 0 0 0
+ 2 0 1 0 1
+ 1 0 0 0 0
+ 2 1 2 0 1
+ 1 0 1 0 0
+   denominator=2
+iOrb=17 |inc|=36 |stab|=2 |O|=1920
+ 0 0 1 1 2
+ 0 0 1 1 2
+ 1 1 0 1 1
+ 0 0 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=18 |inc|=36 |stab|=1 |O|=3840
+ 0 0 0 0 0
+ 1 0 0 0 0
+ 2 2 0 1 2
+ 2 1 0 0 1
+ 1 1 0 0 0
+   denominator=2
+iOrb=19 |inc|=35 |stab|=4 |O|=960
+ 0 0 0 0 1
+ 1 0 1 1 1
+ 2 1 0 0 1
+ 2 1 2 0 1
+ 1 0 1 0 0
+   denominator=2
+iOrb=20 |inc|=35 |stab|=4 |O|=960
+ 0 2 2 1 1
+ 0 0 0 0 0
+ 0 2 0 1 1
+ 0 1 1 0 0
+ 0 1 1 1 0
+   denominator=2
+iOrb=21 |inc|=35 |stab|=2 |O|=1920
+ 0 1 2 2 2
+ 1 0 1 1 1
+ 0 1 0 1 1
+ 0 0 0 0 0
+ 0 0 0 1 0
+   denominator=2
+iOrb=22 |inc|=35 |stab|=2 |O|=1920
+ 0 1 1 0 1
+ 0 0 1 0 0
+ 0 1 0 0 0
+ 0 1 1 0 1
+ 1 1 2 1 0
+   denominator=2
+iOrb=23 |inc|=35 |stab|=1 |O|=3840
+ 0 0 1 0 1
+ 1 0 1 1 1
+ 0 0 0 0 0
+ 1 1 2 0 1
+ 0 0 1 0 0
+   denominator=2
+iOrb=24 |inc|=34 |stab|=2 |O|=1920
+ 0 1 1 0 1
+ 1 0 1 0 1
+ 0 0 0 0 0
+ 1 1 2 0 1
+ 0 0 1 0 0
+   denominator=2
+iOrb=25 |inc|=34 |stab|=2 |O|=1920
+ 0 1 0 1 1
+ 0 0 0 0 0
+ 1 1 0 1 1
+ 1 1 0 0 0
+ 1 1 0 1 0
+   denominator=3/2
+iOrb=26 |inc|=34 |stab|=1 |O|=3840
+ 0 1 1 1 2
+ 0 0 1 0 2
+ 0 1 0 0 1
+ 0 1 1 0 2
+ 0 0 0 0 0
+   denominator=2
+iOrb=27 |inc|=34 |stab|=1 |O|=3840
+ 0 0 1 1 1
+ 1 0 1 1 1
+ 1 1 0 1 1
+ 0 0 0 0 0
+ 0 0 0 1 0
+   denominator=3/2
+iOrb=28 |inc|=34 |stab|=1 |O|=3840
+ 0 2 2 1 1
+ 0 0 0 0 0
+ 0 1 0 1 0
+ 0 1 1 0 0
+ 0 1 1 1 0
+   denominator=2
+iOrb=29 |inc|=34 |stab|=1 |O|=3840
+ 0 0 0 0 0
+ 1 0 0 0 0
+ 2 2 0 2 1
+ 2 1 0 0 1
+ 2 1 0 1 0
+   denominator=2
+iOrb=30 |inc|=33 |stab|=2 |O|=1920
+ 0 2 1 2 2
+ 0 0 0 0 1
+ 0 2 0 1 1
+ 0 2 0 0 1
+ 0 1 0 1 0
+   denominator=2
+iOrb=31 |inc|=33 |stab|=2 |O|=1920
+ 0 0 0 0 0
+ 1 0 0 0 0
+ 2 2 0 1 2
+ 2 1 1 0 1
+ 1 1 0 0 0
+   denominator=2
+iOrb=32 |inc|=33 |stab|=2 |O|=1920
+ 0 1 2 0 1
+ 1 0 1 0 1
+ 0 1 0 0 1
+ 1 1 2 0 1
+ 0 0 1 0 0
+   denominator=2
+iOrb=33 |inc|=33 |stab|=2 |O|=1920
+ 0 1 1 0 0
+ 1 0 1 0 0
+ 0 0 0 0 0
+ 1 1 2 0 0
+ 1 1 2 1 0
+   denominator=2
+iOrb=34 |inc|=33 |stab|=2 |O|=1920
+ 0 2 1 2 2
+ 0 0 1 1 2
+ 1 1 0 1 1
+ 0 0 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=35 |inc|=32 |stab|=4 |O|=960
+ 0 1 1 1 2
+ 1 0 0 1 2
+ 1 2 0 1 2
+ 0 1 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=36 |inc|=32 |stab|=2 |O|=1920
+ 0 0 0 0 0
+ 1 0 0 0 0
+ 2 1 0 1 1
+ 2 1 1 0 1
+ 1 1 0 0 0
+   denominator=2
+iOrb=37 |inc|=32 |stab|=2 |O|=1920
+ 0 0 0 1 1
+ 1 0 1 1 2
+ 1 1 0 1 1
+ 0 0 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=38 |inc|=32 |stab|=2 |O|=1920
+ 0 1 0 1 1
+ 1 0 0 1 1
+ 1 1 0 1 1
+ 1 0 0 0 1
+ 0 1 0 1 0
+   denominator=3/2
+iOrb=39 |inc|=32 |stab|=1 |O|=3840
+ 0 1 1 2 2
+ 1 0 1 1 1
+ 0 1 0 1 1
+ 0 0 0 0 0
+ 0 0 0 1 0
+   denominator=2
+iOrb=40 |inc|=32 |stab|=1 |O|=3840
+ 0 1 0 0 1
+ 1 0 1 0 1
+ 1 1 0 1 1
+ 1 1 1 0 1
+ 0 1 0 0 0
+   denominator=3/2
+iOrb=41 |inc|=32 |stab|=1 |O|=3840
+ 0 2 2 1 1
+ 0 0 1 0 0
+ 0 1 0 0 0
+ 0 1 1 0 0
+ 0 1 2 1 0
+   denominator=2
+iOrb=42 |inc|=32 |stab|=1 |O|=3840
+ 0 1 1 0 0
+ 1 0 1 0 0
+ 0 1 0 0 0
+ 1 1 1 0 0
+ 1 1 2 1 0
+   denominator=2
+iOrb=43 |inc|=32 |stab|=1 |O|=3840
+ 0 1 0 1 1
+ 1 0 0 1 1
+ 1 1 0 1 1
+ 1 0 0 0 1
+ 0 0 0 1 0
+   denominator=3/2
+iOrb=44 |inc|=32 |stab|=1 |O|=3840
+ 0 2 1 2 2
+ 0 0 1 2 1
+ 0 1 0 1 1
+ 0 0 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=45 |inc|=32 |stab|=1 |O|=3840
+ 0 2 1 1 1
+ 0 0 0 0 0
+ 0 1 0 1 0
+ 0 2 1 0 1
+ 0 1 1 1 0
+   denominator=2
+iOrb=46 |inc|=32 |stab|=1 |O|=3840
+ 0 1 2 1 2
+ 0 0 1 0 1
+ 0 0 0 0 0
+ 1 1 1 0 1
+ 0 1 1 0 0
+   denominator=2
+iOrb=47 |inc|=31 |stab|=4 |O|=960
+ 0 2 1 1 0
+ 0 0 0 0 0
+ 0 1 0 1 0
+ 1 2 1 0 0
+ 1 2 2 2 0
+   denominator=2
+iOrb=48 |inc|=31 |stab|=2 |O|=1920
+ 0 2 1 1 1
+ 0 0 0 0 0
+ 0 1 0 0 0
+ 1 2 2 0 1
+ 0 1 1 1 0
+   denominator=2
+iOrb=49 |inc|=31 |stab|=2 |O|=1920
+ 0 0 0 0 0
+ 2 0 1 1 1
+ 2 1 0 0 1
+ 2 1 2 0 1
+ 1 0 1 0 0
+   denominator=2
+iOrb=50 |inc|=31 |stab|=2 |O|=1920
+ 0 1 1 1 1
+ 1 0 1 1 2
+ 0 1 0 1 1
+ 0 1 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=51 |inc|=31 |stab|=2 |O|=1920
+ 0 1 1 1 2
+ 0 0 1 1 1
+ 0 1 0 1 1
+ 0 0 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=52 |inc|=31 |stab|=2 |O|=1920
+ 0 0 0 0 0
+ 2 0 1 1 2
+ 2 0 0 1 1
+ 2 0 1 0 1
+ 1 0 0 0 0
+   denominator=2
+iOrb=53 |inc|=31 |stab|=2 |O|=1920
+ 0 1 1 2 2
+ 0 0 1 1 1
+ 0 1 0 2 1
+ 0 0 0 0 1
+ 0 1 0 2 0
+   denominator=2
+iOrb=54 |inc|=31 |stab|=2 |O|=1920
+ 0 1 1 0 1
+ 1 0 1 0 0
+ 0 0 0 0 0
+ 1 2 2 0 1
+ 1 1 2 0 0
+   denominator=2
+iOrb=55 |inc|=31 |stab|=2 |O|=1920
+ 0 0 0 0 0
+ 1 0 1 0 0
+ 2 1 0 0 0
+ 2 2 2 0 1
+ 2 1 1 1 0
+   denominator=2
+iOrb=56 |inc|=31 |stab|=2 |O|=1920
+ 0 1 1 0 2
+ 1 0 1 0 1
+ 0 0 0 0 1
+ 2 2 2 0 2
+ 0 0 1 0 0
+   denominator=2
+iOrb=57 |inc|=31 |stab|=2 |O|=1920
+ 0 1 0 1 0
+ 0 0 0 0 0
+ 1 2 0 1 1
+ 1 1 0 0 1
+ 1 1 0 1 0
+   denominator=2
+iOrb=58 |inc|=30 |stab|=12 |O|=320
+ 0 1 0 1 1
+ 0 0 0 0 0
+ 1 1 0 1 1
+ 1 1 0 0 1
+ 1 1 0 1 0
+   denominator=3/2
+iOrb=59 |inc|=30 |stab|=6 |O|=640
+ 0 1 1 1 1
+ 0 0 0 0 0
+ 0 1 0 0 0
+ 1 1 1 0 1
+ 1 1 1 1 0
+   denominator=3/2
+iOrb=60 |inc|=30 |stab|=4 |O|=960
+ 0 2 1 2 2
+ 0 0 0 0 1
+ 1 2 0 1 1
+ 0 2 0 0 1
+ 0 1 0 1 0
+   denominator=2
+iOrb=61 |inc|=30 |stab|=4 |O|=960
+ 0 0 1 1 1
+ 2 0 1 2 2
+ 1 1 0 1 1
+ 0 0 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=62 |inc|=30 |stab|=4 |O|=960
+ 0 1 1 2 1
+ 0 0 0 1 1
+ 1 2 0 2 2
+ 0 0 0 0 0
+ 1 1 0 2 0
+   denominator=2
+iOrb=63 |inc|=30 |stab|=2 |O|=1920
+ 0 1 0 1 1
+ 1 0 1 1 1
+ 1 1 0 1 1
+ 1 0 0 0 1
+ 0 0 0 1 0
+   denominator=3/2
+iOrb=64 |inc|=30 |stab|=2 |O|=1920
+ 0 1 1 0 1
+ 1 0 1 0 1
+ 1 1 0 1 1
+ 1 1 1 0 1
+ 0 1 0 0 0
+   denominator=3/2
+iOrb=65 |inc|=30 |stab|=2 |O|=1920
+ 0 1 1 1 1
+ 1 0 0 1 1
+ 1 1 0 1 1
+ 0 0 0 0 1
+ 0 0 0 1 0
+   denominator=3/2
+iOrb=66 |inc|=30 |stab|=2 |O|=1920
+ 0 1 1 1 1
+ 1 0 1 1 1
+ 1 1 0 1 1
+ 0 1 0 0 1
+ 1 0 0 1 0
+   denominator=3/2
+iOrb=67 |inc|=30 |stab|=2 |O|=1920
+ 0 1 0 1 1
+ 1 0 1 2 1
+ 1 1 0 1 1
+ 1 0 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=68 |inc|=30 |stab|=2 |O|=1920
+ 0 0 0 0 0
+ 2 0 0 1 0
+ 3 2 0 3 2
+ 3 1 0 0 1
+ 2 2 0 1 0
+   denominator=3
+iOrb=69 |inc|=30 |stab|=2 |O|=1920
+ 0 0 0 0 0
+ 2 0 1 0 2
+ 2 0 0 0 1
+ 3 1 2 0 2
+ 1 0 0 0 0
+   denominator=3
+iOrb=70 |inc|=30 |stab|=1 |O|=3840
+ 0 0 1 1 2
+ 1 0 1 1 2
+ 1 1 0 1 1
+ 0 0 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=71 |inc|=30 |stab|=1 |O|=3840
+ 0 0 0 0 1
+ 2 0 1 0 1
+ 1 1 0 1 1
+ 2 1 1 0 1
+ 1 1 0 0 0
+   denominator=2
+iOrb=72 |inc|=30 |stab|=1 |O|=3840
+ 0 2 1 1 1
+ 0 0 0 0 0
+ 0 1 0 0 0
+ 1 2 1 0 1
+ 0 1 1 1 0
+   denominator=2
+iOrb=73 |inc|=30 |stab|=1 |O|=3840
+ 0 1 2 1 1
+ 0 0 1 0 1
+ 0 0 0 0 0
+ 1 2 2 0 1
+ 0 1 2 0 0
+   denominator=2
+iOrb=74 |inc|=30 |stab|=1 |O|=3840
+ 0 1 1 2 1
+ 1 0 1 1 2
+ 0 1 0 1 1
+ 0 0 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=75 |inc|=30 |stab|=1 |O|=3840
+ 0 0 0 1 1
+ 1 0 1 1 2
+ 1 1 0 1 1
+ 0 0 0 0 1
+ 1 0 0 1 0
+   denominator=2
+iOrb=76 |inc|=30 |stab|=1 |O|=3840
+ 0 0 2 2 2
+ 2 0 2 2 3
+ 2 2 0 2 2
+ 0 0 0 0 2
+ 0 0 0 0 0
+   denominator=3
+iOrb=77 |inc|=30 |stab|=1 |O|=3840
+ 0 2 1 1 0
+ 0 0 0 0 0
+ 0 1 0 1 0
+ 1 1 1 0 0
+ 1 2 2 2 0
+   denominator=2
+iOrb=78 |inc|=30 |stab|=1 |O|=3840
+ 0 1 1 2 2
+ 0 0 1 1 2
+ 0 1 0 1 1
+ 0 1 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=79 |inc|=30 |stab|=1 |O|=3840
+ 0 1 1 1 2
+ 0 0 1 1 1
+ 0 1 0 1 1
+ 0 0 0 0 1
+ 0 1 0 1 0
+   denominator=2
+iOrb=80 |inc|=30 |stab|=1 |O|=3840
+ 0 1 0 1 1
+ 0 0 0 0 1
+ 1 2 0 1 1
+ 0 1 0 0 1
+ 1 1 0 1 0
+   denominator=2
+iOrb=81 |inc|=29 |stab|=16 |O|=240
+ 0 1 1 2 1
+ 0 0 0 1 1
+ 1 2 0 2 2
+ 0 1 0 0 0
+ 1 1 0 2 0
+   denominator=2
+iOrb=82 |inc|=29 |stab|=4 |O|=960
+ 0 1 1 2 1
+ 0 0 0 1 1
+ 1 2 0 1 1
+ 0 1 0 0 0
+ 1 1 0 1 0
+   denominator=2
+iOrb=83 |inc|=29 |stab|=2 |O|=1920
+ 0 0 0 1 2
+ 1 0 1 2 2
+ 1 1 0 1 2
+ 1 0 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=84 |inc|=29 |stab|=2 |O|=1920
+ 0 1 1 2 2
+ 1 0 1 1 2
+ 0 1 0 1 1
+ 0 1 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=85 |inc|=29 |stab|=2 |O|=1920
+ 0 1 0 1 1
+ 1 0 1 2 2
+ 1 1 0 1 1
+ 1 0 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=86 |inc|=29 |stab|=2 |O|=1920
+ 0 1 1 2 1
+ 1 0 1 1 2
+ 1 1 0 1 1
+ 0 0 0 0 1
+ 1 0 0 1 0
+   denominator=2
+iOrb=87 |inc|=29 |stab|=2 |O|=1920
+ 0 1 1 2 2
+ 0 0 1 1 2
+ 1 1 0 1 1
+ 0 1 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=88 |inc|=29 |stab|=2 |O|=1920
+ 0 0 0 0 0
+ 2 0 0 0 1
+ 2 1 0 1 1
+ 2 1 1 0 1
+ 1 1 0 0 0
+   denominator=2
+iOrb=89 |inc|=29 |stab|=2 |O|=1920
+ 0 0 0 0 0
+ 1 0 1 0 0
+ 1 1 0 0 1
+ 2 2 2 0 1
+ 2 1 1 1 0
+   denominator=2
+iOrb=90 |inc|=29 |stab|=2 |O|=1920
+ 0 3 2 1 0
+ 0 0 0 0 0
+ 0 1 0 1 0
+ 1 2 1 0 0
+ 1 3 3 2 0
+   denominator=3
+iOrb=91 |inc|=29 |stab|=2 |O|=1920
+ 0 2 1 1 1
+ 0 0 0 0 0
+ 0 1 0 1 0
+ 1 2 1 0 1
+ 0 1 1 1 0
+   denominator=2
+iOrb=92 |inc|=29 |stab|=2 |O|=1920
+ 0 2 0 2 2
+ 0 0 0 0 0
+ 2 3 0 2 2
+ 2 2 0 0 0
+ 2 2 0 2 0
+   denominator=3
+iOrb=93 |inc|=29 |stab|=1 |O|=3840
+ 0 0 1 1 1
+ 1 0 1 1 2
+ 1 1 0 1 1
+ 0 0 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=94 |inc|=29 |stab|=1 |O|=3840
+ 0 0 0 0 0
+ 3 0 0 2 2
+ 3 2 0 2 2
+ 3 2 2 0 2
+ 1 0 0 0 0
+   denominator=3
+iOrb=95 |inc|=29 |stab|=1 |O|=3840
+ 0 2 2 0 2
+ 2 0 2 0 2
+ 0 2 0 0 2
+ 2 2 3 0 2
+ 0 0 2 0 0
+   denominator=3
+iOrb=96 |inc|=29 |stab|=1 |O|=3840
+ 0 1 1 2 2
+ 0 0 1 1 2
+ 0 1 0 1 1
+ 0 0 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=97 |inc|=29 |stab|=1 |O|=3840
+ 0 1 2 2 2
+ 0 0 1 1 2
+ 1 1 0 1 1
+ 0 0 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=98 |inc|=29 |stab|=1 |O|=3840
+ 0 0 1 1 2
+ 1 0 1 1 2
+ 1 1 0 1 1
+ 0 0 0 0 1
+ 1 0 0 1 0
+   denominator=2
+iOrb=99 |inc|=29 |stab|=1 |O|=3840
+ 0 2 0 2 2
+ 0 0 0 0 0
+ 3 3 0 2 2
+ 2 2 0 0 0
+ 2 2 0 2 0
+   denominator=3
+iOrb=100 |inc|=28 |stab|=8 |O|=480
+ 0 2 1 2 1
+ 0 0 0 1 1
+ 1 2 0 1 1
+ 0 1 0 0 0
+ 1 1 0 1 0
+   denominator=2
+iOrb=101 |inc|=28 |stab|=4 |O|=960
+ 0 1 1 0 0
+ 1 0 1 0 0
+ 0 0 0 0 0
+ 2 2 2 0 1
+ 1 1 2 1 0
+   denominator=2
+iOrb=102 |inc|=28 |stab|=4 |O|=960
+ 0 0 1 0 0
+ 1 0 1 0 1
+ 1 0 0 0 0
+ 2 1 2 0 1
+ 1 1 1 0 0
+   denominator=2
+iOrb=103 |inc|=28 |stab|=2 |O|=1920
+ 0 0 2 2 3
+ 2 0 2 2 3
+ 2 2 0 2 3
+ 0 0 0 0 1
+ 0 0 0 2 0
+   denominator=3
+iOrb=104 |inc|=28 |stab|=2 |O|=1920
+ 0 1 1 1 1
+ 1 0 1 1 1
+ 1 1 0 1 1
+ 0 1 0 0 1
+ 0 0 0 1 0
+   denominator=3/2
+iOrb=105 |inc|=28 |stab|=2 |O|=1920
+ 0 1 0 1 1
+ 0 0 0 0 0
+ 1 2 0 1 2
+ 1 2 0 0 1
+ 1 1 0 1 0
+   denominator=2
+iOrb=106 |inc|=28 |stab|=2 |O|=1920
+ 0 0 0 2 3
+ 3 0 3 2 4
+ 3 0 0 2 3
+ 3 0 1 0 4
+ 0 0 0 2 0
+   denominator=4
+iOrb=107 |inc|=28 |stab|=2 |O|=1920
+ 0 0 1 0 0
+ 1 0 2 1 1
+ 1 0 0 0 0
+ 2 1 2 0 1
+ 1 0 1 0 0
+   denominator=2
+iOrb=108 |inc|=28 |stab|=2 |O|=1920
+ 0 1 0 1 1
+ 1 0 0 0 1
+ 1 1 0 1 1
+ 1 1 0 0 1
+ 1 1 0 1 0
+   denominator=3/2
+iOrb=109 |inc|=28 |stab|=1 |O|=3840
+ 0 2 0 2 2
+ 2 0 2 2 3
+ 2 2 0 2 2
+ 2 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=110 |inc|=28 |stab|=1 |O|=3840
+ 0 0 2 2 3
+ 2 0 2 2 3
+ 2 2 0 2 2
+ 0 0 0 0 1
+ 0 0 0 2 0
+   denominator=3
+iOrb=111 |inc|=28 |stab|=1 |O|=3840
+ 0 1 1 2 2
+ 0 0 1 1 2
+ 1 1 0 1 1
+ 0 0 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=112 |inc|=28 |stab|=1 |O|=3840
+ 0 0 2 2 3
+ 2 0 2 2 3
+ 2 2 0 2 2
+ 0 0 0 0 1
+ 2 0 0 2 0
+   denominator=3
+iOrb=113 |inc|=28 |stab|=1 |O|=3840
+ 0 0 1 0 1
+ 1 0 1 1 1
+ 1 0 0 0 0
+ 2 1 2 0 1
+ 1 0 1 0 0
+   denominator=2
+iOrb=114 |inc|=28 |stab|=1 |O|=3840
+ 0 0 2 2 3
+ 2 0 2 2 3
+ 2 2 0 2 2
+ 0 0 0 0 2
+ 2 0 0 2 0
+   denominator=3
+iOrb=115 |inc|=28 |stab|=1 |O|=3840
+ 0 2 1 2 2
+ 0 0 0 0 1
+ 0 2 0 1 1
+ 0 1 0 0 1
+ 0 1 0 1 0
+   denominator=2
+iOrb=116 |inc|=28 |stab|=1 |O|=3840
+ 0 0 0 2 2
+ 2 0 1 3 3
+ 2 0 0 2 2
+ 2 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=117 |inc|=28 |stab|=1 |O|=3840
+ 0 2 2 2 2
+ 2 0 2 2 3
+ 0 2 0 2 2
+ 0 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=118 |inc|=28 |stab|=1 |O|=3840
+ 0 1 1 0 0
+ 1 0 1 0 1
+ 0 0 0 0 0
+ 2 1 2 0 1
+ 1 1 2 1 0
+   denominator=2
+iOrb=119 |inc|=28 |stab|=1 |O|=3840
+ 0 1 1 1 2
+ 0 0 1 1 1
+ 1 1 0 1 1
+ 0 0 0 0 1
+ 0 1 0 1 0
+   denominator=2
+iOrb=120 |inc|=28 |stab|=1 |O|=3840
+ 0 2 2 4 2
+ 3 0 0 2 3
+ 3 3 0 2 3
+ 1 1 0 0 3
+ 0 0 0 2 0
+   denominator=4
+iOrb=121 |inc|=28 |stab|=1 |O|=3840
+ 0 3 2 1 2
+ 0 0 0 0 0
+ 0 1 0 1 0
+ 0 3 2 0 1
+ 0 2 2 1 0
+   denominator=3
+iOrb=122 |inc|=28 |stab|=1 |O|=3840
+ 0 2 1 1 2
+ 0 0 0 0 0
+ 0 1 0 1 1
+ 1 1 1 0 1
+ 0 1 1 1 0
+   denominator=2
+iOrb=123 |inc|=28 |stab|=1 |O|=3840
+ 0 2 1 1 1
+ 0 0 0 0 1
+ 1 2 0 1 1
+ 0 1 0 0 1
+ 1 1 0 1 0
+   denominator=2
+iOrb=124 |inc|=28 |stab|=1 |O|=3840
+ 0 2 3 1 1
+ 0 0 1 0 1
+ 0 0 0 0 0
+ 0 2 2 0 1
+ 0 1 2 1 0
+   denominator=3
+iOrb=125 |inc|=28 |stab|=1 |O|=3840
+ 0 1 1 0 2
+ 0 0 0 0 2
+ 1 2 0 0 2
+ 1 2 1 0 3
+ 0 0 0 0 0
+   denominator=3
+iOrb=126 |inc|=28 |stab|=1 |O|=3840
+ 0 1 2 2 3
+ 0 0 1 1 2
+ 0 1 0 1 1
+ 0 0 0 0 1
+ 0 0 0 1 0
+   denominator=3
+iOrb=127 |inc|=27 |stab|=2 |O|=1920
+ 0 1 0 1 2
+ 1 0 1 1 2
+ 1 1 0 1 2
+ 1 0 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=128 |inc|=27 |stab|=2 |O|=1920
+ 0 1 1 1 2
+ 0 0 0 0 1
+ 1 2 0 1 2
+ 0 1 0 0 1
+ 0 1 0 1 0
+   denominator=2
+iOrb=129 |inc|=27 |stab|=2 |O|=1920
+ 0 0 0 0 2
+ 2 0 2 0 2
+ 2 2 0 2 2
+ 3 2 2 0 2
+ 2 2 0 0 0
+   denominator=3
+iOrb=130 |inc|=27 |stab|=2 |O|=1920
+ 0 2 0 2 2
+ 2 0 0 0 0
+ 2 3 0 2 2
+ 2 2 2 0 2
+ 2 2 0 2 0
+   denominator=3
+iOrb=131 |inc|=27 |stab|=2 |O|=1920
+ 0 1 1 2 2
+ 0 0 1 1 1
+ 1 1 0 1 1
+ 0 0 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=132 |inc|=27 |stab|=2 |O|=1920
+ 0 1 0 1 1
+ 0 0 0 0 0
+ 1 2 0 1 1
+ 1 2 0 0 1
+ 1 1 0 1 0
+   denominator=2
+iOrb=133 |inc|=27 |stab|=2 |O|=1920
+ 0 0 0 0 0
+ 1 0 1 0 0
+ 2 1 0 0 1
+ 2 2 1 0 1
+ 2 1 1 1 0
+   denominator=2
+iOrb=134 |inc|=27 |stab|=2 |O|=1920
+ 0 0 0 1 0
+ 1 0 1 1 0
+ 2 1 0 1 0
+ 1 1 1 0 0
+ 2 1 1 2 0
+   denominator=2
+iOrb=135 |inc|=27 |stab|=2 |O|=1920
+ 0 2 1 1 1
+ 1 0 0 0 1
+ 1 2 0 1 1
+ 1 1 0 0 1
+ 0 1 0 1 0
+   denominator=2
+iOrb=136 |inc|=27 |stab|=2 |O|=1920
+ 0 1 1 1 1
+ 0 0 0 0 1
+ 1 2 0 1 1
+ 1 1 0 0 1
+ 0 1 0 1 0
+   denominator=2
+iOrb=137 |inc|=27 |stab|=1 |O|=3840
+ 0 0 2 2 3
+ 2 0 2 2 3
+ 2 2 0 2 2
+ 0 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=138 |inc|=27 |stab|=1 |O|=3840
+ 0 2 0 2 3
+ 3 0 3 3 4
+ 3 2 0 2 3
+ 3 0 0 0 1
+ 2 2 0 2 0
+   denominator=4
+iOrb=139 |inc|=27 |stab|=1 |O|=3840
+ 0 0 2 2 2
+ 2 0 2 2 3
+ 2 2 0 2 2
+ 0 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=140 |inc|=27 |stab|=1 |O|=3840
+ 0 0 0 2 2
+ 2 0 1 3 2
+ 2 2 0 2 2
+ 2 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=141 |inc|=27 |stab|=1 |O|=3840
+ 0 2 2 3 2
+ 0 0 1 1 2
+ 1 1 0 1 1
+ 0 0 0 0 1
+ 0 0 0 1 0
+   denominator=3
+iOrb=142 |inc|=27 |stab|=1 |O|=3840
+ 0 1 1 0 0
+ 1 0 1 0 1
+ 0 0 0 0 0
+ 1 1 2 0 1
+ 1 1 2 1 0
+   denominator=2
+iOrb=143 |inc|=27 |stab|=1 |O|=3840
+ 0 1 2 2 2
+ 1 0 1 1 3
+ 0 1 0 1 2
+ 0 0 0 0 2
+ 0 0 0 1 0
+   denominator=3
+iOrb=144 |inc|=27 |stab|=1 |O|=3840
+ 0 0 0 1 0
+ 2 0 0 1 0
+ 2 1 0 1 1
+ 1 1 0 0 0
+ 3 1 1 2 0
+   denominator=3
+iOrb=145 |inc|=27 |stab|=1 |O|=3840
+ 0 2 2 1 3
+ 1 0 1 1 1
+ 0 0 0 1 1
+ 0 1 1 0 2
+ 0 0 1 0 0
+   denominator=3
+iOrb=146 |inc|=27 |stab|=1 |O|=3840
+ 0 1 1 0 0
+ 1 0 1 1 1
+ 1 0 0 0 0
+ 2 2 2 0 1
+ 1 1 1 0 0
+   denominator=2
+iOrb=147 |inc|=27 |stab|=1 |O|=3840
+ 0 3 2 3 4
+ 0 0 2 3 2
+ 0 3 0 3 2
+ 0 0 0 0 2
+ 0 3 0 3 0
+   denominator=4
+iOrb=148 |inc|=27 |stab|=1 |O|=3840
+ 0 2 2 0 0
+ 2 0 2 1 2
+ 2 0 0 0 0
+ 3 3 3 0 1
+ 2 2 2 0 0
+   denominator=3
+iOrb=149 |inc|=27 |stab|=1 |O|=3840
+ 0 0 0 1 2
+ 1 0 1 2 2
+ 1 1 0 1 3
+ 1 0 0 0 2
+ 0 0 0 0 0
+   denominator=3
+iOrb=150 |inc|=26 |stab|=12 |O|=320
+ 0 1 1 1 1
+ 0 0 1 0 0
+ 0 1 0 0 0
+ 1 1 1 0 1
+ 1 1 1 1 0
+   denominator=3/2
+iOrb=151 |inc|=26 |stab|=12 |O|=320
+ 0 1 0 1 1
+ 0 0 0 0 0
+ 1 2 0 1 1
+ 1 1 0 0 1
+ 1 1 0 1 0
+   denominator=2
+iOrb=152 |inc|=26 |stab|=8 |O|=480
+ 0 0 0 1 0
+ 1 0 1 1 0
+ 2 1 0 1 1
+ 1 1 1 0 0
+ 2 1 1 2 0
+   denominator=2
+iOrb=153 |inc|=26 |stab|=6 |O|=640
+ 0 0 2 1 2
+ 2 0 2 2 2
+ 1 0 0 2 2
+ 2 0 1 0 2
+ 0 0 0 0 0
+   denominator=3
+iOrb=154 |inc|=26 |stab|=4 |O|=960
+ 0 1 1 2 2
+ 1 0 1 1 2
+ 1 1 0 1 1
+ 0 1 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=155 |inc|=26 |stab|=4 |O|=960
+ 0 1 1 1 1
+ 1 0 1 1 2
+ 1 1 0 1 1
+ 0 1 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=156 |inc|=26 |stab|=4 |O|=960
+ 0 1 1 0 1
+ 1 0 1 1 2
+ 1 0 0 0 1
+ 2 1 2 0 2
+ 0 0 1 0 0
+   denominator=2
+iOrb=157 |inc|=26 |stab|=4 |O|=960
+ 0 0 0 0 0
+ 2 0 1 0 2
+ 3 1 0 0 1
+ 3 2 3 0 2
+ 2 2 1 0 0
+   denominator=3
+iOrb=158 |inc|=26 |stab|=3 |O|=1280
+ 0 0 0 1 2
+ 2 0 2 2 2
+ 2 0 0 2 2
+ 2 0 0 0 1
+ 1 0 0 2 0
+   denominator=3
+iOrb=159 |inc|=26 |stab|=2 |O|=1920
+ 0 1 1 2 1
+ 1 0 1 1 2
+ 1 1 0 1 1
+ 0 0 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=160 |inc|=26 |stab|=2 |O|=1920
+ 0 2 0 2 2
+ 0 0 0 0 0
+ 2 3 0 2 3
+ 2 3 0 0 1
+ 2 2 0 2 0
+   denominator=3
+iOrb=161 |inc|=26 |stab|=2 |O|=1920
+ 0 2 1 3 1
+ 0 0 0 1 1
+ 1 3 0 2 2
+ 0 1 0 0 0
+ 1 1 0 2 0
+   denominator=3
+iOrb=162 |inc|=26 |stab|=1 |O|=3840
+ 0 2 1 2 3
+ 0 0 0 0 1
+ 1 3 0 1 2
+ 0 2 0 0 1
+ 0 1 0 1 0
+   denominator=3
+iOrb=163 |inc|=26 |stab|=1 |O|=3840
+ 0 1 1 2 2
+ 1 0 1 1 2
+ 0 1 0 1 1
+ 0 0 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=164 |inc|=26 |stab|=1 |O|=3840
+ 0 0 2 2 2
+ 2 0 2 2 3
+ 2 2 0 2 2
+ 0 0 0 0 1
+ 0 0 0 2 0
+   denominator=3
+iOrb=165 |inc|=26 |stab|=1 |O|=3840
+ 0 0 0 0 2
+ 2 0 0 2 2
+ 3 2 0 2 2
+ 3 2 2 0 2
+ 1 0 0 0 0
+   denominator=3
+iOrb=166 |inc|=26 |stab|=1 |O|=3840
+ 0 0 2 2 2
+ 2 0 2 2 3
+ 2 2 0 2 2
+ 0 0 0 0 1
+ 2 0 0 2 0
+   denominator=3
+iOrb=167 |inc|=26 |stab|=1 |O|=3840
+ 0 0 0 0 0
+ 2 0 1 0 1
+ 2 1 0 1 1
+ 2 1 1 0 1
+ 1 1 0 0 0
+   denominator=2
+iOrb=168 |inc|=26 |stab|=1 |O|=3840
+ 0 2 2 2 3
+ 0 0 0 0 1
+ 1 3 0 1 2
+ 0 2 0 0 1
+ 0 1 0 1 0
+   denominator=3
+iOrb=169 |inc|=26 |stab|=1 |O|=3840
+ 0 0 3 3 4
+ 3 0 3 3 4
+ 2 2 0 2 3
+ 0 0 0 0 1
+ 2 0 0 2 0
+   denominator=4
+iOrb=170 |inc|=26 |stab|=1 |O|=3840
+ 0 2 2 2 2
+ 2 0 2 2 3
+ 0 2 0 2 2
+ 0 1 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=171 |inc|=26 |stab|=1 |O|=3840
+ 0 1 1 1 1
+ 1 0 1 1 2
+ 1 1 0 1 1
+ 0 0 0 0 1
+ 1 0 0 1 0
+   denominator=2
+iOrb=172 |inc|=26 |stab|=1 |O|=3840
+ 0 1 1 2 2
+ 0 0 1 1 1
+ 1 1 0 1 1
+ 0 0 0 0 1
+ 0 1 0 1 0
+   denominator=2
+iOrb=173 |inc|=26 |stab|=1 |O|=3840
+ 0 0 1 2 3
+ 2 0 1 2 3
+ 2 2 0 2 2
+ 0 0 0 0 2
+ 2 0 0 2 0
+   denominator=3
+iOrb=174 |inc|=26 |stab|=1 |O|=3840
+ 0 0 0 0 0
+ 1 0 1 0 0
+ 2 1 0 0 1
+ 3 3 2 0 1
+ 3 2 1 1 0
+   denominator=3
+iOrb=175 |inc|=26 |stab|=1 |O|=3840
+ 0 0 0 0 0
+ 1 0 1 1 0
+ 1 1 0 0 0
+ 2 1 1 0 1
+ 3 2 2 1 0
+   denominator=3
+iOrb=176 |inc|=26 |stab|=1 |O|=3840
+ 0 0 0 2 3
+ 2 0 2 4 3
+ 3 3 0 2 3
+ 3 1 0 0 3
+ 0 0 0 2 0
+   denominator=4
+iOrb=177 |inc|=26 |stab|=1 |O|=3840
+ 0 0 0 0 2
+ 2 0 2 2 2
+ 3 2 0 1 2
+ 3 1 0 0 2
+ 1 0 0 1 0
+   denominator=3
+iOrb=178 |inc|=26 |stab|=1 |O|=3840
+ 0 0 0 2 2
+ 2 0 2 2 2
+ 3 2 0 2 2
+ 2 0 0 0 2
+ 2 2 0 2 0
+   denominator=3
+iOrb=179 |inc|=26 |stab|=1 |O|=3840
+ 0 0 0 1 1
+ 1 0 1 1 1
+ 3 2 0 2 2
+ 1 0 0 0 0
+ 1 1 0 2 0
+   denominator=3
+iOrb=180 |inc|=26 |stab|=1 |O|=3840
+ 0 0 0 0 2
+ 2 0 2 2 2
+ 2 1 0 2 3
+ 2 0 0 0 2
+ 2 1 0 2 0
+   denominator=3
+iOrb=181 |inc|=26 |stab|=1 |O|=3840
+ 0 0 0 0 1
+ 2 0 1 2 3
+ 2 0 0 2 2
+ 2 0 1 0 1
+ 1 0 1 0 0
+   denominator=3
+iOrb=182 |inc|=26 |stab|=1 |O|=3840
+ 0 2 0 2 2
+ 0 0 0 0 0
+ 2 2 0 2 2
+ 2 3 2 0 2
+ 2 2 2 2 0
+   denominator=3
+iOrb=183 |inc|=26 |stab|=1 |O|=3840
+ 0 2 2 0 0
+ 2 0 2 1 2
+ 2 0 0 0 0
+ 3 2 3 0 1
+ 2 2 2 0 0
+   denominator=3
+iOrb=184 |inc|=26 |stab|=1 |O|=3840
+ 0 0 0 2 2
+ 3 0 3 2 4
+ 3 0 0 2 2
+ 3 0 3 0 2
+ 1 0 1 0 0
+   denominator=4
+iOrb=185 |inc|=25 |stab|=12 |O|=320
+ 0 2 0 2 2
+ 0 0 0 0 0
+ 2 3 0 2 2
+ 2 2 0 0 2
+ 2 2 0 2 0
+   denominator=3
+iOrb=186 |inc|=25 |stab|=4 |O|=960
+ 0 0 0 1 0
+ 1 0 1 1 0
+ 2 1 0 1 1
+ 1 1 0 0 0
+ 2 1 1 2 0
+   denominator=2
+iOrb=187 |inc|=25 |stab|=2 |O|=1920
+ 0 2 0 2 2
+ 2 0 2 2 3
+ 2 2 0 2 3
+ 2 0 0 0 1
+ 1 0 0 2 0
+   denominator=3
+iOrb=188 |inc|=25 |stab|=2 |O|=1920
+ 0 1 1 2 2
+ 1 0 1 1 2
+ 0 1 0 1 2
+ 0 0 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=189 |inc|=25 |stab|=2 |O|=1920
+ 0 1 1 1 1
+ 1 0 1 1 2
+ 1 1 0 1 1
+ 0 0 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=190 |inc|=25 |stab|=2 |O|=1920
+ 0 2 0 2 2
+ 0 0 0 0 0
+ 2 3 0 2 2
+ 2 3 0 0 2
+ 2 2 0 2 0
+   denominator=3
+iOrb=191 |inc|=25 |stab|=2 |O|=1920
+ 0 2 0 2 2
+ 0 0 0 0 0
+ 3 3 0 2 2
+ 2 3 0 0 2
+ 2 2 0 2 0
+   denominator=3
+iOrb=192 |inc|=25 |stab|=2 |O|=1920
+ 0 1 0 1 1
+ 0 0 0 0 1
+ 1 2 0 1 1
+ 1 1 0 0 1
+ 1 1 0 1 0
+   denominator=2
+iOrb=193 |inc|=25 |stab|=2 |O|=1920
+ 0 0 0 1 0
+ 1 0 1 1 0
+ 1 1 0 1 1
+ 1 1 1 0 0
+ 2 1 1 2 0
+   denominator=2
+iOrb=194 |inc|=25 |stab|=2 |O|=1920
+ 0 1 1 2 1
+ 0 0 0 1 1
+ 1 2 0 1 1
+ 1 1 0 0 1
+ 0 1 0 1 0
+   denominator=2
+iOrb=195 |inc|=25 |stab|=2 |O|=1920
+ 0 0 0 1 1
+ 1 0 1 1 1
+ 2 1 0 1 2
+ 1 0 0 0 1
+ 1 1 0 1 0
+   denominator=2
+iOrb=196 |inc|=25 |stab|=2 |O|=1920
+ 0 2 3 3 3
+ 0 0 1 1 1
+ 2 4 0 3 3
+ 0 2 0 0 0
+ 2 2 0 3 0
+   denominator=4
+iOrb=197 |inc|=25 |stab|=2 |O|=1920
+ 0 3 3 3 3
+ 0 0 0 0 3
+ 2 4 0 2 3
+ 2 2 0 0 3
+ 2 2 0 2 0
+   denominator=4
+iOrb=198 |inc|=25 |stab|=2 |O|=1920
+ 0 0 0 0 0
+ 2 0 1 0 2
+ 2 1 0 0 1
+ 3 1 2 0 2
+ 1 0 1 0 0
+   denominator=3
+iOrb=199 |inc|=25 |stab|=2 |O|=1920
+ 0 1 1 1 1
+ 1 0 1 2 2
+ 1 1 0 1 1
+ 0 0 0 0 1
+ 1 0 0 1 0
+   denominator=2
+iOrb=200 |inc|=25 |stab|=2 |O|=1920
+ 0 3 1 3 1
+ 0 0 0 0 1
+ 2 4 0 2 3
+ 2 2 0 0 3
+ 2 2 0 2 0
+   denominator=4
+iOrb=201 |inc|=25 |stab|=1 |O|=3840
+ 0 2 0 2 2
+ 2 0 2 2 3
+ 2 2 0 2 3
+ 2 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=202 |inc|=25 |stab|=1 |O|=3840
+ 0 1 1 2 3
+ 0 0 1 1 3
+ 1 2 0 1 2
+ 0 1 0 0 2
+ 0 0 0 1 0
+   denominator=3
+iOrb=203 |inc|=25 |stab|=1 |O|=3840
+ 0 0 0 2 2
+ 2 0 2 3 3
+ 2 2 0 2 2
+ 2 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=204 |inc|=25 |stab|=1 |O|=3840
+ 0 1 0 2 2
+ 2 0 2 3 2
+ 2 2 0 2 2
+ 2 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=205 |inc|=25 |stab|=1 |O|=3840
+ 0 1 2 2 2
+ 2 0 1 2 3
+ 2 2 0 2 2
+ 0 0 0 0 2
+ 2 0 0 2 0
+   denominator=3
+iOrb=206 |inc|=25 |stab|=1 |O|=3840
+ 0 2 2 3 2
+ 2 0 2 2 3
+ 0 2 0 2 2
+ 0 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=207 |inc|=25 |stab|=1 |O|=3840
+ 0 1 0 2 2
+ 1 0 0 1 2
+ 2 3 0 2 2
+ 0 1 0 0 2
+ 2 1 0 2 0
+   denominator=3
+iOrb=208 |inc|=25 |stab|=1 |O|=3840
+ 0 0 1 0 1
+ 1 0 2 1 2
+ 1 0 0 0 0
+ 2 1 3 0 1
+ 1 1 2 0 0
+   denominator=3
+iOrb=209 |inc|=25 |stab|=1 |O|=3840
+ 0 2 2 1 3
+ 1 0 1 1 1
+ 0 0 0 1 1
+ 1 1 1 0 2
+ 0 0 1 0 0
+   denominator=3
+iOrb=210 |inc|=25 |stab|=1 |O|=3840
+ 0 3 2 2 2
+ 0 0 0 0 0
+ 0 1 0 1 0
+ 2 3 2 0 2
+ 0 2 2 2 0
+   denominator=3
+iOrb=211 |inc|=25 |stab|=1 |O|=3840
+ 0 2 2 2 2
+ 2 0 2 2 2
+ 1 2 0 2 3
+ 0 2 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=212 |inc|=25 |stab|=1 |O|=3840
+ 0 0 1 2 3
+ 2 0 2 2 3
+ 2 2 0 2 2
+ 0 0 0 0 2
+ 2 0 0 2 0
+   denominator=3
+iOrb=213 |inc|=25 |stab|=1 |O|=3840
+ 0 0 0 1 1
+ 1 0 1 1 2
+ 3 2 0 1 2
+ 2 1 0 0 1
+ 1 0 0 0 0
+   denominator=3
+iOrb=214 |inc|=24 |stab|=24 |O|=160
+ 0 1 0 1 1
+ 1 0 0 1 1
+ 1 1 0 1 1
+ 1 1 0 0 1
+ 1 1 0 1 0
+   denominator=3/2
+iOrb=215 |inc|=24 |stab|=6 |O|=640
+ 0 2 0 2 0
+ 2 0 0 2 0
+ 2 2 0 2 0
+ 2 2 0 0 0
+ 3 3 1 3 0
+   denominator=3
+iOrb=216 |inc|=24 |stab|=4 |O|=960
+ 0 1 0 1 1
+ 0 0 0 0 0
+ 1 2 0 1 1
+ 1 2 1 0 1
+ 1 1 0 1 0
+   denominator=2
+iOrb=217 |inc|=24 |stab|=2 |O|=1920
+ 0 1 0 2 2
+ 2 0 1 3 3
+ 2 2 0 2 2
+ 2 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=218 |inc|=24 |stab|=2 |O|=1920
+ 0 2 2 2 2
+ 2 0 2 2 3
+ 2 2 0 2 2
+ 0 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=219 |inc|=24 |stab|=2 |O|=1920
+ 0 1 1 1 1
+ 0 0 0 0 1
+ 1 2 0 1 1
+ 1 1 0 0 1
+ 1 1 0 1 0
+   denominator=2
+iOrb=220 |inc|=24 |stab|=2 |O|=1920
+ 0 1 1 2 1
+ 0 0 0 1 0
+ 1 1 0 1 1
+ 0 1 0 0 0
+ 1 1 1 2 0
+   denominator=2
+iOrb=221 |inc|=24 |stab|=1 |O|=3840
+ 0 2 0 2 3
+ 3 0 3 3 4
+ 3 2 0 2 3
+ 3 0 0 0 1
+ 2 0 0 2 0
+   denominator=4
+iOrb=222 |inc|=24 |stab|=1 |O|=3840
+ 0 2 0 2 3
+ 3 0 1 3 4
+ 3 2 0 2 3
+ 3 0 0 0 3
+ 0 0 0 2 0
+   denominator=4
+iOrb=223 |inc|=24 |stab|=1 |O|=3840
+ 0 1 3 3 4
+ 2 0 2 2 3
+ 2 3 0 2 3
+ 0 1 0 0 1
+ 0 0 0 2 0
+   denominator=4
+iOrb=224 |inc|=24 |stab|=1 |O|=3840
+ 0 1 1 2 3
+ 1 0 1 1 3
+ 1 2 0 1 2
+ 0 1 0 0 2
+ 1 0 0 1 0
+   denominator=3
+iOrb=225 |inc|=24 |stab|=1 |O|=3840
+ 0 1 0 2 2
+ 2 0 1 3 2
+ 2 2 0 2 2
+ 2 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=226 |inc|=24 |stab|=1 |O|=3840
+ 0 2 0 2 2
+ 0 0 0 0 0
+ 2 3 0 2 2
+ 1 3 0 0 2
+ 2 2 0 2 0
+   denominator=3
+iOrb=227 |inc|=24 |stab|=1 |O|=3840
+ 0 1 2 2 2
+ 2 0 2 2 3
+ 2 2 0 2 2
+ 0 0 0 0 2
+ 2 0 0 2 0
+   denominator=3
+iOrb=228 |inc|=24 |stab|=1 |O|=3840
+ 0 2 3 4 3
+ 1 0 1 2 4
+ 0 2 0 2 3
+ 0 0 0 0 3
+ 0 0 0 2 0
+   denominator=4
+iOrb=229 |inc|=24 |stab|=1 |O|=3840
+ 0 0 2 0 2
+ 1 0 2 1 3
+ 1 0 0 0 1
+ 2 1 3 0 2
+ 0 0 2 0 0
+   denominator=3
+iOrb=230 |inc|=24 |stab|=1 |O|=3840
+ 0 0 0 2 2
+ 2 0 2 3 2
+ 3 1 0 2 2
+ 2 0 0 0 0
+ 2 0 0 2 0
+   denominator=3
+iOrb=231 |inc|=24 |stab|=1 |O|=3840
+ 0 2 2 3 2
+ 0 0 0 1 2
+ 1 3 0 1 2
+ 1 2 0 0 1
+ 0 1 0 1 0
+   denominator=3
+iOrb=232 |inc|=24 |stab|=1 |O|=3840
+ 0 2 2 0 2
+ 1 0 0 0 1
+ 2 2 0 2 3
+ 2 2 2 0 2
+ 0 2 0 0 0
+   denominator=3
+iOrb=233 |inc|=24 |stab|=1 |O|=3840
+ 0 4 3 3 3
+ 2 0 0 2 2
+ 2 3 0 3 2
+ 0 3 0 0 2
+ 0 1 0 3 0
+   denominator=4
+iOrb=234 |inc|=24 |stab|=1 |O|=3840
+ 0 3 2 2 2
+ 1 0 0 0 1
+ 1 3 0 1 2
+ 1 2 0 0 1
+ 0 1 0 1 0
+   denominator=3
+iOrb=235 |inc|=24 |stab|=1 |O|=3840
+ 0 3 2 2 2
+ 1 0 0 0 1
+ 2 3 0 1 2
+ 1 2 0 0 1
+ 0 1 0 1 0
+   denominator=3
+iOrb=236 |inc|=24 |stab|=1 |O|=3840
+ 0 0 0 2 2
+ 3 0 3 3 2
+ 4 2 0 2 4
+ 3 0 0 0 2
+ 1 0 1 3 0
+   denominator=4
+iOrb=237 |inc|=24 |stab|=1 |O|=3840
+ 0 0 0 1 1
+ 1 0 1 1 1
+ 2 1 0 1 1
+ 1 0 0 0 1
+ 1 1 0 1 0
+   denominator=2
+iOrb=238 |inc|=24 |stab|=1 |O|=3840
+ 0 2 1 3 1
+ 0 0 0 1 1
+ 2 3 0 2 2
+ 0 1 0 0 0
+ 1 1 0 2 0
+   denominator=3
+iOrb=239 |inc|=24 |stab|=1 |O|=3840
+ 0 0 1 0 0
+ 2 0 1 1 0
+ 1 1 0 0 0
+ 2 1 1 0 1
+ 3 1 2 1 0
+   denominator=3
+iOrb=240 |inc|=24 |stab|=1 |O|=3840
+ 0 2 3 1 1
+ 0 0 1 0 1
+ 0 0 0 0 0
+ 1 2 2 0 1
+ 0 1 2 1 0
+   denominator=3
+iOrb=241 |inc|=24 |stab|=1 |O|=3840
+ 0 1 1 1 1
+ 0 0 0 0 1
+ 2 3 0 1 2
+ 2 2 0 0 1
+ 1 1 0 1 0
+   denominator=3
+iOrb=242 |inc|=24 |stab|=1 |O|=3840
+ 0 2 2 2 2
+ 0 0 0 0 1
+ 2 3 0 2 1
+ 0 1 1 0 2
+ 2 2 0 2 0
+   denominator=3
+iOrb=243 |inc|=24 |stab|=1 |O|=3840
+ 0 3 2 3 2
+ 0 0 0 0 2
+ 1 3 0 1 2
+ 2 2 2 0 4
+ 1 1 0 1 0
+   denominator=4
+iOrb=244 |inc|=24 |stab|=1 |O|=3840
+ 0 2 2 2 2
+ 2 0 2 2 2
+ 2 2 0 2 3
+ 0 2 0 0 2
+ 1 0 0 2 0
+   denominator=3
+iOrb=245 |inc|=24 |stab|=1 |O|=3840
+ 0 2 2 2 2
+ 2 0 2 2 2
+ 1 2 0 2 3
+ 0 2 0 0 2
+ 1 0 0 2 0
+   denominator=3
+iOrb=246 |inc|=24 |stab|=1 |O|=3840
+ 0 0 0 1 2
+ 2 0 2 3 2
+ 2 1 0 1 3
+ 2 0 0 0 2
+ 2 0 2 2 0
+   denominator=3
+iOrb=247 |inc|=24 |stab|=1 |O|=3840
+ 0 0 0 0 1
+ 2 0 1 2 3
+ 2 0 0 2 2
+ 2 1 2 0 1
+ 2 0 1 0 0
+   denominator=3
+iOrb=248 |inc|=24 |stab|=1 |O|=3840
+ 0 0 1 1 2
+ 1 0 2 2 2
+ 1 1 0 1 3
+ 1 0 0 0 2
+ 0 0 0 1 0
+   denominator=3
+iOrb=249 |inc|=24 |stab|=1 |O|=3840
+ 0 2 2 1 3
+ 0 0 0 0 2
+ 2 2 0 0 2
+ 2 2 1 0 2
+ 0 2 1 0 0
+   denominator=3
+iOrb=250 |inc|=24 |stab|=1 |O|=3840
+ 0 1 1 0 2
+ 0 0 0 0 2
+ 2 2 0 2 2
+ 3 3 2 0 2
+ 1 2 0 0 0
+   denominator=3
+iOrb=251 |inc|=24 |stab|=1 |O|=3840
+ 0 1 2 3 2
+ 2 0 1 2 3
+ 2 0 0 2 2
+ 0 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=252 |inc|=23 |stab|=12 |O|=320
+ 0 2 2 3 2
+ 0 0 0 1 0
+ 2 2 0 3 2
+ 0 2 0 0 0
+ 2 2 2 3 0
+   denominator=3
+iOrb=253 |inc|=23 |stab|=6 |O|=640
+ 0 0 2 1 2
+ 2 0 4 2 2
+ 0 0 0 0 0
+ 2 0 2 0 1
+ 1 0 2 2 0
+   denominator=4
+iOrb=254 |inc|=23 |stab|=3 |O|=1280
+ 0 1 0 2 0
+ 2 0 0 1 0
+ 2 2 0 2 0
+ 1 2 0 0 0
+ 3 3 1 3 0
+   denominator=3
+iOrb=255 |inc|=23 |stab|=2 |O|=1920
+ 0 1 1 2 2
+ 1 0 1 1 2
+ 1 1 0 1 1
+ 0 0 0 0 1
+ 0 0 0 1 0
+   denominator=2
+iOrb=256 |inc|=23 |stab|=2 |O|=1920
+ 0 1 2 3 2
+ 2 0 1 2 3
+ 2 2 0 2 2
+ 0 1 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=257 |inc|=23 |stab|=2 |O|=1920
+ 0 2 0 3 3
+ 3 0 3 4 3
+ 3 3 0 3 3
+ 2 0 0 0 3
+ 0 0 0 3 0
+   denominator=4
+iOrb=258 |inc|=23 |stab|=2 |O|=1920
+ 0 1 2 3 2
+ 2 0 1 2 3
+ 1 2 0 2 2
+ 0 0 0 0 2
+ 1 0 0 2 0
+   denominator=3
+iOrb=259 |inc|=23 |stab|=2 |O|=1920
+ 0 2 2 2 2
+ 0 0 1 0 0
+ 0 2 0 0 0
+ 2 2 2 0 2
+ 2 2 3 2 0
+   denominator=3
+iOrb=260 |inc|=23 |stab|=2 |O|=1920
+ 0 1 0 2 1
+ 0 0 0 1 0
+ 1 2 0 2 2
+ 1 2 0 0 0
+ 2 2 1 3 0
+   denominator=3
+iOrb=261 |inc|=23 |stab|=2 |O|=1920
+ 0 0 0 2 2
+ 2 0 2 2 2
+ 3 1 0 2 3
+ 2 0 0 0 1
+ 1 1 0 2 0
+   denominator=3
+iOrb=262 |inc|=23 |stab|=2 |O|=1920
+ 0 2 2 3 2
+ 0 0 0 1 0
+ 2 2 0 2 2
+ 0 2 0 0 0
+ 2 2 2 3 0
+   denominator=3
+iOrb=263 |inc|=23 |stab|=2 |O|=1920
+ 0 0 0 2 0
+ 2 0 2 2 0
+ 3 2 0 2 2
+ 2 2 0 0 0
+ 3 2 2 3 0
+   denominator=3
+iOrb=264 |inc|=23 |stab|=1 |O|=3840
+ 0 1 0 2 2
+ 2 0 1 3 3
+ 2 1 0 2 2
+ 2 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=265 |inc|=23 |stab|=1 |O|=3840
+ 0 1 0 0 2
+ 2 0 2 0 2
+ 2 2 0 2 2
+ 3 2 2 0 2
+ 1 2 0 0 0
+   denominator=3
+iOrb=266 |inc|=23 |stab|=1 |O|=3840
+ 0 2 2 2 2
+ 2 0 1 2 3
+ 2 2 0 2 2
+ 0 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=267 |inc|=23 |stab|=1 |O|=3840
+ 0 2 2 4 2
+ 3 0 2 2 4
+ 3 3 0 2 3
+ 1 1 0 0 3
+ 0 0 0 2 0
+   denominator=4
+iOrb=268 |inc|=23 |stab|=1 |O|=3840
+ 0 2 2 4 2
+ 3 0 1 2 4
+ 3 3 0 2 3
+ 1 1 0 0 3
+ 0 0 0 2 0
+   denominator=4
+iOrb=269 |inc|=23 |stab|=1 |O|=3840
+ 0 2 2 4 2
+ 0 0 0 2 2
+ 2 4 0 3 3
+ 0 1 0 0 0
+ 0 1 0 3 0
+   denominator=4
+iOrb=270 |inc|=23 |stab|=1 |O|=3840
+ 0 1 0 2 1
+ 0 0 0 1 0
+ 2 2 0 2 2
+ 2 2 0 0 0
+ 2 2 1 3 0
+   denominator=3
+iOrb=271 |inc|=23 |stab|=1 |O|=3840
+ 0 1 1 1 2
+ 0 0 0 0 2
+ 2 3 0 1 2
+ 1 2 1 0 3
+ 0 1 0 1 0
+   denominator=3
+iOrb=272 |inc|=23 |stab|=1 |O|=3840
+ 0 2 2 2 3
+ 2 0 2 1 2
+ 0 0 0 1 1
+ 1 0 2 0 1
+ 0 0 2 0 0
+   denominator=3
+iOrb=273 |inc|=23 |stab|=1 |O|=3840
+ 0 1 1 2 1
+ 0 0 0 1 1
+ 2 3 0 2 2
+ 0 1 0 0 0
+ 1 1 0 2 0
+   denominator=3
+iOrb=274 |inc|=23 |stab|=1 |O|=3840
+ 0 2 2 2 2
+ 0 0 0 0 2
+ 2 4 0 1 3
+ 2 3 0 0 2
+ 0 1 0 1 0
+   denominator=4
+iOrb=275 |inc|=23 |stab|=1 |O|=3840
+ 0 2 2 1 3
+ 2 0 2 0 2
+ 0 0 0 0 1
+ 2 1 3 0 2
+ 0 0 2 0 0
+   denominator=3
+iOrb=276 |inc|=23 |stab|=1 |O|=3840
+ 0 3 2 3 4
+ 0 0 2 3 2
+ 2 3 0 3 2
+ 0 0 0 0 2
+ 0 3 0 3 0
+   denominator=4
+iOrb=277 |inc|=23 |stab|=1 |O|=3840
+ 0 2 2 1 3
+ 1 0 1 1 2
+ 0 0 0 1 1
+ 0 1 1 0 2
+ 0 0 1 0 0
+   denominator=3
+iOrb=278 |inc|=23 |stab|=1 |O|=3840
+ 0 1 2 3 2
+ 1 0 2 2 3
+ 0 1 0 1 2
+ 0 0 0 0 1
+ 0 0 0 1 0
+   denominator=3
+iOrb=279 |inc|=23 |stab|=1 |O|=3840
+ 0 0 1 4 3
+ 2 0 3 4 3
+ 3 3 0 3 3
+ 2 0 0 0 3
+ 0 0 0 3 0
+   denominator=4
+iOrb=280 |inc|=23 |stab|=1 |O|=3840
+ 0 1 0 4 3
+ 2 0 2 3 5
+ 3 4 0 4 3
+ 0 0 0 0 3
+ 3 1 0 4 0
+   denominator=5
+iOrb=281 |inc|=23 |stab|=1 |O|=3840
+ 0 3 2 3 2
+ 2 0 2 2 4
+ 3 3 0 3 2
+ 0 0 0 0 2
+ 1 1 0 3 0
+   denominator=4
+iOrb=282 |inc|=22 |stab|=6 |O|=640
+ 0 0 0 1 2
+ 2 0 2 2 2
+ 2 2 0 2 2
+ 2 0 0 0 1
+ 1 0 0 2 0
+   denominator=3
+iOrb=283 |inc|=22 |stab|=6 |O|=640
+ 0 1 0 2 2
+ 1 0 0 1 1
+ 2 3 0 2 2
+ 2 1 0 0 2
+ 2 1 0 2 0
+   denominator=3
+iOrb=284 |inc|=22 |stab|=6 |O|=640
+ 0 0 0 1 2
+ 2 0 2 2 2
+ 3 1 0 3 3
+ 2 0 0 0 1
+ 1 0 0 2 0
+   denominator=3
+iOrb=285 |inc|=22 |stab|=2 |O|=1920
+ 0 1 2 2 2
+ 2 0 1 2 3
+ 1 2 0 2 2
+ 0 1 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=286 |inc|=22 |stab|=2 |O|=1920
+ 0 1 2 2 2
+ 2 0 1 2 3
+ 2 2 0 2 2
+ 0 1 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=287 |inc|=22 |stab|=2 |O|=1920
+ 0 2 2 2 2
+ 2 0 2 2 3
+ 2 2 0 2 2
+ 0 1 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=288 |inc|=22 |stab|=2 |O|=1920
+ 0 2 2 3 2
+ 2 0 2 2 3
+ 2 2 0 2 2
+ 0 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=289 |inc|=22 |stab|=2 |O|=1920
+ 0 2 2 3 2
+ 2 0 2 2 3
+ 2 2 0 2 2
+ 0 1 0 0 2
+ 1 0 0 2 0
+   denominator=3
+iOrb=290 |inc|=22 |stab|=2 |O|=1920
+ 0 2 2 2 2
+ 1 0 0 1 2
+ 1 3 0 2 2
+ 0 2 0 0 2
+ 0 1 0 2 0
+   denominator=3
+iOrb=291 |inc|=22 |stab|=2 |O|=1920
+ 0 2 2 1 2
+ 2 0 2 1 2
+ 0 0 0 1 1
+ 1 1 2 0 3
+ 0 0 2 0 0
+   denominator=3
+iOrb=292 |inc|=22 |stab|=2 |O|=1920
+ 0 0 1 0 0
+ 2 0 1 1 0
+ 1 1 0 0 0
+ 2 1 1 0 1
+ 3 2 2 1 0
+   denominator=3
+iOrb=293 |inc|=22 |stab|=2 |O|=1920
+ 0 0 0 2 2
+ 2 0 2 2 2
+ 3 2 0 2 3
+ 2 0 0 0 2
+ 2 0 0 2 0
+   denominator=3
+iOrb=294 |inc|=22 |stab|=1 |O|=3840
+ 0 1 1 2 3
+ 1 0 1 1 3
+ 1 2 0 1 2
+ 0 1 0 0 2
+ 0 0 0 1 0
+   denominator=3
+iOrb=295 |inc|=22 |stab|=1 |O|=3840
+ 0 1 2 3 2
+ 2 0 2 2 3
+ 2 2 0 2 2
+ 0 1 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=296 |inc|=22 |stab|=1 |O|=3840
+ 0 1 2 3 2
+ 2 0 1 2 3
+ 1 2 0 2 2
+ 0 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=297 |inc|=22 |stab|=1 |O|=3840
+ 0 1 2 2 2
+ 2 0 1 2 3
+ 1 2 0 2 2
+ 0 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=298 |inc|=22 |stab|=1 |O|=3840
+ 0 1 2 3 2
+ 2 0 1 2 3
+ 2 2 0 2 2
+ 0 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=299 |inc|=22 |stab|=1 |O|=3840
+ 0 1 2 2 2
+ 2 0 1 2 3
+ 2 2 0 2 2
+ 0 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=300 |inc|=22 |stab|=1 |O|=3840
+ 0 2 2 2 2
+ 2 0 2 2 3
+ 2 2 0 2 2
+ 0 0 0 0 2
+ 1 0 0 2 0
+   denominator=3
+iOrb=301 |inc|=22 |stab|=1 |O|=3840
+ 0 2 2 3 2
+ 2 0 2 2 3
+ 2 2 0 2 2
+ 0 1 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=302 |inc|=22 |stab|=1 |O|=3840
+ 0 2 2 2 2
+ 2 0 1 2 3
+ 1 2 0 2 2
+ 0 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=303 |inc|=22 |stab|=1 |O|=3840
+ 0 2 2 2 2
+ 2 0 1 2 3
+ 1 2 0 2 2
+ 0 0 0 0 2
+ 1 0 0 2 0
+   denominator=3
+iOrb=304 |inc|=22 |stab|=1 |O|=3840
+ 0 2 2 3 2
+ 2 0 1 2 3
+ 1 2 0 2 2
+ 0 0 0 0 2
+ 1 0 0 2 0
+   denominator=3
+iOrb=305 |inc|=22 |stab|=1 |O|=3840
+ 0 1 3 4 3
+ 3 0 2 3 5
+ 3 3 0 3 3
+ 0 0 0 0 3
+ 3 0 0 3 0
+   denominator=5
+iOrb=306 |inc|=22 |stab|=1 |O|=3840
+ 0 3 4 4 4
+ 3 0 1 3 5
+ 2 3 0 3 4
+ 0 0 0 0 4
+ 2 0 0 3 0
+   denominator=5
+iOrb=307 |inc|=22 |stab|=1 |O|=3840
+ 0 0 0 2 2
+ 2 0 2 2 2
+ 3 1 0 2 2
+ 2 0 0 0 2
+ 1 0 0 2 0
+   denominator=3
+iOrb=308 |inc|=22 |stab|=1 |O|=3840
+ 0 0 0 2 2
+ 2 0 2 2 2
+ 3 1 0 2 2
+ 2 0 0 0 2
+ 1 1 0 2 0
+   denominator=3
+iOrb=309 |inc|=22 |stab|=1 |O|=3840
+ 0 3 2 2 2
+ 1 0 0 0 2
+ 2 3 0 1 2
+ 1 2 0 0 2
+ 0 1 0 1 0
+   denominator=3
+iOrb=310 |inc|=22 |stab|=1 |O|=3840
+ 0 2 0 3 2
+ 0 0 0 1 0
+ 3 3 0 3 3
+ 2 3 0 0 0
+ 3 3 3 4 0
+   denominator=4
+iOrb=311 |inc|=22 |stab|=1 |O|=3840
+ 0 2 2 4 2
+ 0 0 0 2 2
+ 3 4 0 3 3
+ 0 1 0 0 0
+ 1 1 0 3 0
+   denominator=4
+iOrb=312 |inc|=22 |stab|=1 |O|=3840
+ 0 3 1 4 4
+ 0 0 1 1 4
+ 2 5 0 3 3
+ 0 3 0 0 3
+ 2 2 0 3 0
+   denominator=5
+iOrb=313 |inc|=22 |stab|=1 |O|=3840
+ 0 1 2 0 2
+ 1 0 2 1 3
+ 1 0 0 0 1
+ 2 1 3 0 2
+ 0 0 2 0 0
+   denominator=3
+iOrb=314 |inc|=22 |stab|=1 |O|=3840
+ 0 0 0 2 2
+ 2 0 2 2 2
+ 3 1 0 2 3
+ 2 0 0 0 2
+ 1 1 0 2 0
+   denominator=3
+iOrb=315 |inc|=22 |stab|=1 |O|=3840
+ 0 2 3 2 2
+ 0 0 1 0 0
+ 0 2 0 0 0
+ 2 2 2 0 2
+ 2 2 3 1 0
+   denominator=3
+iOrb=316 |inc|=22 |stab|=1 |O|=3840
+ 0 0 0 2 2
+ 2 0 2 2 2
+ 3 1 0 2 3
+ 2 0 0 0 1
+ 1 0 0 2 0
+   denominator=3
+iOrb=317 |inc|=22 |stab|=1 |O|=3840
+ 0 0 0 1 2
+ 2 0 2 2 2
+ 3 1 0 2 3
+ 2 0 0 0 1
+ 1 0 0 2 0
+   denominator=3
+iOrb=318 |inc|=22 |stab|=1 |O|=3840
+ 0 0 0 1 2
+ 2 0 2 2 2
+ 4 2 0 2 3
+ 2 0 0 0 1
+ 1 0 0 2 0
+   denominator=4
+iOrb=319 |inc|=22 |stab|=1 |O|=3840
+ 0 0 0 3 3
+ 4 0 3 3 3
+ 5 1 0 3 4
+ 4 0 0 0 3
+ 1 1 0 3 0
+   denominator=5
+iOrb=320 |inc|=22 |stab|=1 |O|=3840
+ 0 0 0 3 4
+ 3 0 3 3 4
+ 5 2 0 3 4
+ 3 0 0 0 1
+ 2 2 0 3 0
+   denominator=5
+iOrb=321 |inc|=22 |stab|=1 |O|=3840
+ 0 2 2 4 2
+ 0 0 0 2 2
+ 2 4 0 3 3
+ 0 1 0 0 0
+ 1 1 0 3 0
+   denominator=4
+iOrb=322 |inc|=22 |stab|=1 |O|=3840
+ 0 5 4 4 4
+ 2 0 0 2 3
+ 3 4 0 3 3
+ 0 4 0 0 3
+ 0 1 0 3 0
+   denominator=5
+iOrb=323 |inc|=22 |stab|=1 |O|=3840
+ 0 2 0 3 2
+ 0 0 0 1 0
+ 3 3 0 3 3
+ 1 3 0 0 0
+ 3 3 3 4 0
+   denominator=4
+iOrb=324 |inc|=22 |stab|=1 |O|=3840
+ 0 2 2 1 3
+ 2 0 2 1 2
+ 0 0 0 1 1
+ 1 1 2 0 3
+ 0 0 2 0 0
+   denominator=3
+iOrb=325 |inc|=22 |stab|=1 |O|=3840
+ 0 4 3 4 3
+ 0 0 0 0 3
+ 1 4 0 1 3
+ 3 3 2 0 5
+ 1 1 0 1 0
+   denominator=5
+iOrb=326 |inc|=22 |stab|=1 |O|=3840
+ 0 0 0 2 3
+ 3 0 3 5 3
+ 4 1 0 3 4
+ 4 1 0 0 1
+ 3 0 0 3 0
+   denominator=5
+iOrb=327 |inc|=22 |stab|=1 |O|=3840
+ 0 1 0 1 3
+ 3 0 3 4 3
+ 2 3 0 3 3
+ 2 0 0 0 3
+ 2 0 0 3 0
+   denominator=4
+iOrb=328 |inc|=22 |stab|=1 |O|=3840
+ 0 1 0 1 2
+ 2 0 2 3 2
+ 2 2 0 2 2
+ 2 0 0 0 2
+ 2 0 0 2 0
+   denominator=3
+iOrb=329 |inc|=22 |stab|=1 |O|=3840
+ 0 1 1 3 2
+ 0 0 1 2 1
+ 1 2 0 2 1
+ 0 0 0 0 1
+ 0 1 0 2 0
+   denominator=3
+iOrb=330 |inc|=22 |stab|=1 |O|=3840
+ 0 2 3 4 3
+ 2 0 3 3 3
+ 3 3 0 3 3
+ 0 2 0 0 3
+ 0 0 0 3 0
+   denominator=4
+iOrb=331 |inc|=21 |stab|=2 |O|=1920
+ 0 1 2 3 2
+ 2 0 2 2 3
+ 1 2 0 2 2
+ 0 0 0 0 2
+ 1 0 0 2 0
+   denominator=3
+iOrb=332 |inc|=21 |stab|=2 |O|=1920
+ 0 2 0 3 2
+ 0 0 0 1 0
+ 2 3 0 3 3
+ 2 3 0 0 0
+ 3 3 1 4 0
+   denominator=4
+iOrb=333 |inc|=21 |stab|=2 |O|=1920
+ 0 0 0 2 2
+ 2 0 2 2 2
+ 3 2 0 2 3
+ 2 0 0 0 1
+ 1 1 0 2 0
+   denominator=3
+iOrb=334 |inc|=21 |stab|=2 |O|=1920
+ 0 2 2 1 2
+ 0 0 0 0 2
+ 2 3 0 1 2
+ 1 2 1 0 3
+ 0 1 0 1 0
+   denominator=3
+iOrb=335 |inc|=21 |stab|=2 |O|=1920
+ 0 1 3 4 2
+ 2 0 2 3 4
+ 2 0 0 2 2
+ 0 0 0 0 2
+ 0 0 1 3 0
+   denominator=4
+iOrb=336 |inc|=21 |stab|=2 |O|=1920
+ 0 1 0 2 2
+ 1 0 0 1 2
+ 2 3 0 2 2
+ 2 1 0 0 2
+ 2 1 0 2 0
+   denominator=3
+iOrb=337 |inc|=21 |stab|=2 |O|=1920
+ 0 4 3 3 3
+ 1 0 0 0 1
+ 3 4 0 2 3
+ 1 2 0 0 3
+ 0 1 0 1 0
+   denominator=4
+iOrb=338 |inc|=21 |stab|=1 |O|=3840
+ 0 1 2 2 2
+ 2 0 2 2 3
+ 2 2 0 2 2
+ 0 1 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=339 |inc|=21 |stab|=1 |O|=3840
+ 0 1 2 3 2
+ 2 0 2 2 3
+ 2 2 0 2 2
+ 0 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=340 |inc|=21 |stab|=1 |O|=3840
+ 0 2 2 2 2
+ 2 0 1 2 3
+ 2 2 0 2 2
+ 0 1 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=341 |inc|=21 |stab|=1 |O|=3840
+ 0 2 2 3 2
+ 2 0 1 2 3
+ 2 2 0 2 2
+ 0 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=342 |inc|=21 |stab|=1 |O|=3840
+ 0 2 2 2 2
+ 2 0 1 2 3
+ 2 2 0 2 2
+ 0 0 0 0 2
+ 1 0 0 2 0
+   denominator=3
+iOrb=343 |inc|=21 |stab|=1 |O|=3840
+ 0 1 2 3 2
+ 2 0 1 2 3
+ 2 2 0 2 2
+ 0 0 0 0 2
+ 1 0 0 2 0
+   denominator=3
+iOrb=344 |inc|=21 |stab|=1 |O|=3840
+ 0 2 2 2 2
+ 2 0 2 2 3
+ 1 2 0 2 2
+ 0 0 0 0 2
+ 1 0 0 2 0
+   denominator=3
+iOrb=345 |inc|=21 |stab|=1 |O|=3840
+ 0 2 2 3 2
+ 2 0 1 2 3
+ 2 2 0 2 2
+ 0 1 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=346 |inc|=21 |stab|=1 |O|=3840
+ 0 2 2 3 2
+ 2 0 1 2 3
+ 2 2 0 2 2
+ 0 0 0 0 2
+ 1 0 0 2 0
+   denominator=3
+iOrb=347 |inc|=21 |stab|=1 |O|=3840
+ 0 2 2 3 2
+ 2 0 2 2 3
+ 1 2 0 2 2
+ 0 0 0 0 2
+ 1 0 0 2 0
+   denominator=3
+iOrb=348 |inc|=21 |stab|=1 |O|=3840
+ 0 2 2 2 2
+ 1 0 0 1 2
+ 1 3 0 2 2
+ 0 1 0 0 2
+ 0 1 0 2 0
+   denominator=3
+iOrb=349 |inc|=21 |stab|=1 |O|=3840
+ 0 1 2 2 2
+ 2 0 1 2 3
+ 1 2 0 2 2
+ 0 0 0 0 2
+ 1 0 0 2 0
+   denominator=3
+iOrb=350 |inc|=21 |stab|=1 |O|=3840
+ 0 1 2 3 2
+ 1 0 1 2 3
+ 2 2 0 2 2
+ 0 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=351 |inc|=21 |stab|=1 |O|=3840
+ 0 1 2 3 2
+ 1 0 1 2 3
+ 2 2 0 2 2
+ 0 0 0 0 2
+ 1 0 0 2 0
+   denominator=3
+iOrb=352 |inc|=21 |stab|=1 |O|=3840
+ 0 0 0 2 4
+ 4 0 4 6 4
+ 5 4 0 3 4
+ 5 1 0 0 4
+ 1 0 0 3 0
+   denominator=6
+iOrb=353 |inc|=21 |stab|=1 |O|=3840
+ 0 1 0 1 2
+ 2 0 2 3 2
+ 2 2 0 2 2
+ 2 0 0 0 2
+ 1 0 0 2 0
+   denominator=3
+iOrb=354 |inc|=21 |stab|=1 |O|=3840
+ 0 0 0 2 2
+ 2 0 2 2 2
+ 3 1 0 2 2
+ 2 0 0 0 1
+ 1 0 0 2 0
+   denominator=3
+iOrb=355 |inc|=21 |stab|=1 |O|=3840
+ 0 0 0 1 2
+ 2 0 2 2 2
+ 3 1 0 2 2
+ 2 0 0 0 2
+ 1 0 0 2 0
+   denominator=3
+iOrb=356 |inc|=21 |stab|=1 |O|=3840
+ 0 0 0 1 2
+ 2 0 2 2 2
+ 3 1 0 2 2
+ 2 0 0 0 1
+ 1 0 0 2 0
+   denominator=3
+iOrb=357 |inc|=21 |stab|=1 |O|=3840
+ 0 0 0 2 2
+ 2 0 2 2 2
+ 3 1 0 2 2
+ 2 0 0 0 1
+ 1 1 0 2 0
+   denominator=3
+iOrb=358 |inc|=21 |stab|=1 |O|=3840
+ 0 0 0 2 2
+ 2 0 2 2 2
+ 3 2 0 2 2
+ 2 0 0 0 2
+ 1 1 0 2 0
+   denominator=3
+iOrb=359 |inc|=21 |stab|=1 |O|=3840
+ 0 2 2 3 2
+ 0 0 0 1 2
+ 1 3 0 2 2
+ 1 1 0 0 1
+ 0 1 0 2 0
+   denominator=3
+iOrb=360 |inc|=21 |stab|=1 |O|=3840
+ 0 4 4 6 4
+ 0 0 0 2 4
+ 2 6 0 3 5
+ 2 3 0 0 2
+ 0 1 0 3 0
+   denominator=6
+iOrb=361 |inc|=21 |stab|=1 |O|=3840
+ 0 2 2 3 2
+ 0 0 0 1 2
+ 1 3 0 2 2
+ 1 2 0 0 1
+ 0 1 0 2 0
+   denominator=3
+iOrb=362 |inc|=21 |stab|=1 |O|=3840
+ 0 0 0 2 2
+ 2 0 2 2 2
+ 2 1 0 2 3
+ 2 0 0 0 2
+ 1 1 0 2 0
+   denominator=3
+iOrb=363 |inc|=21 |stab|=1 |O|=3840
+ 0 2 3 2 2
+ 0 0 1 0 0
+ 0 2 0 0 0
+ 1 2 2 0 2
+ 2 2 3 1 0
+   denominator=3
+iOrb=364 |inc|=21 |stab|=1 |O|=3840
+ 0 0 0 2 2
+ 2 0 2 2 2
+ 3 2 0 2 3
+ 2 0 0 0 1
+ 1 0 0 2 0
+   denominator=3
+iOrb=365 |inc|=21 |stab|=1 |O|=3840
+ 0 0 0 1 2
+ 2 0 2 2 2
+ 3 2 0 2 3
+ 2 0 0 0 1
+ 1 0 0 2 0
+   denominator=3
+iOrb=366 |inc|=21 |stab|=1 |O|=3840
+ 0 2 2 2 2
+ 0 0 1 1 0
+ 0 2 0 0 0
+ 2 2 2 0 2
+ 2 2 3 2 0
+   denominator=3
+iOrb=367 |inc|=21 |stab|=1 |O|=3840
+ 0 2 2 1 3
+ 0 0 0 0 3
+ 2 4 0 1 3
+ 1 3 1 0 4
+ 0 1 0 1 0
+   denominator=4
+iOrb=368 |inc|=21 |stab|=1 |O|=3840
+ 0 4 3 5 3
+ 3 0 2 3 5
+ 4 4 0 4 3
+ 0 0 0 0 3
+ 1 1 0 4 0
+   denominator=5
+iOrb=369 |inc|=21 |stab|=1 |O|=3840
+ 0 4 3 4 3
+ 3 0 2 3 5
+ 4 4 0 4 3
+ 0 0 0 0 3
+ 1 1 0 4 0
+   denominator=5
+iOrb=370 |inc|=21 |stab|=1 |O|=3840
+ 0 2 3 2 2
+ 0 0 2 0 0
+ 0 2 0 0 0
+ 2 2 2 0 2
+ 2 2 3 1 0
+   denominator=3
+iOrb=371 |inc|=21 |stab|=1 |O|=3840
+ 0 1 0 4 3
+ 2 0 2 3 5
+ 3 4 0 4 3
+ 2 0 0 0 3
+ 3 1 0 4 0
+   denominator=5
+iOrb=372 |inc|=21 |stab|=1 |O|=3840
+ 0 3 3 4 3
+ 0 0 0 1 0
+ 2 3 0 4 3
+ 0 2 2 0 0
+ 2 2 2 3 0
+   denominator=4
+iOrb=373 |inc|=21 |stab|=1 |O|=3840
+ 0 0 0 3 2
+ 2 0 2 3 4
+ 3 3 0 3 2
+ 2 0 0 0 2
+ 3 1 0 3 0
+   denominator=4
+iOrb=374 |inc|=21 |stab|=1 |O|=3840
+ 0 3 2 2 2
+ 1 0 0 0 1
+ 2 3 0 1 2
+ 1 2 0 0 2
+ 0 1 0 1 0
+   denominator=3
+iOrb=375 |inc|=20 |stab|=3 |O|=1280
+ 0 1 0 2 2
+ 2 0 0 1 2
+ 2 2 0 2 2
+ 1 2 0 0 2
+ 2 2 0 2 0
+   denominator=3
+iOrb=376 |inc|=20 |stab|=1 |O|=3840
+ 0 1 2 2 2
+ 2 0 2 2 3
+ 1 2 0 2 2
+ 0 1 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=377 |inc|=20 |stab|=1 |O|=3840
+ 0 1 2 3 2
+ 2 0 2 2 3
+ 1 2 0 2 2
+ 0 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=378 |inc|=20 |stab|=1 |O|=3840
+ 0 1 2 3 2
+ 2 0 2 2 3
+ 2 2 0 2 2
+ 0 0 0 0 2
+ 1 0 0 2 0
+   denominator=3
+iOrb=379 |inc|=20 |stab|=1 |O|=3840
+ 0 2 2 2 2
+ 2 0 2 2 3
+ 2 2 0 2 2
+ 0 1 0 0 2
+ 1 0 0 2 0
+   denominator=3
+iOrb=380 |inc|=20 |stab|=1 |O|=3840
+ 0 2 2 2 2
+ 2 0 1 2 3
+ 1 2 0 2 2
+ 0 1 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=381 |inc|=20 |stab|=1 |O|=3840
+ 0 2 2 3 2
+ 2 0 1 2 3
+ 1 2 0 2 2
+ 0 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=382 |inc|=20 |stab|=1 |O|=3840
+ 0 1 2 3 2
+ 1 0 1 2 3
+ 1 2 0 2 2
+ 0 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=383 |inc|=20 |stab|=1 |O|=3840
+ 0 0 0 2 2
+ 2 0 2 2 2
+ 3 2 0 2 2
+ 2 0 0 0 1
+ 1 1 0 2 0
+   denominator=3
+iOrb=384 |inc|=20 |stab|=1 |O|=3840
+ 0 2 2 3 2
+ 0 0 0 1 2
+ 1 3 0 2 2
+ 1 1 0 0 2
+ 0 1 0 2 0
+   denominator=3
+iOrb=385 |inc|=20 |stab|=1 |O|=3840
+ 0 0 0 1 2
+ 2 0 2 2 2
+ 2 2 0 2 2
+ 2 0 0 0 1
+ 1 1 0 2 0
+   denominator=3
+iOrb=386 |inc|=20 |stab|=1 |O|=3840
+ 0 0 0 2 2
+ 2 0 2 2 2
+ 3 2 0 2 3
+ 2 0 0 0 2
+ 1 1 0 2 0
+   denominator=3
+iOrb=387 |inc|=20 |stab|=1 |O|=3840
+ 0 2 2 2 2
+ 0 0 0 0 2
+ 2 3 0 1 2
+ 1 2 1 0 3
+ 0 1 0 1 0
+   denominator=3
+iOrb=388 |inc|=20 |stab|=1 |O|=3840
+ 0 2 2 1 2
+ 0 0 0 0 2
+ 1 3 0 1 2
+ 1 2 1 0 3
+ 0 1 0 1 0
+   denominator=3
+iOrb=389 |inc|=20 |stab|=1 |O|=3840
+ 0 0 0 2 2
+ 2 0 2 2 2
+ 3 2 0 2 3
+ 2 0 0 0 2
+ 2 1 0 2 0
+   denominator=3
+iOrb=390 |inc|=20 |stab|=1 |O|=3840
+ 0 1 2 3 2
+ 1 0 1 2 3
+ 2 1 0 2 2
+ 0 0 0 0 2
+ 0 0 0 2 0
+   denominator=3
+iOrb=391 |inc|=20 |stab|=1 |O|=3840
+ 0 1 0 2 1
+ 1 0 0 1 2
+ 2 3 0 2 2
+ 2 1 0 0 2
+ 2 1 0 2 0
+   denominator=3
+iOrb=392 |inc|=20 |stab|=1 |O|=3840
+ 0 2 3 2 2
+ 0 0 2 0 0
+ 0 2 0 0 0
+ 1 2 2 0 2
+ 2 2 3 1 0
+   denominator=3
+TotalNumberVertices=1155136
+nbOrbit Vertices=392
+|eRec.FAC|=120
+nbOrbit Facet=2
+dim=20

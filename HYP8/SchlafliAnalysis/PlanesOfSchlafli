@@ -1,0 +1,42 @@
+EXT:=ReadAsFunction("Functions/TheSchlafli")();
+#EXT:=ReadAsFunction("Functions/TheGosset")();
+
+GRP:=__TheCore_Automorphism(EXT);
+
+OrbPlanes:=OrbitSubPlanes(EXT, GRP);
+OrbitMaxDim:=OrbPlanes[Length(OrbPlanes)];
+FuncFindIdx:=function(eCase)
+  local iOrb;
+  for iOrb in [1..Length(OrbitMaxDim)]
+  do
+    if RepresentativeAction(GRP, OrbitMaxDim[iOrb], eCase, OnSets)<>fail then
+      return iOrb;
+    fi;
+  od;
+  Print("Big Error!!!, we did not find the plane\n");
+  Print(NullMat(5));
+end;
+
+rnk:=RankMat(EXT)-1;
+
+GRA:=NullGraph(Group(()), Length(OrbitMaxDim));
+
+for eOrb in OrbitMaxDim
+do
+  H:=NullspaceMat(TransposedMat(EXT{eOrb}))[1];
+  LSscal:=Set(EXT*H);
+  LSset:=[];
+  for eVal in LSscal
+  do
+    TheSelect:=Filtered([1..Length(EXT)], x->EXT[x]*H=eVal);
+    if RankMat(EXT{TheSelect})=rnk then
+      Add(LSset, FuncFindIdx(TheSelect));
+    fi;
+  od;
+  Print("LSset=", LSset, " nbVal=", Length(LSscal), "\n");
+  for eSet in Combinations(Set(LSset), 2)
+  do
+    AddEdgeOrbit(GRA, eSet);
+    AddEdgeOrbit(GRA, Reversed(eSet));
+  od;
+od;

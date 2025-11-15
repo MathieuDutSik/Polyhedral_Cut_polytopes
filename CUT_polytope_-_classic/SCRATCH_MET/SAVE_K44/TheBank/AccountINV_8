@@ -1,0 +1,6 @@
+return rec(
+  ListNbDiag := [ 16, 144 ],
+  ListNbOff := [ 288, 1872, 6384, 3312, 864 ],
+  ListValDiag := [ 1/37, 4/37 ],
+  ListValOff := [ -2/37, -1/37, 0, 1/37, 2/37 ],
+  n := 16 );

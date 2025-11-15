@@ -1,0 +1,61 @@
+#!/usr/bin/perl
+
+# This script will add the reversal operation to the group of permutations so
+# that group will jump from n! elements to 2*n! elements
+
+$n=5;
+
+$card=$n*($n-1);
+
+$k=1;
+for ($i=1; $i<=$n; $i++)
+{
+    for ($j=1; $j<=$n; $j++)
+    {
+	if ($i ne $j)
+	{
+	    $A[$k]=$i*10+$j;
+	    $k++;
+	}
+    }
+}
+
+
+$k=1;
+for ($i=1; $i<=$n; $i++)
+{
+    for ($j=1; $j<=$n; $j++)
+    {
+	if ($i ne $j)
+	{
+	    $B[$k]=$j*10+$i;
+	    $k++;
+	}
+    }
+}
+
+#
+#
+# I determine the reversal operation
+
+for ($i=1; $i<=$card; $i++)
+{
+    for ($j=1; $j<=$card; $j++)
+    {
+	if ($A[$i] eq $B[$j])
+	{
+	    $R[$i]=$j;
+	}
+    }
+}
+
+
+
+while (<>)
+{
+    $line=$_;
+    s/\n//;
+
+    print $_." reversal\n";
+    print $_."\n";
+}

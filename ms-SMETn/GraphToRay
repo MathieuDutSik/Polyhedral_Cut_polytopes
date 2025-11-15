@@ -1,0 +1,74 @@
+#!/usr/bin/perl
+
+# This procedure takes as argument a list of sets and
+# a list of vectors and return the graph obtained by keeping the
+# nonzero coordinate (subgraph of a Johnson Graph)
+
+$uu=scalar(@ARGV);
+
+if ($uu ne 1)
+{
+    print "GraphToRay is used as:\n\n";
+    print "GraphToRay [NautyFile]\n";
+    print "with [NautyFile] a graph in Nauty form\n";
+    print "output is the graph corresponding ray in HMET^{n-3}_n\n";
+    die;
+}
+
+$NautyFile=$ARGV[0];
+open(INFILE, $NautyFile) or die "impossible to open ".$NautyFile."\n";
+@NAUT=<INFILE>;
+close(INFILE);
+
+$n=scalar(@NAUT)-4;
+$k=$n-2;
+$SetFile="Scene/".$k."-Sets-".$n;
+
+
+open(INFILE, $SetFile) or die "impossible to open ".$SetFile."\n";
+@SET=<INFILE>;
+close(INFILE);
+
+$Cnk=scalar(@SET);
+
+for ($iC=0; $iC<=$Cnk; $iC++)
+{
+    $VECT[$iC]=0;
+}
+
+for ($iNode=1; $iNode<=$n; $iNode++)
+{
+    $line=$NAUT[$iNode+1];
+    @L=split(";", $line);
+    @K=split(" : ", $L[0]);
+    @R=split(" ", $K[1]);
+    $adj=scalar(@R);
+    for ($iAdj=1; $iAdj<=$adj; $iAdj++)
+    {
+	@TT=split("#", $R[$iAdj-1]);
+	if ($TT[0]> $iNode)
+	{
+	    if (scalar(@TT) eq 2)
+	    {
+		$value=$TT[1];
+	    }
+	    else
+	    {
+		$value=1;
+	    }
+	    for ($iSet=1; $iSet<=$Cnk; $iSet++)
+	    {
+		@VUE=split(" ",$SET[$iSet-1]);
+		if ($VUE[$iNode-1] eq 0 && $VUE[$R[$iAdj-1]-1] eq 0)
+		{
+		    $VECT[$iSet]=$value;
+		}
+	    }
+	}
+    }
+}
+for ($iC=0; $iC<=$Cnk; $iC++)
+{
+    print " ".$VECT[$iC];
+}
+print "\n";

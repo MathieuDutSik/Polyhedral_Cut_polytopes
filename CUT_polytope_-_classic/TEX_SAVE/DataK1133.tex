@@ -1,0 +1,611 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts, amsmath, latexsym, epsfig}
+\usepackage{epsf}
+\usepackage{url}
+\title{Automorphism group of Lorentzian lattices}
+
+\def\QuotS#1#2{\leavevmode\kern-.0em\raise.2ex\hbox{$#1$}\kern-.1em/\kern-.1em\lower.25ex\hbox{$#2$}}
+
+
+%\usepackage{vmargin}
+%\setpapersize{custom}{21cm}{29.7cm}
+%\setmarginsrb{1.7cm}{1cm}{1.7cm}{3.5cm}{0pt}{0pt}{0pt}{0pt}
+%marge gauche, marge haut, marge droite, marge bas.
+
+\begin{document}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\T}{\ensuremath{\mathbb{T}}}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}
+\newtheorem{problem}{Problem}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{claim}{Claim}
+\newtheorem{remark}{Remark}
+\newtheorem{definition}{Definition}
+\newcommand{\qed}{\hfill $\Box$ }
+\newcommand{\proof}{\noindent{\bf Proof.}\ \ }
+
+Number of vertices $n=8$.
+
+Adjacencies of Graph
+\begin{enumerate}
+\item vertex 1 adjacent to 2 3 4 5 6 7 8
+\item vertex 2 adjacent to 1 3 4 5 6 7 8
+\item vertex 3 adjacent to 1 2 6 7 8
+\item vertex 4 adjacent to 1 2 6 7 8
+\item vertex 5 adjacent to 1 2 6 7 8
+\item vertex 6 adjacent to 1 2 3 4 5
+\item vertex 7 adjacent to 1 2 3 4 5
+\item vertex 8 adjacent to 1 2 3 4 5
+\end{enumerate}
+Size of automorphism group of the graph=144
+
+Full group: $\vert Aut(polytope) \vert  =18432$
+
+Restricted group: $\vert Aut(G) \times switch \vert = 18432$
+
+Number of orbits for the full group : 50
+
+List of orbits of facets for the full group:
+Total number of orbits = 50
+Total number of facets = 432552
+\begin{enumerate}
+\item Inequality 1 with incidence 96 and stabilizer of size 768. Orbit size is 24
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 1&(1,3) : 0&(1,4) : 0&(1,5) : -1&(1,6) : 0&(1,7) : 0\\
+(1,8) : 0&(2,3) : 0&(2,4) : 0&(2,5) : 1&(2,6) : 0&(2,7) : 0\\
+(2,8) : 0&(3,6) : 0&(3,7) : 0&(3,8) : 0&(4,6) : 0&(4,7) : 0\\
+(4,8) : 0&(5,6) : 0&(5,7) : 0&(5,8) : 0&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 2 with incidence 96 and stabilizer of size 256. Orbit size is 72
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 0&(1,3) : 0&(1,4) : 0&(1,5) : 1&(1,6) : 0&(1,7) : 1\\
+(1,8) : 0&(2,3) : 0&(2,4) : 0&(2,5) : 0&(2,6) : 0&(2,7) : 0\\
+(2,8) : 0&(3,6) : 0&(3,7) : 0&(3,8) : 0&(4,6) : 0&(4,7) : 0\\
+(4,8) : 0&(5,6) : 0&(5,7) : -1&(5,8) : 0&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 3 with incidence 64 and stabilizer of size 256. Orbit size is 72
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 0&(1,3) : 0&(1,4) : 0&(1,5) : 0&(1,6) : 0&(1,7) : 0\\
+(1,8) : 0&(2,3) : 0&(2,4) : 0&(2,5) : 0&(2,6) : 0&(2,7) : 0\\
+(2,8) : 0&(3,6) : 1&(3,7) : -1&(3,8) : 0&(4,6) : 0&(4,7) : 0\\
+(4,8) : 0&(5,6) : 1&(5,7) : 1&(5,8) : 0&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 4 with incidence 56 and stabilizer of size 16. Orbit size is 1152
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 1&(1,3) : 0&(1,4) : 0&(1,5) : -1&(1,6) : 1&(1,7) : 1\\
+(1,8) : 0&(2,3) : 0&(2,4) : 0&(2,5) : 1&(2,6) : -1&(2,7) : -1\\
+(2,8) : 0&(3,6) : 1&(3,7) : -1&(3,8) : 0&(4,6) : 0&(4,7) : 0\\
+(4,8) : 0&(5,6) : 1&(5,7) : 1&(5,8) : 0&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 5 with incidence 40 and stabilizer of size 16. Orbit size is 1152
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 0&(1,3) : 0&(1,4) : 0&(1,5) : 0&(1,6) : 0&(1,7) : 0\\
+(1,8) : 0&(2,3) : 1&(2,4) : 1&(2,5) : 0&(2,6) : -1&(2,7) : 0\\
+(2,8) : 1&(3,6) : 1&(3,7) : -1&(3,8) : -1&(4,6) : 1&(4,7) : 1\\
+(4,8) : -1&(5,6) : 1&(5,7) : 0&(5,8) : 1&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 6 with incidence 40 and stabilizer of size 8. Orbit size is 2304
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 0&(1,3) : 1&(1,4) : 1&(1,5) : 0&(1,6) : 1&(1,7) : 0\\
+(1,8) : -1&(2,3) : 0&(2,4) : 0&(2,5) : 0&(2,6) : 1&(2,7) : 0\\
+(2,8) : 1&(3,6) : -1&(3,7) : 1&(3,8) : 1&(4,6) : -1&(4,7) : -1\\
+(4,8) : 1&(5,6) : 0&(5,7) : 0&(5,8) : 0&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 7 with incidence 34 and stabilizer of size 2. Orbit size is 9216
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 1&(1,3) : 1&(1,4) : 1&(1,5) : -1&(1,6) : 0&(1,7) : 0\\
+(1,8) : 2&(2,3) : 0&(2,4) : 0&(2,5) : 1&(2,6) : -1&(2,7) : 0\\
+(2,8) : -1&(3,6) : 1&(3,7) : -1&(3,8) : -1&(4,6) : 1&(4,7) : 1\\
+(4,8) : -1&(5,6) : 1&(5,7) : 0&(5,8) : 1&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 8 with incidence 32 and stabilizer of size 2. Orbit size is 9216
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 2&(1,3) : 0&(1,4) : 0&(1,5) : -1&(1,6) : -1&(1,7) : 1\\
+(1,8) : 1&(2,3) : 1&(2,4) : 0&(2,5) : 2&(2,6) : 1&(2,7) : -2\\
+(2,8) : -2&(3,6) : 1&(3,7) : 1&(3,8) : 1&(4,6) : 0&(4,7) : -1\\
+(4,8) : 1&(5,6) : -1&(5,7) : 1&(5,8) : 1&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 9 with incidence 32 and stabilizer of size 4. Orbit size is 4608
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 0&(1,3) : 0&(1,4) : 1&(1,5) : 1&(1,6) : 0&(1,7) : 1\\
+(1,8) : -1&(2,3) : -1&(2,4) : 1&(2,5) : -1&(2,6) : 1&(2,7) : 1\\
+(2,8) : 1&(3,6) : -1&(3,7) : 1&(3,8) : 1&(4,6) : -1&(4,7) : -1\\
+(4,8) : 0&(5,6) : 1&(5,7) : 0&(5,8) : 1&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 10 with incidence 32 and stabilizer of size 8. Orbit size is 2304
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 2&(1,3) : -1&(1,4) : 0&(1,5) : -1&(1,6) : 0&(1,7) : 1\\
+(1,8) : 1&(2,3) : 2&(2,4) : 0&(2,5) : 2&(2,6) : 0&(2,7) : -2\\
+(2,8) : -2&(3,6) : 1&(3,7) : 1&(3,8) : 1&(4,6) : 0&(4,7) : -1\\
+(4,8) : 1&(5,6) : -1&(5,7) : 1&(5,8) : 1&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 11 with incidence 32 and stabilizer of size 2. Orbit size is 9216
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 2&(1,3) : 0&(1,4) : -1&(1,5) : -1&(1,6) : 2&(1,7) : 1\\
+(1,8) : 1&(2,3) : 1&(2,4) : 0&(2,5) : 1&(2,6) : -1&(2,7) : -2\\
+(2,8) : -1&(3,6) : -1&(3,7) : 1&(3,8) : 1&(4,6) : 1&(4,7) : -1\\
+(4,8) : 1&(5,6) : 1&(5,7) : 1&(5,8) : 0&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 12 with incidence 30 and stabilizer of size 4. Orbit size is 4608
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 2&(1,3) : 1&(1,4) : -1&(1,5) : -2&(1,6) : 1&(1,7) : 0\\
+(1,8) : 3&(2,3) : -1&(2,4) : 1&(2,5) : 2&(2,6) : -1&(2,7) : 0\\
+(2,8) : -3&(3,6) : 1&(3,7) : 1&(3,8) : -2&(4,6) : -1&(4,7) : 1\\
+(4,8) : 2&(5,6) : 2&(5,7) : 0&(5,8) : 2&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 13 with incidence 30 and stabilizer of size 4. Orbit size is 4608
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 0&(1,3) : -1&(1,4) : 1&(1,5) : -1&(1,6) : 1&(1,7) : 0\\
+(1,8) : 0&(2,3) : 1&(2,4) : 1&(2,5) : 1&(2,6) : 0&(2,7) : -1\\
+(2,8) : 0&(3,6) : 1&(3,7) : 1&(3,8) : -2&(4,6) : -1&(4,7) : 1\\
+(4,8) : 0&(5,6) : 1&(5,7) : 1&(5,8) : 2&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 14 with incidence 30 and stabilizer of size 2. Orbit size is 9216
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 2&(1,3) : 1&(1,4) : -1&(1,5) : -1&(1,6) : 1&(1,7) : -1\\
+(1,8) : -1&(2,3) : -2&(2,4) : 0&(2,5) : 1&(2,6) : 0&(2,7) : 1\\
+(2,8) : 2&(3,6) : 1&(3,7) : 1&(3,8) : 1&(4,6) : 1&(4,7) : -1\\
+(4,8) : 1&(5,6) : 1&(5,7) : 0&(5,8) : -1&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 15 with incidence 30 and stabilizer of size 4. Orbit size is 4608
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : -1&(1,3) : -1&(1,4) : 0&(1,5) : 2&(1,6) : 1&(1,7) : 0\\
+(1,8) : 1&(2,3) : -1&(2,4) : 0&(2,5) : 2&(2,6) : 1&(2,7) : 0\\
+(2,8) : 1&(3,6) : 1&(3,7) : 2&(3,8) : 1&(4,6) : -1&(4,7) : 0\\
+(4,8) : 1&(5,6) : -2&(5,7) : 2&(5,8) : -2&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 16 with incidence 29 and stabilizer of size 1. Orbit size is 18432
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 0&(1,3) : 1&(1,4) : 1&(1,5) : -1&(1,6) : 0&(1,7) : 0\\
+(1,8) : 1&(2,3) : 0&(2,4) : 1&(2,5) : 1&(2,6) : 0&(2,7) : -1\\
+(2,8) : -1&(3,6) : -1&(3,7) : 1&(3,8) : -1&(4,6) : 1&(4,7) : 1\\
+(4,8) : 0&(5,6) : 0&(5,7) : 1&(5,8) : 1&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 17 with incidence 29 and stabilizer of size 2. Orbit size is 9216
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 1&(1,3) : 1&(1,4) : -1&(1,5) : 0&(1,6) : 0&(1,7) : -1\\
+(1,8) : 0&(2,3) : -1&(2,4) : 0&(2,5) : 1&(2,6) : 1&(2,7) : 0\\
+(2,8) : 0&(3,6) : 1&(3,7) : 1&(3,8) : 0&(4,6) : 1&(4,7) : -1\\
+(4,8) : 1&(5,6) : -1&(5,7) : 1&(5,8) : 1&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 18 with incidence 29 and stabilizer of size 2. Orbit size is 9216
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 2&(1,3) : -1&(1,4) : 0&(1,5) : -1&(1,6) : 0&(1,7) : 1\\
+(1,8) : 1&(2,3) : 1&(2,4) : -1&(2,5) : 2&(2,6) : 1&(2,7) : -2\\
+(2,8) : -1&(3,6) : 1&(3,7) : 1&(3,8) : 0&(4,6) : 1&(4,7) : -1\\
+(4,8) : 1&(5,6) : -1&(5,7) : 1&(5,8) : 1&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 19 with incidence 28 and stabilizer of size 2. Orbit size is 9216
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 0&(1,3) : -1&(1,4) : 0&(1,5) : 1&(1,6) : -1&(1,7) : 1\\
+(1,8) : 0&(2,3) : 0&(2,4) : 1&(2,5) : -1&(2,6) : 1&(2,7) : 1\\
+(2,8) : 0&(3,6) : -1&(3,7) : 1&(3,8) : 1&(4,6) : -1&(4,7) : -1\\
+(4,8) : 1&(5,6) : 2&(5,7) : 0&(5,8) : 2&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 20 with incidence 28 and stabilizer of size 2. Orbit size is 9216
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 1&(1,3) : 0&(1,4) : 1&(1,5) : 2&(1,6) : -1&(1,7) : 1\\
+(1,8) : -2&(2,3) : -1&(2,4) : 0&(2,5) : -2&(2,6) : 1&(2,7) : 1\\
+(2,8) : 2&(3,6) : -1&(3,7) : 1&(3,8) : 1&(4,6) : -1&(4,7) : -1\\
+(4,8) : 1&(5,6) : 2&(5,7) : 0&(5,8) : 2&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 21 with incidence 28 and stabilizer of size 2. Orbit size is 9216
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 2&(1,3) : 0&(1,4) : -1&(1,5) : -2&(1,6) : 1&(1,7) : 0\\
+(1,8) : 2&(2,3) : 1&(2,4) : 1&(2,5) : 3&(2,6) : -1&(2,7) : -1\\
+(2,8) : -3&(3,6) : -1&(3,7) : 1&(3,8) : 1&(4,6) : -1&(4,7) : -1\\
+(4,8) : 2&(5,6) : 2&(5,7) : 1&(5,8) : 2&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 22 with incidence 28 and stabilizer of size 4. Orbit size is 4608
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 1&(1,3) : -1&(1,4) : 1&(1,5) : -1&(1,6) : 1&(1,7) : 0\\
+(1,8) : -1&(2,3) : 1&(2,4) : -1&(2,5) : 1&(2,6) : -1&(2,7) : 0\\
+(2,8) : 1&(3,6) : 1&(3,7) : 1&(3,8) : -2&(4,6) : -1&(4,7) : 1\\
+(4,8) : 2&(5,6) : 2&(5,7) : 0&(5,8) : 2&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 23 with incidence 28 and stabilizer of size 2. Orbit size is 9216
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 0&(1,3) : 0&(1,4) : 1&(1,5) : 1&(1,6) : 1&(1,7) : 0\\
+(1,8) : -1&(2,3) : 1&(2,4) : -1&(2,5) : 1&(2,6) : 0&(2,7) : -1\\
+(2,8) : 0&(3,6) : 2&(3,7) : 1&(3,8) : 2&(4,6) : -1&(4,7) : -1\\
+(4,8) : 2&(5,6) : -2&(5,7) : 1&(5,8) : 1&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 24 with incidence 28 and stabilizer of size 8. Orbit size is 2304
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 0&(1,3) : -1&(1,4) : -1&(1,5) : -2&(1,6) : 1&(1,7) : 2\\
+(1,8) : 1&(2,3) : -1&(2,4) : -1&(2,5) : 2&(2,6) : -1&(2,7) : 2\\
+(2,8) : -1&(3,6) : -1&(3,7) : 2&(3,8) : 1&(4,6) : 1&(4,7) : 2\\
+(4,8) : -1&(5,6) : 2&(5,7) : 0&(5,8) : 2&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 25 with incidence 28 and stabilizer of size 4. Orbit size is 4608
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 1&(1,3) : -1&(1,4) : 0&(1,5) : -1&(1,6) : 1&(1,7) : 1\\
+(1,8) : -1&(2,3) : 1&(2,4) : 0&(2,5) : 1&(2,6) : -1&(2,7) : -1\\
+(2,8) : 1&(3,6) : 1&(3,7) : 0&(3,8) : -1&(4,6) : 0&(4,7) : 1\\
+(4,8) : 1&(5,6) : 1&(5,7) : 1&(5,8) : 0&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 26 with incidence 28 and stabilizer of size 4. Orbit size is 4608
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 1&(1,3) : -2&(1,4) : 0&(1,5) : 0&(1,6) : 1&(1,7) : 1\\
+(1,8) : -1&(2,3) : 2&(2,4) : 0&(2,5) : 0&(2,6) : -1&(2,7) : -1\\
+(2,8) : 1&(3,6) : 2&(3,7) : 2&(3,8) : -2&(4,6) : -1&(4,7) : 2\\
+(4,8) : 1&(5,6) : 1&(5,7) : 0&(5,8) : 1&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 27 with incidence 27 and stabilizer of size 1. Orbit size is 18432
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 1&(1,3) : 1&(1,4) : 1&(1,5) : -1&(1,6) : 1&(1,7) : 0\\
+(1,8) : -1&(2,3) : 0&(2,4) : -1&(2,5) : 2&(2,6) : -1&(2,7) : -1\\
+(2,8) : 0&(3,6) : -1&(3,7) : 1&(3,8) : 1&(4,6) : -1&(4,7) : -1\\
+(4,8) : 2&(5,6) : 2&(5,7) : 1&(5,8) : 2&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 28 with incidence 27 and stabilizer of size 2. Orbit size is 9216
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 1&(1,3) : -1&(1,4) : 1&(1,5) : 1&(1,6) : 1&(1,7) : 0\\
+(1,8) : -1&(2,3) : 1&(2,4) : 0&(2,5) : -1&(2,6) : -1&(2,7) : 1\\
+(2,8) : 1&(3,6) : 2&(3,7) : 1&(3,8) : -1&(4,6) : 1&(4,7) : -1\\
+(4,8) : 1&(5,6) : -1&(5,7) : 1&(5,8) : 0&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 29 with incidence 26 and stabilizer of size 2. Orbit size is 9216
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 0&(1,3) : -1&(1,4) : -1&(1,5) : -2&(1,6) : 1&(1,7) : 2\\
+(1,8) : 1&(2,3) : -1&(2,4) : 0&(2,5) : 1&(2,6) : -1&(2,7) : 1\\
+(2,8) : 0&(3,6) : -1&(3,7) : 2&(3,8) : 1&(4,6) : 1&(4,7) : 2\\
+(4,8) : -2&(5,6) : 2&(5,7) : 1&(5,8) : 2&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 30 with incidence 26 and stabilizer of size 2. Orbit size is 9216
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 0&(1,3) : 0&(1,4) : 1&(1,5) : -1&(1,6) : 0&(1,7) : 0\\
+(1,8) : 0&(2,3) : 1&(2,4) : 1&(2,5) : 1&(2,6) : 0&(2,7) : -1\\
+(2,8) : 0&(3,6) : -1&(3,7) : 1&(3,8) : -1&(4,6) : 1&(4,7) : 1\\
+(4,8) : 0&(5,6) : 0&(5,7) : 1&(5,8) : 1&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 31 with incidence 26 and stabilizer of size 2. Orbit size is 9216
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 0&(1,3) : -1&(1,4) : 1&(1,5) : -1&(1,6) : 0&(1,7) : 1\\
+(1,8) : 0&(2,3) : -1&(2,4) : 1&(2,5) : 2&(2,6) : 1&(2,7) : 2\\
+(2,8) : -1&(3,6) : 1&(3,7) : 2&(3,8) : 1&(4,6) : 1&(4,7) : -2\\
+(4,8) : 1&(5,6) : -1&(5,7) : -1&(5,8) : 1&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 32 with incidence 26 and stabilizer of size 12. Orbit size is 1536
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 1&(1,3) : 0&(1,4) : 0&(1,5) : 0&(1,6) : -1&(1,7) : -1\\
+(1,8) : 1&(2,3) : 0&(2,4) : 0&(2,5) : 0&(2,6) : 1&(2,7) : 1\\
+(2,8) : -1&(3,6) : -1&(3,7) : 1&(3,8) : 0&(4,6) : 1&(4,7) : 0\\
+(4,8) : 1&(5,6) : 0&(5,7) : 1&(5,8) : 1&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 33 with incidence 25 and stabilizer of size 2. Orbit size is 9216
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 1&(1,3) : -1&(1,4) : 0&(1,5) : -1&(1,6) : 1&(1,7) : 1\\
+(1,8) : -1&(2,3) : 1&(2,4) : 0&(2,5) : 1&(2,6) : -1&(2,7) : -1\\
+(2,8) : 1&(3,6) : 1&(3,7) : 1&(3,8) : -2&(4,6) : -1&(4,7) : 2\\
+(4,8) : 1&(5,6) : 2&(5,7) : 1&(5,8) : 1&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 34 with incidence 25 and stabilizer of size 1. Orbit size is 18432
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : -1&(1,3) : -1&(1,4) : 1&(1,5) : 2&(1,6) : 2&(1,7) : 0\\
+(1,8) : -1&(2,3) : 0&(2,4) : -1&(2,5) : 2&(2,6) : 1&(2,7) : -1\\
+(2,8) : 0&(3,6) : 2&(3,7) : 1&(3,8) : 2&(4,6) : -1&(4,7) : -1\\
+(4,8) : 2&(5,6) : -2&(5,7) : 1&(5,8) : 1&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 35 with incidence 25 and stabilizer of size 1. Orbit size is 18432
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 1&(1,3) : 1&(1,4) : 0&(1,5) : -1&(1,6) : 1&(1,7) : -1\\
+(1,8) : 1&(2,3) : 0&(2,4) : 0&(2,5) : 1&(2,6) : 0&(2,7) : 1\\
+(2,8) : -1&(3,6) : -1&(3,7) : 1&(3,8) : -1&(4,6) : 1&(4,7) : 2\\
+(4,8) : 1&(5,6) : 1&(5,7) : -1&(5,8) : 0&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 36 with incidence 25 and stabilizer of size 1. Orbit size is 18432
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 0&(1,3) : -1&(1,4) : 2&(1,5) : -2&(1,6) : 1&(1,7) : 2\\
+(1,8) : 0&(2,3) : -1&(2,4) : 2&(2,5) : 3&(2,6) : -1&(2,7) : 3\\
+(2,8) : -2&(3,6) : -1&(3,7) : 3&(3,8) : 2&(4,6) : -1&(4,7) : -3\\
+(4,8) : 2&(5,6) : 2&(5,7) : -1&(5,8) : 2&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 37 with incidence 25 and stabilizer of size 4. Orbit size is 4608
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 2&(1,3) : 1&(1,4) : -1&(1,5) : -2&(1,6) : 1&(1,7) : 1\\
+(1,8) : 2&(2,3) : -1&(2,4) : 1&(2,5) : 2&(2,6) : -1&(2,7) : -1\\
+(2,8) : -2&(3,6) : 1&(3,7) : 1&(3,8) : -2&(4,6) : -1&(4,7) : 2\\
+(4,8) : 1&(5,6) : 2&(5,7) : 1&(5,8) : 1&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 38 with incidence 25 and stabilizer of size 1. Orbit size is 18432
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 2&(1,3) : -1&(1,4) : 1&(1,5) : -4&(1,6) : 1&(1,7) : 2\\
+(1,8) : 3&(2,3) : -1&(2,4) : -1&(2,5) : 3&(2,6) : -1&(2,7) : 0\\
+(2,8) : -2&(3,6) : -1&(3,7) : 2&(3,8) : 1&(4,6) : 1&(4,7) : 2\\
+(4,8) : -3&(5,6) : 2&(5,7) : 2&(5,8) : 3&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 39 with incidence 25 and stabilizer of size 1. Orbit size is 18432
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 1&(1,3) : -1&(1,4) : -1&(1,5) : -3&(1,6) : 1&(1,7) : 2\\
+(1,8) : 1&(2,3) : -1&(2,4) : 1&(2,5) : 2&(2,6) : -1&(2,7) : 0\\
+(2,8) : 0&(3,6) : -1&(3,7) : 2&(3,8) : 1&(4,6) : 1&(4,7) : 2\\
+(4,8) : -3&(5,6) : 2&(5,7) : 2&(5,8) : 3&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 40 with incidence 24 and stabilizer of size 1. Orbit size is 18432
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 1&(1,3) : -1&(1,4) : 0&(1,5) : -3&(1,6) : 1&(1,7) : 2\\
+(1,8) : 2&(2,3) : -1&(2,4) : -1&(2,5) : 2&(2,6) : -1&(2,7) : 1\\
+(2,8) : -1&(3,6) : -1&(3,7) : 2&(3,8) : 1&(4,6) : 1&(4,7) : 2\\
+(4,8) : -2&(5,6) : 2&(5,7) : 1&(5,8) : 2&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 41 with incidence 24 and stabilizer of size 2. Orbit size is 9216
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 1&(1,3) : 0&(1,4) : 0&(1,5) : -1&(1,6) : 1&(1,7) : 0\\
+(1,8) : -1&(2,3) : 1&(2,4) : 0&(2,5) : 1&(2,6) : 0&(2,7) : 0\\
+(2,8) : 1&(3,6) : -1&(3,7) : 1&(3,8) : -1&(4,6) : 1&(4,7) : 2\\
+(4,8) : 1&(5,6) : 1&(5,7) : -1&(5,8) : 0&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 42 with incidence 24 and stabilizer of size 8. Orbit size is 2304
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 0&(1,3) : 0&(1,4) : 0&(1,5) : 0&(1,6) : 1&(1,7) : 0\\
+(1,8) : -1&(2,3) : 1&(2,4) : 0&(2,5) : 1&(2,6) : 0&(2,7) : 0\\
+(2,8) : 0&(3,6) : -1&(3,7) : 1&(3,8) : -1&(4,6) : 1&(4,7) : 2\\
+(4,8) : 1&(5,6) : 1&(5,7) : -1&(5,8) : 1&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 43 with incidence 24 and stabilizer of size 1. Orbit size is 18432
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 1&(1,3) : -1&(1,4) : 1&(1,5) : -2&(1,6) : 1&(1,7) : 2\\
+(1,8) : 0&(2,3) : 1&(2,4) : 0&(2,5) : 1&(2,6) : -1&(2,7) : -1\\
+(2,8) : 1&(3,6) : 1&(3,7) : 1&(3,8) : -2&(4,6) : 2&(4,7) : -2\\
+(4,8) : -1&(5,6) : 3&(5,7) : 2&(5,8) : 2&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 44 with incidence 24 and stabilizer of size 4. Orbit size is 4608
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 2&(1,3) : -2&(1,4) : -1&(1,5) : -2&(1,6) : 2&(1,7) : 2\\
+(1,8) : -1&(2,3) : 2&(2,4) : 1&(2,5) : 2&(2,6) : -2&(2,7) : -2\\
+(2,8) : 1&(3,6) : 2&(3,7) : 0&(3,8) : -2&(4,6) : -1&(4,7) : 2\\
+(4,8) : 1&(5,6) : 3&(5,7) : 2&(5,8) : 1&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 45 with incidence 24 and stabilizer of size 1. Orbit size is 18432
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 1&(1,3) : -1&(1,4) : 0&(1,5) : -3&(1,6) : 1&(1,7) : 2\\
+(1,8) : 2&(2,3) : -1&(2,4) : 0&(2,5) : 2&(2,6) : -1&(2,7) : 0\\
+(2,8) : -1&(3,6) : -1&(3,7) : 2&(3,8) : 1&(4,6) : 1&(4,7) : 2\\
+(4,8) : -3&(5,6) : 2&(5,7) : 2&(5,8) : 3&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 46 with incidence 23 and stabilizer of size 4. Orbit size is 4608
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 2&(1,3) : 1&(1,4) : 0&(1,5) : -2&(1,6) : 1&(1,7) : 0\\
+(1,8) : 2&(2,3) : -1&(2,4) : 0&(2,5) : 2&(2,6) : -1&(2,7) : 0\\
+(2,8) : -2&(3,6) : 1&(3,7) : 1&(3,8) : -2&(4,6) : -1&(4,7) : 2\\
+(4,8) : 1&(5,6) : 2&(5,7) : 1&(5,8) : 1&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 47 with incidence 23 and stabilizer of size 2. Orbit size is 9216
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 1&(1,3) : -2&(1,4) : 0&(1,5) : -1&(1,6) : 2&(1,7) : 1\\
+(1,8) : -1&(2,3) : 2&(2,4) : 0&(2,5) : 1&(2,6) : -2&(2,7) : -1\\
+(2,8) : 1&(3,6) : 3&(3,7) : 2&(3,8) : -3&(4,6) : -2&(4,7) : 3\\
+(4,8) : 1&(5,6) : 3&(5,7) : 1&(5,8) : 2&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 48 with incidence 23 and stabilizer of size 4. Orbit size is 4608
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 2&(1,3) : -2&(1,4) : -1&(1,5) : -2&(1,6) : 2&(1,7) : 2\\
+(1,8) : -1&(2,3) : 2&(2,4) : 1&(2,5) : 2&(2,6) : -2&(2,7) : -2\\
+(2,8) : 1&(3,6) : 2&(3,7) : 1&(3,8) : -3&(4,6) : -2&(4,7) : 3\\
+(4,8) : 1&(5,6) : 4&(5,7) : 2&(5,8) : 2&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 49 with incidence 23 and stabilizer of size 1. Orbit size is 18432
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 0&(1,3) : -1&(1,4) : 0&(1,5) : -2&(1,6) : 1&(1,7) : 2\\
+(1,8) : 2&(2,3) : -2&(2,4) : 1&(2,5) : 1&(2,6) : -2&(2,7) : 1\\
+(2,8) : 1&(3,6) : -2&(3,7) : 3&(3,8) : 2&(4,6) : 1&(4,7) : 3\\
+(4,8) : -3&(5,6) : 2&(5,7) : 1&(5,8) : 2&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 50 with incidence 22 and stabilizer of size 2. Orbit size is 9216
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,2) : 2&(1,3) : -2&(1,4) : -1&(1,5) : -3&(1,6) : 2&(1,7) : 3\\
+(1,8) : -1&(2,3) : 2&(2,4) : 1&(2,5) : 3&(2,6) : -2&(2,7) : -3\\
+(2,8) : 1&(3,6) : 2&(3,7) : 2&(3,8) : -4&(4,6) : -3&(4,7) : 4\\
+(4,8) : 1&(5,6) : 5&(5,7) : 4&(5,8) : 3&               &               \\
+\hline
+\end{tabular}
+\end{center}
+\end{enumerate}
+\end{document}
+

@@ -1,0 +1,48 @@
+U:=ReadAsFunction("ListPerfectMat")();;
+
+ToRegularForm:=function(LowerMat)
+  local n, TheMat, i, j;
+  n:=Length(LowerMat);
+  TheMat:=NullMat(n,n);
+  for i in [1..n]
+  do
+    for j in [1..i]
+    do
+      TheMat[i][j]:=LowerMat[i][j];
+      if j<i then
+        TheMat[j][i]:=LowerMat[i][j];
+      fi;
+    od;
+  od;
+  return TheMat;
+end;
+List10916:=List(U, ToRegularForm);
+SaveDataToFile("ListPerfDim8", List10916);
+
+
+ComputeListInvariant:=function()
+  local ListInv, iMat, TheGramMat, SHV, GRP;
+  ListInv:=[];
+  for iMat in [1..10916]
+  do
+    TheGramMat:=List10916[iMat];
+    SHV:=ShortestVectorDutourVersion(TheGramMat);
+    GRP:=Method2AutomorphismLattice(TheGramMat);
+    Add(ListInv, rec(SHV:=SHV, GRP:=GRP));
+    Print("iMat=", iMat, "\n");
+  od;
+  SaveDataToFile("KeyInvariant", ListInv);
+end;
+
+GetWorkingData:=function(SHV, GRP)
+  local ListPermGens, eGen, eList, PermGRP;
+  ListPermGens:=[];
+  for eGen in GeneratorsOfGroup(GRP)
+  do
+    eList:=List(SHV, x->Position(SHV, x*eGen));
+    Add(ListPermGens, PermList(eList));
+  od;
+  PermGRP:=Group(ListPermGens);
+  return rec(EXT:=List(SHV, x->Concatenation([1], x)), PermGRP:=PermGRP);
+end;
+

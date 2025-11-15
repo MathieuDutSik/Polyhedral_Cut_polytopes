@@ -1,0 +1,280 @@
+Read("Functions/BaranovskiSearch");
+CombinatorialModelCutSystem:=function(ListCuts, n)
+  local ListVertices, iCut, iCol, LV1, LV2, ThePartition, GRA, pos1, pos2, jCol, jCut;
+  ListVertices:=[];
+  for iCut in [1..Length(ListCuts)]
+  do
+    Add(ListVertices, [0, iCut, 0]);
+    Add(ListVertices, [0, iCut, 1]);
+  od;
+  for iCut in [1..Length(ListCuts)]
+  do
+    for iCol in [1..n]
+    do
+      Add(ListVertices, [1, iCut, iCol]);
+    od;
+  od;
+  LV1:=Filtered([1..Length(ListVertices)], x->ListVertices[x][1]=0);
+  LV2:=Filtered([1..Length(ListVertices)], x->ListVertices[x][1]=1);
+  ThePartition:=[LV1, LV2];
+  GRA:=NullGraph(Group(()), Length(ListVertices));
+  for iCut in [1..Length(ListCuts)]
+  do
+    pos1:=Position(ListVertices, [0, iCut, 0]);
+    pos2:=Position(ListVertices, [0, iCut, 1]);
+    AddEdgeOrbit(GRA, [pos1, pos2]);
+    AddEdgeOrbit(GRA, [pos2, pos1]);
+  od;
+  for iCut in [1..Length(ListCuts)]
+  do
+    for iCol in [1..n]
+    do
+      pos1:=Position(ListVertices, [1, iCut, iCol]);
+      if Position(ListCuts[iCut], iCol)<>fail then
+        pos2:=Position(ListVertices, [0, iCut, 0]);
+      else
+        pos2:=Position(ListVertices, [0, iCut, 1]);
+      fi;
+      AddEdgeOrbit(GRA, [pos1, pos2]);
+      AddEdgeOrbit(GRA, [pos2, pos1]);
+    od;
+  od;
+  for iCut in [1..Length(ListCuts)]
+  do
+    for iCol in [1..n-1]
+    do
+      for jCol in [iCol+1..n]
+      do
+        pos1:=Position(ListVertices, [1, iCut, iCol]);
+        pos2:=Position(ListVertices, [1, iCut, jCol]);
+        AddEdgeOrbit(GRA, [pos1, pos2]);
+        AddEdgeOrbit(GRA, [pos2, pos1]);
+      od;
+    od;
+  od;
+  for iCol in [1..n]
+  do
+    for iCut in [1..Length(ListCuts)-1]
+    do
+      for jCut in [iCut+1..Length(ListCuts)]
+      do
+        pos1:=Position(ListVertices, [1, iCut, iCol]);
+        pos2:=Position(ListVertices, [1, jCut, iCol]);
+        AddEdgeOrbit(GRA, [pos1, pos2]);
+        AddEdgeOrbit(GRA, [pos2, pos1]);
+      od;
+    od;
+  od;
+  return rec(GRA:=GRA, ThePartition:=ThePartition, ListVertices:=ListVertices);
+end;
+
+
+CharacteristicGraphOfCutSystem:=function(ListCuts, n)
+  local TheModel, CanonDesc;
+  TheModel:=CombinatorialModelCutSystem(ListCuts, n);
+  CanonDesc:=CanonicalRepresentativeVertexColoredGraph(TheModel.GRA, TheModel.ThePartition);
+  return __GetGraph6Expression(CanonDesc);
+end;
+
+GenerateFirstStep:=function(n)
+  local List1Cuts, i;
+  List1Cuts:=[];
+  for i in [1..n-1]
+  do
+    if 2*i <= n then
+      Add(List1Cuts, [ [1..i] ]);
+    fi;
+  od;
+  return List1Cuts;
+end;
+
+
+IsDisjointWithCuts:=function(eSyst, eSet, n)
+  local eCut;
+  for eCut in eSyst
+  do
+    if eCut=eSet then
+      return false;
+    fi;
+    if Difference([1..n], eCut)=eSet then
+      return false;
+    fi;
+  od;
+  return true;
+end;
+
+
+Generate2dimensionalOrbits:=function(n)
+  local List1Cuts, i, List2Cuts, FuncInsert, eSyst, eSet;
+  List1Cuts:=[];
+  for i in [1..n-1]
+  do
+    if 2*i <= n then
+      Add(List1Cuts, [ [1..i] ]);
+    fi;
+  od;
+  List2Cuts:=[];
+  FuncInsert:=function(ListCuts)
+    local CanonStr, eSyst;
+    CanonStr:=CharacteristicGraphOfCutSystem(ListCuts, n);
+    for eSyst in List2Cuts
+    do
+      if eSyst.CanonStr=CanonStr then
+        return;
+      fi;
+    od;
+    Add(List2Cuts, rec(ListCuts:=ListCuts, CanonStr:=CanonStr));
+  end;
+  for eSyst in List1Cuts
+  do
+    for eSet in Combinations([1..n-1])
+    do
+      if eSet<>[] and IsDisjointWithCuts(eSyst, eSet, n)=true then
+        FuncInsert(Concatenation(eSyst, [eSet]));
+      fi;
+    od;
+  od;
+  return List(List2Cuts, x->x.ListCuts);
+end;
+
+
+SaturationCutSystem:=function(ListCuts, n)
+  local ListHyps, SaturatedCutSystem, eSet, IsOK, eHyp, TheSum;
+  ListHyps:=GetListIncidentHypermetricFacet(ListCuts, n);
+  Print("|Hyps|=", Length(ListHyps), "\n");
+  SaturatedCutSystem:=[];
+  for eSet in Combinations([1..n-1])
+  do
+    IsOK:=true;
+    for eHyp in ListHyps
+    do
+      TheSum:=Sum(eHyp{eSet});
+      if TheSum<>0  and TheSum<>1 then
+        IsOK:=false;
+      fi;
+    od;
+    Add(SaturatedCutSystem, eSet);
+  od;
+  return SaturatedCutSystem;
+end;
+
+
+SaturationCutSystem_V2:=function(ListCuts, n)
+  local LORB, FileMeta, FileHyps, FileCuts, FileOut, output, eOrbHyp, eCut, V, BinaryFile, TheResult;
+  LORB:=GetConjecturalListFacetHYPn(n);
+  FileMeta:=Filename(POLYHEDRAL_tmpdir, "CUT_HYP_meta");
+  FileHyps:=Filename(POLYHEDRAL_tmpdir, "CUT_HYP_hyps");
+  FileCuts:=Filename(POLYHEDRAL_tmpdir, "CUT_HYP_cuts");
+  FileOut:=Filename(POLYHEDRAL_tmpdir, "CUT_HYP_out");
+  RemoveFileIfExist(FileMeta);
+  RemoveFileIfExist(FileHyps);
+  RemoveFileIfExist(FileCuts);
+  RemoveFileIfExist(FileOut);
+  #
+  output:=OutputTextFile(FileMeta, true);
+  AppendTo(output, n, " ", Length(LORB), " ", Length(ListCuts), "\n");
+  CloseStream(output);
+  #
+  output:=OutputTextFile(FileHyps, true);
+  for eOrbHyp in LORB
+  do
+    WriteVector(output, eOrbHyp);
+  od;
+  CloseStream(output);
+  #
+  output:=OutputTextFile(FileCuts, true);
+  for eCut in ListCuts
+  do
+    V:=ListWithIdenticalEntries(n, 0);
+    V{eCut}:=ListWithIdenticalEntries(Length(eCut), 1);
+    WriteVector(output, V);
+  od;
+  CloseStream(output);
+  #
+  BinaryFile:="Functions/CutSaturation.prog";
+  Exec(BinaryFile, " ", FileMeta, " ", FileHyps, " ", FileCuts, " ", FileOut);
+  TheResult:=ReadAsFunction(FileOut)();
+  RemoveFile(FileMeta);
+  RemoveFile(FileHyps);
+  RemoveFile(FileCuts);
+  RemoveFile(FileOut);
+  return TheResult;
+end;
+
+
+
+
+
+AddOneLevelOfSearch:=function(ListListCuts, n)
+  local NewListListCut, FuncInsert, eSyst, eSet, TheCutSyst, TheCutSystSaturated;
+  NewListListCut:=[];
+  FuncInsert:=function(ListCuts)
+    local CanonStr, eSyst;
+    CanonStr:=CharacteristicGraphOfCutSystem(ListCuts, n);
+    for eSyst in NewListListCut
+    do
+      if eSyst.CanonStr=CanonStr then
+        return;
+      fi;
+    od;
+    Add(NewListListCut, rec(ListCuts:=ListCuts, CanonStr:=CanonStr));
+  end;
+  for eSyst in ListListCuts
+  do
+    for eSet in Combinations([1..n-1])
+    do
+      if eSet<>[] and IsDisjointWithCuts(eSyst, eSet, n)=true then
+        TheCutSyst:=Concatenation(eSyst, [eSet]);
+        TheCutSystSaturated:=SaturationCutSystem_V2(TheCutSyst, n);
+        FuncInsert(TheCutSystSaturated);
+      fi;
+    od;
+  od;
+  return NewListListCut;
+end;
+
+
+SymmetricDifference:=function(eSet1, eSet2)
+  return Difference(Union(eSet1, eSet2), Intersection(eSet1, eSet2));
+end;
+
+
+CutDistance:=function(eSet1, eSet2, n)
+  return Minimum(Length(SymmetricDifference(eSet1, eSet2)), Length(SymmetricDifference(Difference([1..n], eSet1), eSet2)));
+end;
+
+
+
+PolytopeGraphOfCuts:=function(n)
+  local LVERT, GRA, i, j;
+  LVERT:=Combinations([1..n-1]);
+  GRA:=NullGraph(Group(()), Length(LVERT));
+  for i in [1..Length(LVERT)-1]
+  do
+    for j in [i+1..Length(LVERT)]
+    do
+      if CutDistance(LVERT[i], LVERT[j], n)=1 then
+        AddEdgeOrbit(GRA, [i,j]);
+        AddEdgeOrbit(GRA, [j,i]);
+      fi;
+    od;
+  od;
+  return rec(GRA:=GRA, VertexSet:=LVERT);
+end;
+
+ConeGraphOfCuts:=function(n)
+  local LVERT, GRA, i, j;
+  LVERT:=Difference(Combinations([1..n-1]), [[]]);
+  GRA:=NullGraph(Group(()), Length(LVERT));
+  for i in [1..Length(LVERT)-1]
+  do
+    for j in [i+1..Length(LVERT)]
+    do
+      if CutDistance(LVERT[i], LVERT[j], n)=1 then
+        AddEdgeOrbit(GRA, [i,j]);
+        AddEdgeOrbit(GRA, [j,i]);
+      fi;
+    od;
+  od;
+  return rec(GRA:=GRA, VertexSet:=LVERT);
+end;

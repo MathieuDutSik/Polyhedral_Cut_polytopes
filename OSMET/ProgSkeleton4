@@ -1,0 +1,7 @@
+Read("FacetAdjacency");
+
+SaveSkeleton(9,3);
+SaveSkeleton(9,4);
+SaveSkeleton(9,5);
+SaveSkeleton(9,6);
+SaveSkeleton(9,7);

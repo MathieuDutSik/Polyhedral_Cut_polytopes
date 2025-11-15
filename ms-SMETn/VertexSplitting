@@ -1,0 +1,85 @@
+#!/usr/bin/perl
+
+# This script do a zero extension of a vector from
+# SMET^{m,s}_n to a vector of SMET^{m,s}_{n+1}
+
+
+$uu=scalar(@ARGV);
+
+if ($uu ne 4)
+{
+    print "VertexSplitting is used as\n";
+    print "./VertexSplitting [m] [n] [SplittedVertex] [File]\n\n";
+    print "with [m] indicating the order of the supermetric\n";
+    print "with [n] the size of the set on which we consider the supermetric\n";    
+    print "with [SplittedVertex] indicating the vertex that is splitted\n";
+    print "with [File] a file of extreme rays or facets\n";
+    print "it acts from SMET^{m,s}_n to SMET^{m,s}_{n+1}\n";
+    die;
+}
+
+$m=$ARGV[0];
+$n=$ARGV[1];
+$VS=$ARGV[2];
+$File=$ARGV[3];
+$k=$m+1;
+
+
+$nplus1=$n+1;
+$nminus1=$n-1;
+
+$mminus1=$m-1;
+$kminus1=$k-1;
+
+$order="./Set-mn ".$m." ".$n;
+system $order;
+$order="./Set-mn ".$m." ".$nplus1;
+system $order;
+
+open(INFILE, "Scene/".$k."-Sets-".$n) or die "impossible to open Scene/".$k."-Sets-".$n."\n";
+@SSET=<INFILE>;
+close(INFILE);
+
+open(INFILE, "Scene/".$k."-Sets-".$nplus1) or die "impossible to open Scene/".$k."-Sets-".$nplus1."\n";
+@SSET_NEW=<INFILE>;
+close(INFILE);
+
+open(INFILE, $File) or die "impossible to open ".$File."\n";
+@LE=<INFILE>;
+close(INFILE);
+
+for ($iLine=1; $iLine<=scalar(@LE); $iLine++)
+{
+    @LiNe=split(" ", $LE[$iLine-1]);
+    print " ".$LiNe[0];
+    for ($iCol=1; $iCol<=scalar(@SSET_NEW);  $iCol++)
+    {
+	@U=split(" ", $SSET_NEW[$iCol-1]);
+	if ($U[$VS-1] eq 1 && $U[$nplus1-1] eq 1)
+	{
+	    print " 0";
+	}
+	else
+	{
+	    if ($U[$nplus1-1] eq 1)
+	    {
+		$U[$VS-1]=1;
+	    }
+	    $SV="";
+	    for ($iC=1; $iC<=$nplus1-1; $iC++)
+	    {
+		$SV=$SV." ".$U[$iC-1];
+	    }
+	    $SV=$SV."\n";
+	    #
+	    for ($iElt=1; $iElt<=scalar(@SSET); $iElt++)
+	    {
+		if ($SV eq $SSET[$iElt-1])
+		{
+		    print " ".$LiNe[$iElt];
+		}
+	    }
+	}
+    }
+    print "\n";
+}

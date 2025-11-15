@@ -1,0 +1,113 @@
+#!/usr/bin/perl
+
+# We will generate the inequalities of the cone QMET_n
+# For higher cones you will to change 10 to a bigger constant
+# but this is a very far perspective
+
+$uu=scalar(@ARGV);
+
+if ($uu ne 2)
+{
+    print "CreateQMETn-INEQ is used as\n";
+    print "CreateQMETn-INEQ [n] [kind]\n";
+    print "with [n] the asked order\n";
+    print "with [kind=1] for the vector\n";
+    print "with [kind=2] for the symbol\n";
+    die;
+}
+
+$n=$ARGV[0];
+$kind=$ARGV[1];
+
+
+
+
+$dimension=$n*($n-1);
+$k=1; 
+for ($i=1; $i<=$n; $i++)
+{
+    for ($j=1; $j<=$n; $j++)
+    {
+	if ($i ne $j)
+	{
+	    $R1[$k]=$i;
+	    $R2[$k]=$j;
+	    $RoR[($n+1)*$i+$j]=$k;
+	    $k++;
+	}
+    }
+}
+
+for ($i=1; $i<=$n; $i++)
+{
+    for ($j=1; $j<=$n; $j++)
+    {
+	for ($k=1; $k<=$n; $k++)
+	{
+	    if ( $i ne $j && $i ne $k && $j ne $k)
+	    {
+		for ($iter=1; $iter<=$dimension; $iter++)
+		{
+		    $R[$iter]=0;
+		}
+		$u=($n+1)*$i+$j;
+		$v=($n+1)*$i+$k;
+		$w=($n+1)*$k+$j;
+		$indij=$RoR[$u];
+		$indik=$RoR[$v];
+		$indkj=$RoR[$w];
+		$R[$indij]=-1;
+		$R[$indik]=1;
+		$R[$indkj]=1;
+		if ($kind eq 1)
+		{
+		    print " 0";
+		    for ($iC=1; $iC<=$dimension; $iC++)
+		    {
+			print " ".$R[$iC];
+		    }
+		    print "\n";
+		}
+		else
+		{
+		    print "\$T_{".$i.",".$j.";".$k."}\$\n";
+		}
+	    }
+	}
+    }
+}
+
+
+for ($i=1; $i<=$n; $i++)
+{
+    for ($j=1; $j<=$n; $j++)
+    {
+	if ($i ne $j)
+	{
+	    for ($iter=1; $iter<=$dimension; $iter++)
+	    {
+		$R[$iter]=0;
+	    }
+	    $u=($n+1)*$i+$j;
+	    $indij=$RoR[$u];
+	    $R[$indij]=1;
+	    if ($kind eq 1)
+	    {
+		print " 0";
+		for ($iC=1; $iC<=$dimension; $iC++)
+		    {
+			print " ".$R[$iC];
+		    }
+		print "\n";
+	    }
+	    else
+	    {
+		print "\$N_{".$i.",".$j."}\$\n";
+	    }
+	}
+    }
+}
+
+
+
+

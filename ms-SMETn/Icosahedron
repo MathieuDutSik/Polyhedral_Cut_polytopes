@@ -1,0 +1,35 @@
+#!/usr/bin/perl
+
+$phiK=(1+sqrt(5))/2;
+
+#print "phi=".$phiK."\n";
+
+@xL=($phiK, -$phiK, $phiK, -$phiK, 1, -1, 1, -1, 0, 0, 0, 0);
+@yL=(0, 0, 0, 0, $phiK, $phiK, -$phiK, -$phiK, 1, -1, 1, -1);
+@zL=(1, 1, -1, -1, 0, 0, 0, 0, $phiK, $phiK, -$phiK, -$phiK);
+
+print "n=13\n";
+print "g\n";
+for ($i=1; $i<=12; $i++)
+{
+    print $i." :";
+    for ($j=1; $j<=12; $j++)
+    {
+	$d1=$xL[$i-1]-$xL[$j-1];
+	$d2=$yL[$i-1]-$yL[$j-1];
+	$d3=$zL[$i-1]-$zL[$j-1];
+	#
+	$d=$d1*$d1+$d2*$d2+$d3*$d3;
+	print "i=".$i."  j=".$j."  d=".$d."\n";
+	if ($d> 3.99)
+	{
+	    if ($d<4.01)
+	    {
+		print " ".$j;
+	    }
+	}
+    }
+    print ";\n";
+}
+print "x\n";
+print "o\n";

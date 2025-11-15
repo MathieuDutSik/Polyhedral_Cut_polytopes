@@ -1,0 +1,15 @@
+INFO about this section
+
+It is written for the special purpose of
+working with general supermetric cones.
+The implementation is done using a list of sets.
+
+At present it
+--Build general orbits (non-negative and super simplex)
+--Build the groups
+--Build the representation groups
+--Build the Partition extreme rays of m-HMETn
+--Build the associated graphs
+
+It should
+--Build extreme rays of (m,m)-SMETn

@@ -1,0 +1,37 @@
+#!/usr/bin/perl
+
+
+# this script takes a facets inequality or a quasimetric
+# presented in matrix form and output it in usual form
+
+
+$IncdFile="../../RawDatas/QMET5/IncidenceNumbers";
+open(INFILE, $IncdFile) or die "impossible to open ".$IncdFile."\n";
+@INC=<INFILE>;
+close(INFILE);
+
+$n=scalar(@LP);
+
+
+for ($iOrb=1; $iOrb<=229; $iOrb++)
+{
+    $OrbFile="../../RawDatas/QMET5/FOUND/ACOrbit".$iOrb;
+    open(INFILE, $OrbFile) or die "impossible to open ".$OrbFile."\n";
+    @ORB=<INFILE>;
+    close(INFILE);
+
+    $_=$ORB[0];
+    s/\n//;
+    $Adj=$_;
+
+    $_=$ORB[1];
+    s/\n//;
+    $Size=$_;
+
+    $_=$INC[$iOrb-1];
+    s/\n//;
+    $inc=$_;
+    
+    print "(".$iOrb.", ".$Adj.", ".$inc.", ".$Size.")\n";
+}
+

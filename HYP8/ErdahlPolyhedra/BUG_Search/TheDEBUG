@@ -1,0 +1,8 @@
+Read("TheScheme.g");
+U:=ReadAsFunction("ForDebug")();;
+
+EXT:=U.EXT;
+GRP:=U.GRP;
+
+ListEXT:=__FindAdjacentPerfectDelaunayPolytopes(EXT, GRP);
+

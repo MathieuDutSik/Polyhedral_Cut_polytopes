@@ -1,0 +1,75 @@
+#!/usr/bin/perl
+
+# This script create a single file named Orbitwise
+# In order to create paritions
+# output should be unicized
+
+$uu=scalar(@ARGV);
+
+if ($uu ne 2)
+{
+    print "CreateOrbitPartitions is used as\n";
+    print "./CreateOrbitPartitions [m] [n]\n\n";
+    print "with [m] indicating the order of the supermetric\n";
+    print "with [n] the size of the set on which we consider the supermetric\n";
+    die;
+}
+
+$m=$ARGV[0];
+$n=$ARGV[1];
+
+if ($m+1> $n)
+{
+    $R=$m+1;
+    print "impossible to partition a set of ".$n." elements\n";
+    print "into ".$R." non-empty subsets\n";
+    die;
+}
+
+#
+# A recursive program to build orbits of partitions
+sub ListPartitions($$)
+{
+    my ($m, $n) =@_;
+    my @LE, @UR;
+    my $k,$iLine,$remain, $level;
+    if ($m eq 0)
+    {
+	$LE[0]=" ".$n;
+    }
+    else
+    {
+	@LE=();
+	# $k is the size of remaining partition, $k>= $m
+	for ($k=$m; $k<=$n-1; $k++)
+	{
+	    @UR=ListPartitions($m-1, $k);
+	    $remain=$n-$k;
+	    for ($iLine=1; $iLine<=scalar(@UR); $iLine++)
+	    {
+		$UR[$iLine-1]=$UR[$iLine-1]." ".$remain;
+	    }
+	    @LE=(@LE, @UR);
+	}
+    }
+    return @LE;
+}
+
+@LIST=ListPartitions($m,$n);
+#
+# reordering of elements
+for ($iLine=1; $iLine<=scalar(@LIST); $iLine++)
+{
+    @l=split(" ",$LIST[$iLine-1]);
+    @k=sort(@l);
+    $L2[$iLine-1]="";
+    for ($iC=1; $iC<=scalar(@k); $iC++)
+    {
+	$L2[$iLine-1]=$L2[$iLine-1]." ".$k[$iC-1];
+    }
+}
+@L3=sort(@L2);
+for ($iLine=1; $iLine<=scalar(@L3); $iLine++)
+{
+    print $L3[$iLine-1]."\n";
+}

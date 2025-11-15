@@ -1,0 +1,93 @@
+#!/usr/bin/perl
+
+# This script will add the reversal operation to the permutation inputs
+# so if input has k elements then output will have 2*k elements.
+
+$uu=scalar(@ARGV);
+
+if ($uu ne 2)
+{
+    print "AddReversal is used as\n\n";
+    print "AddReversal [file] [dimension\n";
+    print "with [file] a representation in some QMET-OMCUT_d\n";
+    print "with d=[dimension]\n";
+    die;
+}
+
+$NameFile=$ARGV[0];
+$n=$ARGV[1];
+
+open(INFILE, $NameFile) or die "impossible to open ".$NameFile."\n";
+@LP=<INFILE>;
+close(INFILE);
+
+
+@exmpl=split(" ", $LP[0]);
+
+$N=scalar(@exmpl);
+
+if ($N ne $n*($n-1))
+{
+    print "No dimension agreement\n";
+    print "N=".$N."  while n=".$n."\n";
+    die;
+}
+$mantissa=9;
+
+
+$level=1;
+for ($i=1; $i<=$n; $i++)
+{
+    for ($j=1; $j<=$n; $j++)
+    {
+	if ($i ne $j)
+	{
+	    $A[$level]=$i*($mantissa+1)+$j;
+	    $level++;
+	}
+    }
+}
+
+$level=1;
+for ($i=1; $i<=$n; $i++)
+{
+    for ($j=1; $j<=$n; $j++)
+    {
+	if ($i ne $j)
+	{
+	    $B[$level]=$j*($mantissa+1)+$i;
+	    $level++;
+	}
+    }
+}
+
+#
+#
+# I determine the reversal operation
+
+for ($i=1; $i<=$N; $i++)
+{
+    for ($j=1; $j<=$N; $j++)
+    {
+	if ($A[$i] eq $B[$j])
+	{
+	    $R[$i]=$j;
+	}
+    }
+}
+
+
+for ($iLine=1; $iLine<=scalar(@LP); $iLine++)
+{
+    @LIS=split(" ",$LP[$iLine-1]);
+    for ($i=1; $i<=$N; $i++)
+    {
+	print $LIS[$R[$i]-1]." ";
+    }
+    print "\n";
+    for ($i=1; $i<=$N; $i++)
+    {
+	print $LIS[$i-1]." ";
+    }
+    print "\n";
+}

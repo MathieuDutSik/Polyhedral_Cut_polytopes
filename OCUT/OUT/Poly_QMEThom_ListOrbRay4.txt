@@ -1,0 +1,81 @@
+Vertices of the polytope WQMETP4
+|GRPsymRevSwitch|=384 |FAC|=40
+|GRPsymRev|=48
+nbOrb=3
+iOrb=1/3 |inc|=24 |stab|=48 |O|=8
+ 0 0 0 0
+ 0 0 0 0
+ 0 0 0 0
+ 0 0 0 0
+   denominator=1
+ under GRPsymRev, the orbit splits into 3 orbits
+iOrbSplit=1/3
+ 0 1 1 0
+ 1 0 0 1
+ 1 0 0 1
+ 0 1 1 0
+   denominator=1
+iOrbSplit=2/3
+ 0 1 0 0
+ 1 0 1 1
+ 0 1 0 0
+ 0 1 0 0
+   denominator=1
+iOrbSplit=3/3
+ 0 0 0 0
+ 0 0 0 0
+ 0 0 0 0
+ 0 0 0 0
+   denominator=1
+
+iOrb=2/3 |inc|=21 |stab|=12 |O|=32
+ 0 1 0 0
+ 0 0 0 0
+ 0 1 0 0
+ 0 1 0 0
+   denominator=1
+ under GRPsymRev, the orbit splits into 2 orbits
+iOrbSplit=1/2
+ 0 0 1 1
+ 0 0 1 1
+ 1 1 0 1
+ 0 0 0 0
+   denominator=1
+iOrbSplit=2/2
+ 0 0 0 1
+ 0 0 0 1
+ 0 0 0 1
+ 0 0 0 0
+   denominator=1
+
+iOrb=3/3 |inc|=20 |stab|=16 |O|=24
+ 0 0 0 0
+ 1 0 1 0
+ 0 0 0 0
+ 1 0 1 0
+   denominator=1
+ under GRPsymRev, the orbit splits into 3 orbits
+iOrbSplit=1/3
+ 0 1 1 1
+ 0 0 1 0
+ 0 1 0 0
+ 1 1 1 0
+   denominator=1
+iOrbSplit=2/3
+ 0 0 0 0
+ 0 0 0 0
+ 1 1 0 1
+ 1 1 1 0
+   denominator=1
+iOrbSplit=3/3
+ 0 0 0 0
+ 0 0 0 0
+ 1 1 0 0
+ 1 1 0 0
+   denominator=1
+
+TotalNumberVertices=64
+nbOrbitVertices=3
+|eRec.FAChom|=40
+nbOrb Facet=2
+dim=9

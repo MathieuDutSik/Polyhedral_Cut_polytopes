@@ -1,0 +1,40 @@
+#!/usr/bin/perl
+
+$uu=scalar(@ARGV);
+
+if ($uu ne 1)
+{
+    print "CreateCircleCuts is used as\n";
+    print "./CreateCircleCuts [CircleFile]\n\n";
+    print "with [CircleFile] a list of circles of Vn";
+    print "in format 1 2 3 # 4 5\n";
+    die;
+}
+
+$CircleFile=$ARGV[0];
+
+open(INFILE, $CircleFile) or die "impossible to open ".$CircleFile;
+@CIRC=<INFILE>;
+close(INFILE);
+
+for ($iCircle=1; $iCircle<=scalar(@CIRC); $iCircle++)
+{
+    $line=$CIRC[$iCircle-1];
+    @LE=split("#", $line);
+    $sizeLE=scalar(@LE);
+    print "\$\\overline{";
+    for ($iLE=1; $iLE<=scalar(@LE); $iLE++)
+    {
+	@U=split(" ", $LE[$iLE-1]);
+	$s=scalar(@U);
+	print "C_{".$s."}";
+	if ($iLE < scalar(@LE))
+	{
+	    print "+";
+	}
+
+    }
+    print "}\$, ";
+}
+print "\n";
+

@@ -1,0 +1,94 @@
+#!/usr/bin/perl
+
+
+$uu=scalar(@ARGV);
+
+if ($uu ne 2)
+{
+    print "MetricToQuasiMetric is used as\n\n";
+    print "MetricToQuasiMetric [file] [dimension]\n";
+    print "with file a NUDE list of metric facet or extreme rays\n";
+    print "and dimension the dimension\n";
+    die;
+}
+
+$NameFile=$ARGV[0];
+$n=$ARGV[1];
+
+
+open(INFILE, $NameFile) or die "impossible to open ".$NameFile."\n";
+@ListE=<INFILE>;
+close(INFILE);
+
+@exmpl=split(" ", $ListE[0]);
+
+
+$N=scalar(@exmpl)-1;
+
+if (2*$N ne $n*($n-1))
+{
+    print "Error, there is no agreement on dimensions\n";
+    die;
+}
+
+
+
+$mantissa=9;
+
+$level=1;
+for ($i=1; $i<=$n; $i++)
+{
+    for ($j=1; $j<=$n; $j++)
+    {
+	if ($i ne $j)
+	{
+	    $oR[$i*($mantissa+1)+$j]=$level;
+	    $level++;
+	}
+    }
+}
+
+$level=1;
+for ($i=1; $i<=$n-1; $i++)
+{
+    for ($j=$i+1; $j<=$n; $j++)
+    {
+	if ($i ne $j)
+	{
+	    $R[$i*($mantissa+1)+$j]=$level;
+	    $level++;
+	}
+    }
+}
+
+
+
+
+
+for ($iLine=1; $iLine<=scalar(@ListE); $iLine++)
+{
+    @LIS=split(" ", $ListE[$iLine-1]);
+    print " 0";
+    for ($i=1; $i<=$n; $i++)
+    {
+	for ($j=1; $j<=$n; $j++)
+	{
+	    if ($i ne $j)
+	    {
+		if ($i <$j)
+		{
+		    print " ".$LIS[$R[$i*($mantissa+1)+$j]];
+		}
+		else
+		{
+		    print " ".$LIS[$R[$j*($mantissa+1)+$i]];
+		}
+	    }
+	}
+    }
+    print "\n";
+
+}
+
+
+

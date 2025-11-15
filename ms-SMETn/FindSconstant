@@ -1,0 +1,33 @@
+#!/usr/bin/perl
+
+# This procedure takes as argument a list of sets and
+# a list of vectors and return the graph obtained by keeping the
+# nonzero coordinate (subgraph of a Johnson Graph)
+
+@B=<>;
+$min=6000;
+$idx=1;
+for ($i=1; $i<=scalar(@B); $i++)
+{
+    @LE=split(" ", $B[$i-1]);
+    $Sum=0;
+    for ($col=1; $col<=scalar(@LE)-1; $col++)
+    {
+	$Sum=$Sum+sqrt($LE[$col]);
+    }
+    $Divisor=sqrt($LE[0]);
+    $val=$Sum/$Divisor;
+    $_=$B[$i-1];
+    s/\n//;
+    print $_." val=".$val."\n";
+    if ($val<$min)
+    {
+	$min=$val;
+	$idx=$i;
+	$ReSuLt=$_;
+    }
+}
+print "sqrt2=", sqrt(2)."\n";
+print "val=".$min."\n";
+print "idx=".$idx."\n";
+print "Occur=".$ReSuLt."\n";

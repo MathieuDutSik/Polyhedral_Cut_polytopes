@@ -1,0 +1,12 @@
+Facets of the polytope OCUTP3
+c d12 d13 d23 w2 w3
+nbOrb=2
+iOrb=1 |inc|=9 |stab|=12 |O|=4
+ 0 1 -1 1 0 0
+iOrb=2 |inc|=8 |stab|=4 |O|=12
+ 0 0 0 1 0 0
+TotalNumberFacets=16
+nbOrb Facet=2
+|EXT|=16
+nbOrb Vertices=2
+dim=5

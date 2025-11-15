@@ -1,0 +1,175 @@
+Read("Functions/BaranovskiSearch");
+Read("Functions/MyPersoFunctions.g");
+Read("Functions/PermutedImprovedFunc.g");
+Read("Functions/RecognitionDelaunay.g");
+
+
+ListHypSymbol:=[];
+ListHypIneq:=[];
+
+ComputeHypermetricInformations:=function()
+  local n, GRP, LORB, V, TheORB;
+  n:=8;
+  GRP:=SymmetricGroup(n);
+  LORB:=GetConjecturalListFacetHYPn(n);
+  for V in LORB
+  do
+    TheORB:=Orbit(GRP, V, Permuted);
+    Append(ListHypSymbol, TheORB);
+  od;
+  ListHypIneq:=List(ListHypSymbol, FromHypermetricVectorToHypermetricFace);
+end;
+
+Print("Before determination of all facets\n");
+ComputeHypermetricInformations();
+Print("After determination of all facets\n");
+
+
+
+
+
+EXT27:=ReadAsFunction("Functions/TheSchlafli")();;
+DM27:=FuncDistMat(EXT27);
+
+
+
+
+FindAdjacentDelaunay:=function(TheOrb)
+  local DM, DistVect, ListIncidentIndexes, ListIncidentIneq, ListIncidentSymbol, GRP, TheStab, ListPermGens, eGen, eList, eFacet, PermGRP, BF, Ladj, IsRespawn, IsBankSave, TmpDir, DataPolyhedral, FuncStabilizer, FuncIsomorphy, WorkingDim, eAdj, iAdj, LS, Hcoord, ListIneqCoord, TheSub, ListAdjacent, TheList, MiddleVect, VertexList, RPLift, TheLift, TheDistVect, GRPinner;
+  DM:=List(DM27{TheOrb}, x->x{TheOrb});
+  WorkingDim:=27;
+  DistVect:=DistanceMatrixToDistanceVector(DM);
+  ListIncidentIndexes:=Filtered([1..Length(ListHypIneq)], x->ListHypIneq[x]*DistVect=0);
+  ListIncidentIneq:=ListHypIneq{ListIncidentIndexes};
+  ListIncidentSymbol:=ListHypSymbol{ListIncidentIndexes};
+  #
+  TheStab:=OnPairMapping(8, AutomorphismGroupEdgeColoredGraph(DM));
+  ListPermGens:=[];
+  for eGen in TheStab
+  do
+    eList:=[];
+    for eFacet in ListIncidentIneq
+    do
+      Add(eList, Position(ListIncidentIneq, Permuted(eFacet, eGen)));
+    od;
+    Add(ListPermGens, PermList(eList));
+  od;
+  PermGRP:=Group(ListPermGens);
+  GRPinner:=__TheCore_Automorphism(ColumnReduction(ListIncidentIneq).EXT);
+  Print("|Incd|=", Length(ListIncidentIneq), "  |Stab|=", Order(TheStab), "  |GRPinner|=", Order(GRPinner), "\n");
+#  PermGRP:=Group(GeneratorsOfGroup(GRPinner)); this is not correct
+
+  Print("We computed PermGRP\n");
+  #
+  #
+  #
+  FuncStabilizer:=function(EXTask)
+    local GRP, ListGen, eGen, ListInc;
+    ListInc:=List(EXTask, x->Position(ListIncidentIneq, x));
+    GRP:=Stabilizer(PermGRP, ListInc, OnSets);
+    ListGen:=[];
+    for eGen in GeneratorsOfGroup(GRP)
+    do
+      Add(ListGen, PermList(List(ListInc, x->Position(ListInc, OnPoints(x, eGen)))));
+    od;
+    return PersoGroupPerm(ListGen);
+  end;
+  FuncIsomorphy:=function(EXT1, EXT2)
+    local ePerm, ListInc1, ListInc2;
+    if Length(EXT1)<>Length(EXT2) then
+      return false;
+    fi;
+    ListInc1:=List(EXT1, x->Position(ListIncidentIneq, x));
+    ListInc2:=List(EXT2, x->Position(ListIncidentIneq, x));
+    ePerm:=RepresentativeAction(PermGRP, ListInc1, ListInc2, OnSets);
+    if ePerm=fail then
+      return false;
+    else
+      return PermList(List(ListInc1, x->Position(ListInc2, OnPoints(x, ePerm))));
+    fi;
+  end;
+  BF:=BankRecording(rec(Saving:=false, BankPath:="/irrelevant/"), FuncStabilizer, FuncIsomorphy, OnSetsGroupFormalism());
+  Print("We are here 1\n");
+  #
+  #
+  #
+  IsRespawn:=function(OrdGRP, EXT, TheDepth)
+    if Length(EXT)>=70 then
+      return true;
+    fi;
+    if OrdGRP<100 then
+      return false;
+    fi;
+    if Length(EXT)<WorkingDim+7 then
+      return false;
+    fi;
+    if TheDepth=2 then
+      return false;
+    fi;
+    return true;
+  end;
+  IsBankSave:=function(EllapsedTime, OrdGRP, EXT, TheDepth)
+    if TheDepth=0 then
+      return false;
+    fi;
+    if EllapsedTime>=600 then
+      return true;
+    fi;
+    if Length(EXT)<=WorkingDim+5 then
+      return false;
+    fi;
+    return true;
+  end;
+  TmpDir:=Filename(POLYHEDRAL_tmpdir, "");
+  DataPolyhedral:=rec(IsBankSave:=IsBankSave, 
+        TheDepth:=0,
+        IsRespawn:=IsRespawn, 
+        Saving:=false,
+        ThePathSave:="/irrelevant/",
+        ThePath:=TmpDir,
+#        DualDescriptionFunction:=__DualDescriptionLRS_Reduction, 
+#        DualDescriptionFunction:=__DualDescriptionLRS_splitter,
+        DualDescriptionFunction:=__DualDescriptionCDD_Reduction, 
+        GroupFormalism:=OnSetsGroupFormalism());
+  #
+  #
+  #
+  Print("We are here 2\n");
+  Ladj:=__ListFacetByAdjacencyDecompositionMethod(ListIncidentIneq, PermGRP, DataPolyhedral, BF);
+#  Ladj:=__DualDescriptionCDD_Reduction(ListIncidentIneq, PermGRP, Filename(POLYHEDRAL_tmpdir, ""));
+  Print("|Ladj|=", Length(Ladj), "\n");
+  Print("We are here 3\n");
+  RPLift:=__ProjectionLiftingFramework(ListHypIneq, ListIncidentIndexes);
+  Print("We are here 4\n");
+  ListAdjacent:=[];
+  for iAdj in [1..Length(Ladj)]
+  do
+    eAdj:=Ladj[iAdj];
+    TheLift:=RPLift.FuncLift(eAdj);
+    TheDistVect:=__FindFacetInequality(ListHypIneq, TheLift);
+    Add(ListAdjacent, rec(DistVect:=TheDistVect, eAdj:=eAdj));
+    Print("iAdj=", iAdj, " Done\n");
+  od;
+  return rec(DistVect:=DistVect, ListIncidentIneq:=ListIncidentIneq, ListIncidentSymbol:=ListIncidentSymbol, ListAdjacent:=ListAdjacent);
+end;
+
+
+ListORB1:=ReadAsFunction("ListAffineSpanningDouble")();;
+ListORB2:=ReadAsFunction("ListAffineZSpanning")();;
+
+ListORB:=[];
+Append(ListORB, ListORB1);
+Append(ListORB, ListORB2);
+
+
+
+for iOrb in [1..Length(ListORB)]
+do
+  eOrb:=ListORB[iOrb];
+  Print("iOrb=", iOrb, "\n");
+  FileOfStructures:=Concatenation("AdjacencySchlafli", String(iOrb));
+  if IsExistingFile(FileOfStructures)=false then
+    ListStruct:=FindAdjacentDelaunay(eOrb);
+    SaveDataToFile(FileOfStructures, ListStruct);
+  fi;
+od;

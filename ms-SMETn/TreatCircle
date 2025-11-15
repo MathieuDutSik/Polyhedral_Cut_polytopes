@@ -1,0 +1,54 @@
+#!/usr/bin/perl
+
+$uu=scalar(@ARGV);
+
+if ($uu ne 2)
+{
+    print "Program is used as\n";
+    print "./TreatCircle [s] [n]\n";
+    print "With nb a number\n";
+    die;
+}
+$s=$ARGV[0];
+$n=$ARGV[1];
+
+#$n=8;
+#$s=5;
+
+$m=$n-3;
+$k=$m+1;
+
+$order="./SetSupermetric ".$m." ".$s." ".$n;
+print $order."\n";
+system $order;
+
+$order="./CreateCirclePartitions ".$n." > Scene/Circle".$n;
+print $order."\n";
+system $order;
+
+$order="./CreateCircleSymbol Scene/Circle".$n." > Scene/CCircle".$n;
+print $order."\n";
+system $order;
+
+$SetFile="Scene/".$k."-Sets-".$n;
+$order="./CreateCircleCuts ".$SetFile." Scene/CCircle".$n." ".$n." > Scene/CircleVector";
+print $order."\n";
+system $order;
+
+$order="../Canonic/RemoveZeroLines Scene/CircleVector > Scene/CircleVNZ";
+print $order."\n";
+system $order;
+
+
+
+$order="(cd ../TestEquivalence/ && ./TestPositivity ../ms-SMETn/Scene/CircleVNZ ../ms-SMETn/Scene/Desc && mv Admissible AdmissiblePos && ./TestRank AdmissiblePos ../ms-SMETn/Scene/Desc)";
+print $order."\n";
+system $order;
+
+$order="../Adjacencies/TranslationFile ../TestEquivalence/Admissible Scene/CircleVector Scene/CCircle".$n." > Scene/ExtCircle";
+print $order."\n";
+system $order;
+
+$order="./TranslateCircleTex Scene/ExtCircle";
+print $order."\n";
+system $order;

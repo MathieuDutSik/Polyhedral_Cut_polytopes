@@ -1,0 +1,152 @@
+Read("GapHYP");
+
+
+
+
+n:=6;
+m:=4;
+
+dCubeVert:=BuildSet(n, [0,1]);
+nbV:=Length(dCubeVert);
+
+FuncDiff:=function(S1, S2)
+  local nbD, i;
+  nbD:=0;
+  for i in [1..n]
+  do
+    if S1[i]<>S2[i] then
+      nbD:=nbD+1;
+    fi;
+  od;
+  return nbD;
+end;
+
+AdjMat:=NullMat(nbV, nbV);
+for i in [1..nbV]
+do
+  for j in [1..nbV]
+  do
+    if FuncDiff(dCubeVert[i], dCubeVert[j])=1 then
+      AdjMat[i][j]:=1;
+    fi;
+  od;
+od;
+
+Grap:=Graph(Group(()), [1..nbV], OnPoints, function(x,y) return AdjMat[x][y]=1; end, true);
+Grp:=AutGroupGraph(Grap);
+
+
+FuncSelectTriv:=function(S)
+  return true;
+end;
+
+FuncSelect:=function(S)
+  local Mat, i;
+  Mat:=[];
+  for i in [2..Length(S)]
+  do
+    AddSet(Mat, dCubeVert[S[i]]-dCubeVert[S[1]]);
+  od;
+  if Length(S)=1 then
+    return true;
+  else
+    if RankMat(Mat)=Length(S)-1 then
+      return true;
+    else
+#      Print(Mat, "\n");
+      return false;
+    fi;
+  fi;
+end;
+
+
+Cand:=FindOrbitSubGraphs(Grap, Grp, FuncSelect, m+2);
+Lsol:=[];
+for eCand in Cand
+do
+  LS:=[];
+  for i in eCand
+  do
+    Add(LS, dCubeVert[i]);
+  od;
+  Add(Lsol, LS);
+od;
+
+
+
+FuncSquareMvolume:=function(SetVector)
+  local m, Dim, LS, u, SQR, TrLS, Mat, eSet, l;
+  m:=Length(SetVector)-1;
+  Dim:=Length(SetVector[1]);
+  LS:=[];
+  for u in [2..Length(SetVector)]
+  do
+    AddSet(LS, SetVector[u]-SetVector[1]);
+  od;
+  SQR:=0;
+  TrLS:=TransposedMat(LS);
+  for eSet in Combinations([1..Dim], m)
+  do
+    Mat:=[];
+    for u in eSet
+    do
+      Add(Mat, TrLS[u]);
+    od;
+    l:=DeterminantMat(Mat);
+    SQR:=SQR+l*l;
+  od;
+  return SQR;
+end;
+
+
+
+
+FileOutput:="DcubeSconstant";
+output:=OutputTextFile(FileOutput, true);;
+
+FileTranslation:="Correspondance";
+outputCorr:=OutputTextFile(FileTranslation, true);;
+
+for eS in Lsol
+do
+  ListSQR:=[];
+  for i in [1..m+2]
+  do
+    MS:=[];
+    for u in [1..m+2]
+    do
+      if i<>u then
+        Add(MS, eS[u]);
+      fi;
+    od;
+    Add(ListSQR, FuncSquareMvolume(MS));
+  od;
+  for i in [1..m+2]
+  do
+    AppendTo(output, " ", ListSQR[i]);
+    LSE:=[];
+    for u in [1..m+2]
+    do
+      if i<>u then
+        Add(LSE, ListSQR[u]);
+      fi;
+    od;
+    Sort(LSE);
+    SRM:=[ListSQR[i]];
+    for u in [1..m+1]
+    do
+      Add(SRM, LSE[u]);
+    od;
+#    if SRM=[13,1,2,2,2,2] then
+#      Print(eS,"\n");
+#    fi;
+    AppendTo(outputCorr, SRM, ":", eS, "\n");
+    for W in LSE
+    do
+      AppendTo(output, " ", W);
+    od;
+    AppendTo(output, "\n");
+  od;
+od;
+CloseStream(output);
+CloseStream(outputCorr);

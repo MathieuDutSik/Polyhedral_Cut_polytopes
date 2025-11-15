@@ -1,0 +1,157 @@
+\section{Dual skeleton of OHMET(8,6)}
+Orbit 1 of size 16\\
+with representative OS(2134568,7) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(2345678,1)&OS(3145678,2)&OS(1245678,3)&OS(2135678,4)\\
+OS(1234678,5)&OS(2134578,6)&OS(2134567,8)&NN(2134568)\\
+\hline
+\end{tabular}
+\\
+with representative OS(2134678,5) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(2345678,1)&OS(3145678,2)&OS(1245678,3)&OS(2135678,4)\\
+OS(2134578,6)&OS(1234568,7)&OS(2134567,8)&NN(2134678)\\
+\hline
+\end{tabular}
+\\
+with representative OS(1234678,5) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(3245678,1)&OS(1345678,2)&OS(2145678,3)&OS(1235678,4)\\
+OS(1234578,6)&OS(2134568,7)&OS(1234567,8)&NN(1234678)\\
+\hline
+\end{tabular}
+\\
+with representative OS(3245678,1) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(3145678,2)&OS(1245678,3)&OS(2135678,4)&OS(1234678,5)\\
+OS(2134578,6)&OS(1234568,7)&OS(2134567,8)&NN(3245678)\\
+\hline
+\end{tabular}
+\\
+with representative OS(1234678,5) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(3245678,1)&OS(1345678,2)&OS(2145678,3)&OS(1235678,4)\\
+OS(1234578,6)&OS(2134568,7)&OS(1234567,8)&NN(1234678)\\
+\hline
+\end{tabular}
+\\
+with representative OS(2134678,5) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(2345678,1)&OS(3145678,2)&OS(1245678,3)&OS(2135678,4)\\
+OS(2134578,6)&OS(1234568,7)&OS(2134567,8)&NN(2134678)\\
+\hline
+\end{tabular}
+\\
+with representative OS(1234568,7) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(3245678,1)&OS(1345678,2)&OS(2145678,3)&OS(1235678,4)\\
+OS(2134678,5)&OS(1234578,6)&OS(1234567,8)&NN(1234568)\\
+\hline
+\end{tabular}
+\\
+with representative OS(1234567,8) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(2345678,1)&OS(3145678,2)&OS(1245678,3)&OS(2135678,4)\\
+OS(1234678,5)&OS(2134578,6)&OS(1234568,7)&NN(1234567)\\
+\hline
+\end{tabular}
+\\
+with representative OS(1235678,4) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(2345678,1)&OS(3145678,2)&OS(1245678,3)&OS(1234678,5)\\
+OS(2134578,6)&OS(1234568,7)&OS(2134567,8)&NN(1235678)\\
+\hline
+\end{tabular}
+\\
+with representative OS(2345678,1) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(1345678,2)&OS(2145678,3)&OS(1235678,4)&OS(2134678,5)\\
+OS(1234578,6)&OS(2134568,7)&OS(1234567,8)&NN(2345678)\\
+\hline
+\end{tabular}
+\\
+\\
+\\
+Orbit 2 of size 16\\
+with representative NN(2134567) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(2134567,8)&               &               &               \\
+\hline
+\end{tabular}
+\\
+with representative NN(2134678) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(2134678,5)&               &               &               \\
+\hline
+\end{tabular}
+\\
+with representative NN(3245678) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(3245678,1)&               &               &               \\
+\hline
+\end{tabular}
+\\
+with representative NN(2134567) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(2134567,8)&               &               &               \\
+\hline
+\end{tabular}
+\\
+with representative NN(2145678) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(2145678,3)&               &               &               \\
+\hline
+\end{tabular}
+\\
+with representative NN(2345678) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(2345678,1)&               &               &               \\
+\hline
+\end{tabular}
+\\
+with representative NN(2134678) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(2134678,5)&               &               &               \\
+\hline
+\end{tabular}
+\\
+with representative NN(2134578) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(2134578,6)&               &               &               \\
+\hline
+\end{tabular}
+\\
+with representative NN(1245678) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(1245678,3)&               &               &               \\
+\hline
+\end{tabular}
+\\
+with representative NN(2134568) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(2134568,7)&               &               &               \\
+\hline
+\end{tabular}
+\\
+\\
+\\

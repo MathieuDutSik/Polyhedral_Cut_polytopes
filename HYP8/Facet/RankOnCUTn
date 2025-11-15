@@ -1,0 +1,15 @@
+LSE:=ReadAsFunction("ListOrbitConjecturedComplete")();
+
+
+for eOrb in LSE
+do
+  ListCut:=[];
+  for eCut in ProductList([[1]], BuildSet(8-1,[0,1]))
+  do
+    if (Position(eCut, 0)<>fail) and (eCut*eOrb in [0,1]) then
+      Add(ListCut, FromCutToCutVector(eCut, "extreme"));
+    fi;
+  od;
+  RNK:=RankMat(ListCut);
+  Print("eCut=", eOrb, "  nb=", Length(ListCut), "  rank=", RNK, "\n");
+od;

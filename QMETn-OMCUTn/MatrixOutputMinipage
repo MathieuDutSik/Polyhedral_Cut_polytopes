@@ -1,0 +1,134 @@
+#!/usr/bin/perl
+
+# This script is intended to present vector as matrices
+# It's intend is to
+
+
+$uu=scalar(@ARGV);
+
+if ($uu ne 3)
+{
+    print "MatrixOutputMinipage is used as\n\n";
+    print "MatrixOutputMinipage [file] [Cfile] [dimension]\n";
+    print "with [file] a NUDE list of facet or extreme rays\n";
+    print "with [Cfile] a list of comments to add\n";
+    print "with [dimension] the dimension\n";
+    print "and [NbC] the number of columns of the output\n";
+    die;
+}
+
+$NameFile=$ARGV[0];
+$CommentFile=$ARGV[1];
+$n=$ARGV[2];
+$NbC=$ARGV[3];
+
+
+
+
+open(INFILE, $NameFile) or die "impossible to open ".$NameFile."\n";
+@ListE=<INFILE>;
+close(INFILE);
+
+open(INFILE, $CommentFile) or die "impossible to open ".$CommentFile."\n";
+@ListC=<INFILE>;
+close(INFILE);
+
+# set up some things
+@exmpl=split(" ", $ListE[0]);
+$N=scalar(@exmpl)-1;
+if ($N ne $n*($n-1))
+{
+    print "Error, there is no agreement on dimensions\n";
+    die;
+}
+$nbElt=scalar(@ListE);
+$mantissa=$n;
+$level=1;
+for ($i=1; $i<=$n; $i++)
+{
+    for ($j=1; $j<=$n; $j++)
+    {
+	if ($i ne $j)
+	{
+	    $nbr=($mantissa+1)*$i+$j;
+	    $R[$level]=$nbr;
+	    $ReversR[$nbr]=$level;
+	    $level++;
+	}
+    }
+}
+print "\\documentclass[12pt]{article}\n";
+print "\\usepackage{graphicx,amssymb,amsmath,vmargin,multicol}\n";
+print "\\usepackage[english]{babel}\n";
+print "\\title{ADD TITLE HERE}\n";
+print "\\setpapersize{custom}{21cm}{29.7cm}\n";
+print "\\setmarginsrb{2cm}{2cm}{2cm}{2cm}{0pt}{0pt}{0pt}{0pt}\n";
+print "\\begin{document}\n";
+print "\\maketitle\n";
+
+print "\\newenvironment{MYmatrix}{\%\n";
+print "\\setlength{\\arraycolsep}{1pt}\%\n";
+print "\\begin{matrix}}{\\end{matrix}}\n";
+
+print "{\\tiny\n";
+
+sub PrintLine($)
+{
+    my ($iLine)=@_;
+    my $j, $i, $idx;
+    $line=$ListE[$iLine-1];
+    @LIST=split(" ", $line);
+
+    print "\\begin{minipage}[t]{3.5cm}\n";
+    print "\\begin{equation*}\n";
+    print "\\begin{array}{c}\n";
+    $_=$ListC[$iLine-1];
+    s/\n//;
+    print $_."\\\\\n";
+    print "\\begin{MYmatrix}\n";
+    for ($j=1; $j<=$n; $j++)
+    {
+	for ($i=1; $i<=$n; $i++)
+	{
+	    if ($i eq $j)
+	    {
+		print "0";
+	    }
+	    else
+	    {
+		$nbr=($mantissa+1)*$i+$j;
+		$idx=$ReversR[$nbr];
+		print $LIST[$idx];
+	    }
+	    if ($i eq $n)
+	    {
+		if ($j <$n)
+		{
+		    print "\\\\\n";
+		}
+		else
+		{
+		    print "\n";
+		}
+	    }
+	    else
+	    {
+		print "&";
+	    }
+	}
+    }
+    print "\\end{MYmatrix}\n";
+    print "\\end{array}\n";
+    print "\\end{equation*}\n";
+    print "\\end{minipage}\n";
+}
+
+
+
+# now we print everything 
+for ($iteration=1; $iteration<=$nbElt; $iteration++)
+{
+    PrintLine($iteration);
+}
+print "}\n";
+print "\\end{document}\n";

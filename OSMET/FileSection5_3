@@ -1,0 +1,15 @@
+\section{Extreme rays of OHMET(5,3)}
+We have 4 orbits of facets
+\begin{equation*}
+\begin{array}{|c|cccccccccc|}
+\hline
+&+1&+2&+3&+4&+5&-1&-2&-3&-4&-5\\
+\hline
+O_{1}&0&0&0&0&1&1&0&0&0&0\\
+O_{2}&0&0&0&1&1&1&0&0&0&0\\
+O_{3}&0&0&1&1&1&1&0&0&0&0\\
+O_{4}&0&1&1&1&1&1&0&0&0&0\\
+\hline
+\end{array}\end{equation*}
+\\
+\\

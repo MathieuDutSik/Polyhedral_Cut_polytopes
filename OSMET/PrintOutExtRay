@@ -1,0 +1,157 @@
+Read("OSMET.g");
+PrintOutExtRayGeneral:=function(n,m)
+  local FileData, FileName, GR, output, GroupFAC, LORB, iOrb, ListEQS, eOrb, eEXT, TheDim, iCol, FAC, LeLT, PLC, i;
+  FileData:=Concatenation("OSMET__Facet", String(n), "_", String(m));
+  FileName:=Concatenation("FileSection", String(n), "_", String(m));
+  PLC:=OSMET__FacetInequalities(n,m);
+  FAC:=PLC.ListIneq;
+  GroupFAC:=PLC.GroupFac;
+  GR:=ReadAsFunction(FileData)();
+  #
+  output:=OutputTextFile(FileName, true);;
+  AppendTo(output, "\\section{Extreme rays of OHMET(", String(n), ",", String(m), ")}\n");
+  LORB:=GR.ListOrbitFacet;
+  AppendTo(output, "We have ", Length(LORB), " orbits of facets\n");
+  LeLT:=OSMET__ListElement(n,m);
+  AppendTo(output, "item by column:");
+  for i in [1..Length(LeLT)]
+  do
+    AppendTo(output, i, ":  ", LeLT[i], "\n");
+  od;
+  TheDim:=Length(FAC[1])-1;
+  AppendTo(output, "\\begin{equation*}\n");
+  AppendTo(output, "\\begin{array}{|c|");
+  for i in [1..TheDim]
+  do
+    AppendTo(output, "c");
+  od;
+  AppendTo(output, "|}\n");
+  AppendTo(output, "\\hline\n");
+  for i in [1..TheDim]
+  do
+    AppendTo(output, "&", i);
+  od;
+  AppendTo(output, "\\\\\n");
+  AppendTo(output, "\\hline\n");
+  ListEQS:=List(FAC, x->x{[2..TheDim+1]});
+  for iOrb in [1..Length(LORB)]
+  do
+    eOrb:=LORB[iOrb];
+    eEXT:=__FindFacetInequality(ListEQS, eOrb);
+    AppendTo(output, "O_{", iOrb, "}");
+    for iCol in [1..Length(eEXT)]
+    do
+      AppendTo(output, "&", eEXT[iCol]);
+    od;
+    AppendTo(output, "\\\\\n");
+  od;
+  AppendTo(output, "\\hline\n");
+  AppendTo(output, "\\end{array}");
+  AppendTo(output, "\\end{equation*}\n");
+  AppendTo(output, "\\\\\n");
+  AppendTo(output, "\\\\\n");
+  CloseStream(output);
+end;
+
+
+
+PrintOutExtRayP3:=function(n,m)
+  local FileData, FileName, GR, output, GroupFAC, LORB, iOrb, ListEQS, eOrb, eEXT, FAC, LeLT, PLC, i, eMat, TheDim;
+  FileData:=Concatenation("OSMET__Facet", String(n), "_", String(m));
+  FileName:=Concatenation("FileSection", String(n), "_", String(m));
+  PLC:=OSMET__FacetInequalities(n,m);
+  FAC:=PLC.ListIneq;
+  TheDim:=Length(FAC[1])-1;
+  GroupFAC:=PLC.GroupFac;
+  GR:=ReadAsFunction(FileData)();
+  #
+  output:=OutputTextFile(FileName, true);;
+  AppendTo(output, "\\section{Extreme rays of OHMET(", String(n), ",", String(m), ")}\n");
+  LORB:=GR.ListOrbitFacet;
+  AppendTo(output, "We have ", Length(LORB), " orbits of facets\n");
+  LeLT:=OSMET__ListElement(n,m);
+  ListEQS:=List(FAC, x->x{[2..TheDim+1]});
+  for iOrb in [1..Length(LORB)]
+  do
+    eOrb:=LORB[iOrb];
+    eEXT:=__FindFacetInequality(ListEQS, eOrb);
+    eMat:=MatrixFromVector(eEXT, n, m);
+    AppendTo(output, "Orbit \$O_{", iOrb, "}\$ \n");
+    LatexPrintMatrix(output, eMat);
+  od;
+  AppendTo(output, "\\\\\n");
+  AppendTo(output, "\\\\\n");
+  CloseStream(output);
+end;
+
+
+
+
+PrintOutExtRayP2:=function(n,m)
+  local FileData, FileName, GR, output, GroupFAC, LORB, iOrb, ListEQS, eOrb, eEXT, FAC, LeLT, PLC, i, eMat, TheDim, nDim2, SVect, jCol, Ured, iCol;
+  FileData:=Concatenation("OSMET__Facet", String(n), "_", String(m));
+  FileName:=Concatenation("FileSection", String(n), "_", String(m));
+  PLC:=OSMET__FacetInequalities(n,m);
+  FAC:=PLC.ListIneq;
+  TheDim:=Length(FAC[1])-1;
+  nDim2:=TheDim/2;
+  GroupFAC:=PLC.GroupFac;
+  GR:=ReadAsFunction(FileData)();
+  #
+  output:=OutputTextFile(FileName, true);;
+  AppendTo(output, "\\section{Extreme rays of OHMET(", String(n), ",", String(m), ")}\n");
+  LORB:=GR.ListOrbitFacet;
+  AppendTo(output, "We have ", Length(LORB), " orbits of facets\n");
+  LeLT:=OSMET__ListElement(n,m);
+  ListEQS:=List(FAC, x->x{[2..TheDim+1]});
+  Ured:=[];
+  for i in [1..n]
+  do
+    Add(Ured, [1,i]);
+  od;
+  for i in [1..n]
+  do
+    Add(Ured, [-1,i]);
+  od;
+  AppendTo(output, "\\begin{equation*}\n");
+  AppendTo(output, "\\begin{array}{|c|");
+  for i in [1..TheDim]
+  do
+    AppendTo(output, "c");
+  od;
+  AppendTo(output, "|}\n");
+  AppendTo(output, "\\hline\n");
+  for i in [1..nDim2]
+  do
+    AppendTo(output, "&+", i);
+  od;
+  for i in [1..nDim2]
+  do
+    AppendTo(output, "&-", i);
+  od;
+  AppendTo(output, "\\\\\n");
+  AppendTo(output, "\\hline\n");
+  for iOrb in [1..Length(LORB)]
+  do
+    eOrb:=LORB[iOrb];
+    eEXT:=__FindFacetInequality(ListEQS, eOrb);
+    AppendTo(output, "O_{", iOrb, "}");
+    SVect:=SignVectorFromVector(eEXT, n, m);
+    for iCol in [1..TheDim]
+    do
+      for jCol in [1..TheDim]
+      do
+        if SVect[jCol][1]=Ured[iCol] then
+          AppendTo(output, "&", SVect[jCol][2]);
+        fi;
+      od;
+    od;
+    AppendTo(output, "\\\\\n");
+  od;
+  AppendTo(output, "\\hline\n");
+  AppendTo(output, "\\end{array}");
+  AppendTo(output, "\\end{equation*}\n");
+  AppendTo(output, "\\\\\n");
+  AppendTo(output, "\\\\\n");
+  CloseStream(output);
+end;

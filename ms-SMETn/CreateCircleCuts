@@ -1,0 +1,102 @@
+#!/usr/bin/perl
+
+$uu=scalar(@ARGV);
+
+if ($uu ne 3)
+{
+    print "CreateCircleCuts is used as\n";
+    print "./CreateCircleCuts [SetFile] [CircleFile] [n]\n\n";
+    print "with [SetFile] the list of n-2 subset of Vn";
+    print "with [CircleFile] a list of circles of Vn";
+    print "in format 1 2 3 # 4 5\n";
+    print "with [n] the size of the set on which we consider the supermetric\n";
+    die;
+}
+
+$SetFile=$ARGV[0];
+$CircleFile=$ARGV[1];
+$n=$ARGV[2];
+
+$m=$n-3;
+$k=$m+1;
+open(INFILE, $SetFile) or die "impossible to open ".$SetFile;
+@SET=<INFILE>;
+close(INFILE);
+$Cnk=scalar(@SET);
+
+open(INFILE, $CircleFile) or die "impossible to open ".$CircleFile;
+@CIRC=<INFILE>;
+close(INFILE);
+
+for ($iCircle=1; $iCircle<=scalar(@CIRC); $iCircle++)
+{
+    $line=$CIRC[$iCircle-1];
+    @LE=split("#", $line);
+    $sizeLE=scalar(@LE);
+    print " 0";
+    for ($iSet=1; $iSet<=scalar(@SET); $iSet++)
+    {
+	@set=split(" ", $SET[$iSet-1]);
+	$fi[0]=-1;
+	$fi[1]=-1;
+	for ($iN=1; $iN<=$n; $iN++)
+	{
+	    if ($set[$iN-1] eq 0)
+	    {
+		if ($fi[0] eq -1)
+		{
+		    $fi[0]=$iN;
+		}
+		else
+		{
+		    $fi[1]=$iN;
+		}
+	    }
+	}
+#	print "fi[0]=".$fi[0]."  fi[1]=".$fi[1]."  \n";
+	$Test[0]="NO";
+	$Test[1]="NO";
+	for ($iLE=1; $iLE<=$sizeLE; $iLE++)
+	{
+	    @S=split(" ", $LE[$iLE-1]);
+	    for ($iFI=1; $iFI<=2; $iFI++)
+	    {
+		for ($iS=1; $iS<=scalar(@S); $iS++)
+		{
+		    if ($fi[$iFI-1] eq $S[$iS-1])
+		    {
+			$Test[$iFI-1]="YES";
+			$InDx[$iFI-1]=$iLE;
+			$POS[$iFI-1]=$iS;
+			$Size[$iFI-1]=scalar(@S);
+		    }
+		}
+	    }
+	}
+	if ($Test[0] eq "YES" && $Test[1] eq "YES")
+	{
+	    if ($InDx[0] eq $InDx[1])
+	    {
+		$Siz=$Size[0];
+		if ($POS[0] eq $POS[1]+1 || $POS[1] eq $POS[0]+1 || ($POS[0] eq 1 && $POS[1] eq $Siz) || ($POS[1] eq 1 && $POS[0] eq $Siz))
+		{
+		    print " 0";
+		}
+		else
+		{
+		    print " 1";
+		}
+	    }
+	    else
+	    {
+		print " 1";
+	    }
+	}
+	else
+	{
+	    print " 0";
+	}
+    }
+    print "\n";
+}
+

@@ -1,0 +1,471 @@
+\section{Dual skeleton of OHMET(6,4)}
+Orbit 1 of size 12\\
+with representative OS(31456,2) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(32456,1)&OS(21456,3)&OS(12356,4)&OS(21346,5)\\
+OS(12345,6)&NN(31456)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative OS(32456,1) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(31456,2)&OS(12456,3)&OS(21356,4)&OS(12346,5)\\
+OS(21345,6)&NN(32456)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative OS(12345,6) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(23456,1)&OS(31456,2)&OS(12456,3)&OS(21356,4)\\
+OS(12346,5)&NN(12345)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative OS(21456,3) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(23456,1)&OS(31456,2)&OS(21356,4)&OS(12346,5)\\
+OS(21345,6)&NN(21456)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative OS(32456,1) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(31456,2)&OS(12456,3)&OS(21356,4)&OS(12346,5)\\
+OS(21345,6)&NN(32456)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative OS(21345,6) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(32456,1)&OS(13456,2)&OS(21456,3)&OS(12356,4)\\
+OS(21346,5)&NN(21345)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative OS(23456,1) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(13456,2)&OS(21456,3)&OS(12356,4)&OS(21346,5)\\
+OS(12345,6)&NN(23456)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative OS(23456,1) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(13456,2)&OS(21456,3)&OS(12356,4)&OS(21346,5)\\
+OS(12345,6)&NN(23456)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative OS(21345,6) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(32456,1)&OS(13456,2)&OS(21456,3)&OS(12356,4)\\
+OS(21346,5)&NN(21345)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative OS(21346,5) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(23456,1)&OS(31456,2)&OS(12456,3)&OS(21356,4)\\
+OS(21345,6)&NN(21346)&               &               \\
+\hline
+\end{tabular}
+\\
+\\
+\\
+Orbit 2 of size 12\\
+with representative NN(12456) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(12456,3)&               &               &               \\
+\hline
+\end{tabular}
+\\
+with representative NN(12346) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(12346,5)&               &               &               \\
+\hline
+\end{tabular}
+\\
+with representative NN(21456) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(21456,3)&               &               &               \\
+\hline
+\end{tabular}
+\\
+with representative NN(21346) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(21346,5)&               &               &               \\
+\hline
+\end{tabular}
+\\
+with representative NN(21456) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(21456,3)&               &               &               \\
+\hline
+\end{tabular}
+\\
+with representative NN(21346) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(21346,5)&               &               &               \\
+\hline
+\end{tabular}
+\\
+with representative NN(12456) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(12456,3)&               &               &               \\
+\hline
+\end{tabular}
+\\
+with representative NN(21345) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(21345,6)&               &               &               \\
+\hline
+\end{tabular}
+\\
+with representative NN(32456) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(32456,1)&               &               &               \\
+\hline
+\end{tabular}
+\\
+with representative NN(13456) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(13456,2)&               &               &               \\
+\hline
+\end{tabular}
+\\
+\\
+\\
+\section{Dual skeleton of OHMET(7,4)}
+Orbit 1 of size 84\\
+with representative OS(12567,3) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(32567,1)&OS(13567,2)&OS(12367,5)&OS(21357,6)\\
+OS(12356,7)&NN(12567)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative OS(32457,1) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(31457,2)&OS(12457,3)&OS(21357,4)&OS(12347,5)\\
+OS(21345,7)&NN(32457)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative OS(14567,3) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(34567,1)&OS(13567,4)&OS(31467,5)&OS(13457,6)\\
+OS(31456,7)&NN(14567)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative OS(31457,6) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(34567,1)&OS(41567,3)&OS(13567,4)&OS(31467,5)\\
+OS(31456,7)&NN(31457)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative OS(32457,6) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(34567,2)&OS(42567,3)&OS(23567,4)&OS(32467,5)\\
+OS(32456,7)&NN(32457)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative OS(23467,1) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(13467,2)&OS(21467,3)&OS(12367,4)&OS(21347,6)\\
+OS(12346,7)&NN(23467)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative OS(41567,2) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(42567,1)&OS(21567,4)&OS(12467,5)&OS(21457,6)\\
+OS(12456,7)&NN(41567)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative OS(12567,4) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(42567,1)&OS(14567,2)&OS(12467,5)&OS(21457,6)\\
+OS(12456,7)&NN(12567)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative OS(13457,2) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(23457,1)&OS(12457,3)&OS(21357,4)&OS(12347,5)\\
+OS(21345,7)&NN(13457)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative OS(13467,2) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(23467,1)&OS(12467,3)&OS(21367,4)&OS(12347,6)\\
+OS(21346,7)&NN(13467)&               &               \\
+\hline
+\end{tabular}
+\\
+\\
+\\
+Orbit 2 of size 42\\
+with representative NN(12346) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(12346,5)&OS(12346,7)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative NN(12347) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(12347,5)&OS(12347,6)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative NN(21367) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(21367,4)&OS(21367,5)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative NN(12457) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(12457,3)&OS(12457,6)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative NN(32467) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(32467,1)&OS(32467,5)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative NN(12467) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(12467,3)&OS(12467,5)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative NN(12347) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(12347,5)&OS(12347,6)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative NN(21356) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(21356,4)&OS(21356,7)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative NN(23457) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(23457,1)&OS(23457,6)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative NN(13467) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(13467,2)&OS(13467,5)&               &               \\
+\hline
+\end{tabular}
+\\
+\\
+\\
+\section{Dual skeleton of OHMET(8,4)}
+Orbit 1 of size 336\\
+with representative OS(12345,7) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(23457,1)&OS(31457,2)&OS(12457,3)&OS(21357,4)\\
+OS(12347,5)&NN(12345)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative OS(21458,6) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(24568,1)&OS(41568,2)&OS(12568,4)&OS(21468,5)\\
+OS(21456,8)&NN(21458)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative OS(31568,4) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(34568,1)&OS(41568,3)&OS(31468,5)&OS(13458,6)\\
+OS(31456,8)&NN(31568)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative OS(32456,7) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(43567,2)&OS(24567,3)&OS(32567,4)&OS(23467,5)\\
+OS(32457,6)&NN(32456)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative OS(31578,2) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(32578,1)&OS(21578,3)&OS(12378,5)&OS(21358,7)\\
+OS(12357,8)&NN(31578)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative OS(32567,4) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(34567,2)&OS(42567,3)&OS(32467,5)&OS(23457,6)\\
+OS(32456,7)&NN(32567)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative OS(32478,6) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(43678,2)&OS(24678,3)&OS(32678,4)&OS(32468,7)\\
+OS(23467,8)&NN(32478)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative OS(21478,6) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(42678,1)&OS(14678,2)&OS(21678,4)&OS(21468,7)\\
+OS(12467,8)&NN(21478)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative OS(21348,5) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(23458,1)&OS(31458,2)&OS(12458,3)&OS(21358,4)\\
+OS(21345,8)&NN(21348)&               &               \\
+\hline
+\end{tabular}
+\\
+with representative OS(45678,3) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(35678,4)&OS(43678,5)&OS(34578,6)&OS(43568,7)\\
+OS(34567,8)&NN(45678)&               &               \\
+\hline
+\end{tabular}
+\\
+\\
+\\
+Orbit 2 of size 112\\
+with representative NN(21467) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(21467,3)&OS(21467,5)&OS(21467,8)&               \\
+\hline
+\end{tabular}
+\\
+with representative NN(41567) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(41567,2)&OS(41567,3)&OS(41567,8)&               \\
+\hline
+\end{tabular}
+\\
+with representative NN(23478) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(23478,1)&OS(23478,5)&OS(23478,6)&               \\
+\hline
+\end{tabular}
+\\
+with representative NN(12368) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(12368,4)&OS(12368,5)&OS(12368,7)&               \\
+\hline
+\end{tabular}
+\\
+with representative NN(21358) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(21358,4)&OS(21358,6)&OS(21358,7)&               \\
+\hline
+\end{tabular}
+\\
+with representative NN(12467) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(12467,3)&OS(12467,5)&OS(12467,8)&               \\
+\hline
+\end{tabular}
+\\
+with representative NN(21457) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(21457,3)&OS(21457,6)&OS(21457,8)&               \\
+\hline
+\end{tabular}
+\\
+with representative NN(12357) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(12357,4)&OS(12357,6)&OS(12357,8)&               \\
+\hline
+\end{tabular}
+\\
+with representative NN(12458) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(12458,3)&OS(12458,6)&OS(12458,7)&               \\
+\hline
+\end{tabular}
+\\
+with representative NN(23468) non-adjacent to\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+OS(23468,1)&OS(23468,5)&OS(23468,7)&               \\
+\hline
+\end{tabular}
+\\
+\\
+\\

@@ -1,0 +1,37 @@
+n:=6;
+
+GRA:=CompleteGraph(SymmetricGroup(n), n);
+
+
+eRecFCT:=CMC_GetCutPolytope(GRA);
+
+
+eREC:=eRecFCT.GetMET_info();
+GRPtot:=LinPolytope_Automorphism(eREC.EXT);
+nfac:=Length(eREC.EXT);
+ListOrbitFull:=DualDescriptionStandard(eREC.EXT, GRPtot);
+
+FileFAC:=Concatenation("MET", String(n), "_FAC");
+FileGRP:=Concatenation("MET", String(n), "_GRP");
+FileVFU:=Concatenation("MET", String(n), "_VFU");
+
+ListIncd:=List(ListOrbitFull, Length);
+maxIncd:=Maximum(ListIncd);
+ListOrbitCrit:=Filtered(ListOrbitFull, x->Length(x)=maxIncd);
+
+WriteMatrixFile(FileFAC, eREC.EXT);
+SYMPOL_PrintGroup(FileGRP, nfac, GRPtot);
+SaveDataToFile(FileVFU, ListOrbitCrit);
+
+
+
+
+
+DoCone:=false;
+if DoCone then
+    FACcone:=Filtered(eREC.EXT, x->x[1]=0);
+    FACconeRed:=ColumnReduction(FACcone).EXT;
+    GRPcone:=LinPolytope_Automorphism(FACcone);
+    ListOrbitCone:=DualDescriptionStandard(FACconeRed, GRPcone);
+fi;
+

@@ -1,0 +1,96 @@
+ Read("OSMET.g");
+n:=6;
+m:=2;
+
+
+PLC:=OSCUT__Description(n,m);
+PLC:=OSMET__FacetInequalities(n,m);
+EXT:=PLC.EXT;
+GroupExt:=PLC.GroupExt;
+
+
+FuncDist:=function(eV1, eV2)
+  local dist, i;
+  dist:=0;
+  for i in [1..Length(eV1)]
+  do
+    if eV1[i]<>eV2[i] then
+      dist:=dist+1;
+    fi;
+  od;
+  return dist;
+end;
+
+
+DistMat:=[];
+for i in [1..Length(EXT)]
+do
+  eList:=[];
+  for j in [1..Length(EXT)]
+  do
+    Add(eList, FuncDist(EXT[i], EXT[j]));
+  od;
+  Add(DistMat, eList);
+od;
+
+
+FuncDistMat:=function(ListInc)
+  return List(ListInc, x->DistMat[x]{ListInc});
+end;
+
+
+FuncStabilizer:=function(EXT, ListInc)
+  return AutomorphismGroupEdgeColoredGraph(FuncDistMat(ListInc));
+end;
+FuncIsomorphy:=function(EXT1, ListInc1, EXT2, ListInc2)
+  return IsIsomorphicEdgeColoredGraph(FuncDistMat(ListInc1), FuncDistMat(ListInc2));
+end;
+FuncInvariant:=function(EXT)
+  return [Length(EXT), RankMat(EXT)];
+end;
+
+IsRespawn:=function(OrdGRP, EXT, TheDepth)
+  if TheDepth>=2 then
+    return false;
+  fi;
+  if OrdGRP<=60 then
+    return false;
+  fi;
+  if Length(EXT)<=30 then
+    return false;
+  fi;
+  return true;
+end;
+IsBankSave:=function(EllapsedTime, OrdGRP, EXT, TheDepth)
+  if TheDepth=0 then
+    return false;
+  fi;
+  if EllapsedTime>=600 then
+    return true;
+  fi;
+  if Length(EXT)<=30 then
+    return false;
+  fi;
+  return true;
+end;
+
+
+PathSAVE:=Concatenation("./OSCUT", String(n), "_", String(m));
+PathTMP:="./tmp/";
+
+  DataPolyhedral:=rec(
+    IsBankSave:=IsBankSave, 
+    IncdNoInnerStab:=30, TheDepth:=0,
+    IsRespawn:=IsRespawn, 
+    ThePath:=PathTMP, 
+    Saving:=true, 
+    ThePathSave:=PathSAVE, 
+    MaxSize:=2);
+  Exec("mkdir -p ", PathTMP);
+  Exec("mkdir -p ", PathSAVE);
+
+BF:=BankRecording(DataPolyhedral.ThePath, FuncStabilizer, FuncIsomorphy, FuncInvariant, OnSetsGroupFormalism());
+LRES:=__ListFacetByAdjacencyDecompositionMethod(FAC, GroupFAC, [1..Length(FAC)], DataPolyhedral, BF);
+
+FileName:=Concatenation("OSMET__Facet", String(n), "_", String(m));
+SaveDataToFile(FileName, LRES);

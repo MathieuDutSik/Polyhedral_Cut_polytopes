@@ -1,0 +1,83 @@
+Read("Functions/BaranovskiSearch");
+Read("Functions/MyPersoFunctions.g");
+Read("Functions/PermutedImprovedFunc.g");
+Read("Functions/RecognitionDelaunay.g");
+
+
+
+EXT27:=ReadAsFunction("Functions/TheSchlafli")();;
+DM27:=FuncDistMat(EXT27);
+GRP27:=AutomorphismGroupEdgeColoredGraph(DM27);
+DDA27:=DualDescriptionAdjacencies(EXT27);
+GRA27:=DDA27.SkeletonGraph;
+
+
+
+ListORB1:=ReadAsFunction("ListAffineSpanningDouble")();;
+ListORB2:=ReadAsFunction("ListAffineZSpanning")();;
+
+ListORB:=[];
+Append(ListORB, ListORB1);
+Append(ListORB, ListORB2);
+
+ListPolytopeRank2Obtained:=[];
+FuncInsertPolytope:=function(ThePolytope)
+  local ePoly, TheIso;
+  for ePoly in ListPolytopeRank2Obtained
+  do
+    TheIso:=__TheCore_Isomorphism(ePoly, ThePolytope);
+    if TheIso<>false then
+      return;
+    fi;
+  od;
+  if Length(ThePolytope)=34 then
+    Print("We got the one\n");
+    Print(NullMat(5));
+  fi;
+  Add(ListPolytopeRank2Obtained, ThePolytope);
+end;
+
+
+
+
+for iOrb in [12..Length(ListORB)]
+do
+  FileOfStructures:=Concatenation("AdjacencySchlafli", String(iOrb));
+  TheOrb:=ListORB[iOrb];
+  if IsExistingFile(FileOfStructures)=true then
+    StructList:=ReadAsFunction(FileOfStructures)();
+    DistVect:=StructList.DistVect;
+    ListIncidentIneq:=StructList.ListIncidentIneq;
+    ListIncidentSymbol:=StructList.ListIncidentSymbol;
+    ListAdjacent:=StructList.ListAdjacent;
+    Print("Doing iOrb=", iOrb, " |Ladj|=", Length(ListAdjacent), "\n");
+    for iAdj in [1..Length(ListAdjacent)]
+    do
+      Print("iAdj=", iAdj, "  ");
+      eAdj:=ListAdjacent[iAdj].eAdj;
+      AdjDistVect:=ListAdjacent[iAdj].DistVect;
+      AdjDistMat:=DistanceVectorToDistanceMatrix(AdjDistVect, 8);
+      AdjGramMat:=DistanceMatrixToGramMatrix(AdjDistMat);
+      MiddleDistVect:=DistVect+AdjDistVect;
+      MiddleDistMat:=DistanceVectorToDistanceMatrix(MiddleDistVect, 8);
+      MiddleGramMat:=DistanceMatrixToGramMatrix(MiddleDistMat);
+      if RankMat(MiddleGramMat) < 6 then
+        Print("There is something fishy here\n");
+        Print(NullMat(5));
+      fi;
+      if RankMat(MiddleGramMat) = 6 then
+        Print("rk(Middle)=6, rk(Adj)=", RankMat(AdjGramMat), "\n");
+      fi;
+      if RankMat(MiddleGramMat) = 7 then
+        Print("rk(Middle)=7, rk(Adj)=", RankMat(AdjGramMat), "\n");
+        VertexList:=ListOfVertices(MiddleDistVect);
+        FuncInsertPolytope(VertexList);
+#        TheList:=List(ListIncidentSymbol{eAdj}, x->Position(EXT27, x*EXT27{TheOrb}));
+#        TheSub:=Set(TheList);
+        Print("     |VertexList|=", Length(VertexList), "\n");
+#        LS:=NullspaceMat(TransposedMat(ListIncidentIneq{eAdj}));
+#        Hcoord:=HypermetricCoordinates(EXT27{TheOrb}, EXT27);
+      fi;
+    od;
+  fi;
+od;

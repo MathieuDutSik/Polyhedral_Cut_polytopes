@@ -1,0 +1,744 @@
+#
+#
+#
+#
+# Oriented Partition Creation Stuff
+#
+#
+# from a given oriented partition on a set, SPAN other oriented partitions
+SPAN:=function(OP, EltAdd)
+  local k, size, iSet, List, U, kPos, idx;
+  k:=Length(OP);
+  List:=[];
+  for iSet in [1..k]
+  do
+    U:=ShallowCopy(OP);
+    U[iSet]:=Union(U[iSet], [EltAdd]);
+    List[Length(List)+1]:=U;
+  od;
+  for iSet in [0..k]
+  do
+    U:=ShallowCopy([]);
+    idx:=1;
+    for kPos in [0..k]
+    do
+      if kPos=iSet then
+	U[kPos+1]:=[EltAdd];
+      else
+        U[kPos+1]:=OP[idx];
+	idx:=idx+1;
+      fi;
+    od;
+    List[Length(List)+1]:=U;
+  od;
+  return List;
+end;
+
+# Increase level of a whole set of oriented partitions
+IncreaseLevel:=function(ListO, EltAdd)
+  local List, iO;
+  List:=[];
+  for iO in [1..Length(ListO)]
+  do
+    List:=Union(List, SPAN(ListO[iO], EltAdd));
+  od;
+  return List;
+end;
+
+
+# Span the list of oriented partitions on an arbitrary set
+SpanOrientedPartGeneral:=function(SET)
+  local U, iElt, Resu, iRes;
+  U:=[[[SET[1]]]];
+  for iElt in [2..Length(SET)]
+  do
+    U:=IncreaseLevel(U, SET[iElt]);
+  od;
+  Resu:=[];
+  for iRes in [1..Length(U)]
+  do
+    if Length(U[iRes])>1 then
+      Resu[Length(Resu)+1]:=U[iRes];
+    fi;
+  od;
+  return Resu;
+end;
+
+# The interesting special case of Vn
+SpanOrientedPart:=function(n)
+  local List, i;
+  List:=[];
+  for i in [1..n]
+  do
+    List[i]:=i;
+  od;
+  return SpanOrientedPartGeneral(List);
+end;
+
+
+MergeOrientedPart:=function(OP1, OP2)
+  local OP, i;
+  OP:=ShallowCopy(OP1);
+  for i in [1..Length(OP2)]
+  do
+    OP[Length(OP)+1]:=OP2[i];
+  od;
+  return(OP);
+end;
+
+
+
+#
+#
+#
+#
+# The lattice structure on oriented partitions
+# Give the list of strictly Proper oriented partitions of a given oriented partition
+
+# if arg="Strict" then take only strictly smaller partitions, if not then 
+Proper:=function(OP, arg)
+  local k, size, iSet, ListSTD, ListSAV, SPANNED, iSpan, iSav;
+  k:=Length(OP);
+  size:=0;
+  for iSet in [1..k]
+  do
+    size:=size+Length(OP[iSet]);
+  od;
+  ListSTD:=SpanOrientedPartGeneral(OP[1]);
+  if arg<>"Strict" then
+    ListSTD:=Union(ListSTD, [[OP[1]]]);
+  fi;
+
+  for iSet in [2..k]
+  do
+    ListSAV:=ShallowCopy(ListSTD);
+    SPANNED:=SpanOrientedPartGeneral(OP[iSet]);
+    if arg<>"Strict" then
+      SPANNED:=Union(SPANNED, [[OP[iSet]]]);
+    fi;
+    ListSTD:=ShallowCopy([]);
+    for iSav in [1..Length(ListSAV)]
+    do
+      for iSpan in [1..Length(SPANNED)]
+      do
+	ListSTD[Length(ListSTD)+1]:=MergeOrientedPart(ListSAV[iSav], SPANNED[iSpan]);
+      od;
+    od;
+  od;
+  return ListSTD;
+end;
+
+
+
+
+
+
+
+
+
+
+
+
+#
+#
+#
+#
+# The group stuff on orinetd partitions
+# do the reversal of an oriented partition
+Reversal:=function(OP)
+  local k, U, iSet;
+  k:=Length(OP);
+  U:=[];
+  for iSet in [1..k]
+  do
+    U[iSet]:=OP[k+1-iSet];
+  od;
+  return U;
+end;
+
+
+
+
+# The Group action of Sym(n) x Z2 on oriented partitions
+ActionPartition:=function(pp,g)
+  local CC, size, DD, iSet;
+  CC:=[];
+  size:=0;
+  for iSet in [1..Length(pp)]
+  do
+    size:=size+Length(pp[iSet]);
+  od;
+  for iSet in [1..Length(pp)]
+  do
+    CC[iSet]:=OnSets(pp[iSet],g);
+    Sort(CC[iSet]);
+  od;
+  if OnPoints(size+1, g)=size+2 then
+    DD:=[];
+    for iSet in [1..Length(pp)]
+    do
+      DD[iSet]:=CC[Length(pp)+1-iSet];
+    od;
+    return DD;
+  else
+    return CC;
+  fi;
+end;
+
+ActionPairs:=function(pp,g)
+  local CC, iElt;
+  CC:=[];
+  for iElt in [1..Length(pp)]
+  do
+    CC[iElt]:=ActionPartition(pp[iElt],g);
+  od;
+  return Set(CC);
+end;
+
+
+QMETGroup:=function(n)
+  local G, U;
+  G:=SymmetricGroup(n);
+  U:=Group((1,2));
+  return DirectProduct(G,U);
+end;
+
+
+#
+#
+#
+# The PolyHedral stuff on oriented partitions
+# transform oriented partition to oriented multicut
+
+# if option="zero"
+PartToVector:=function(OP, option)
+  local k, size, iSet, Vect, i, j, hi, hj, result;
+  k:=Length(OP);
+  size:=0;
+  for iSet in [1..k]
+  do
+    size:=size+Length(OP[iSet]);
+  od;
+  #
+  if option="zero" then
+    Vect:=[0];
+  else
+    Vect:=[];
+  fi;
+  #
+  for i in [1..size]
+  do
+    for j in [1..size]
+    do
+      if i<> j then
+	for iSet in [1..k]
+	do
+	  if (Position(OP[iSet], i)<>fail) then
+	    hi:=iSet;
+	  fi;
+	  if (Position(OP[iSet], j)<>fail) then
+	    hj:=iSet;
+	  fi;
+	od;
+	if hi< hj then
+	  result:=1;
+	else
+	  result:=0;
+	fi;
+	Vect[Length(Vect)+1]:=result;
+      fi;
+    od;
+  od;
+  return Vect;
+end;
+
+
+# Create the QMETn vectors
+QMET:=function(n)
+  local dimension, i, j, RoR, k, R, S, iter, ListFac;
+  dimension:=n*(n-1);
+  k:=1;
+  RoR:=[];
+  for i in [1..n]
+  do
+    RoR[i]:=[];
+    for j in [1..n]
+    do
+      if (i<>j) then
+        RoR[i][j]:=k;
+        k:=k+1;
+      fi;
+    od;
+  od;
+
+  ListFac:=[];
+  for i in [1..n]
+  do
+    for j in [1..n]
+    do
+      for k in [1..n]
+      do
+	if (i<>j and i<>k and j<>k) then
+	  R:=ShallowCopy([]);
+	  for iter in [1..dimension]
+	  do
+	    R[iter]:=0;
+	  od;
+	  R[RoR[i][j]]:=-1;
+	  R[RoR[i][k]]:=1;
+	  R[RoR[k][j]]:=1;
+	  ListFac[Length(ListFac)+1]:=R;
+	fi;
+      od;
+    od;
+  od;
+  for i in [1..dimension]
+  do
+    R:=ShallowCopy([]);
+    for iter in [1..dimension]
+    do
+      R[iter]:=0;
+    od;
+    R[i]:=1;
+    ListFac[Length(ListFac)+1]:=R;
+  od;
+  return ListFac;
+end;
+
+
+
+
+
+
+# do all cyclic shifts of an oriented partition
+CyclicShifts:=function(OP)
+  local k, List, iShift, S, U, iU;
+  k:=Length(OP);
+  List:=[];
+  List[1]:=OP;
+  for iShift in [2..k]
+  do
+    S:=List[iShift-1];
+    U:=ShallowCopy([]);
+    for iU in [2..k]
+    do
+      U[iU-1]:=S[iU];
+    od;
+    U[k]:=S[1];
+    List[Length(List)+1]:=U;
+  od;
+  return List;
+end;
+
+
+
+# do all cyclic shifts of a set of oriented partitions
+CyclicShiftsSet:=function(SETOP)
+  local U, iU, List, iL; 
+  List:=[];
+  for iL in [1..Length(SETOP)]
+  do
+    U:=CyclicShifts(SETOP[iL]);
+    for iU in [1..Length(U)]
+    do
+      List[Length(List)+1]:=U[iU];
+    od;
+  od;
+  return List;
+end;
+
+
+
+
+
+
+# This procedure will test if OP2 is a refinement of OP1
+ProperRefinement:=function(OP1, OP2)
+  local k1, k2, Proper, StrictlyProper, iSet1, iSet2, htest, idx, reply;
+  k1:=Length(OP1);
+  k2:=Length(OP2);
+  Proper:=1;
+  StrictlyProper:=1;
+  for iSet2 in [1..k2]
+  do
+    idx:=0;
+    for iSet1 in [1..k1]
+    do
+      htest:=IsSubset(OP1[iSet1], OP2[iSet2]);
+      if htest=true then
+	idx:=iSet1;
+      fi;
+    od;
+    if idx=0 then
+      Proper:=0;
+    else
+      if OP2[iSet2]=OP1[idx] then
+	StrictlyProper:=0;
+      fi;
+    fi;
+  od;
+  if Proper=0 then
+    reply:="NoProper";
+  else
+    if StrictlyProper=0 then
+      reply:="Proper";
+    else
+      reply:="Strictly Proper";
+    fi;
+  fi;
+  return reply;
+end;
+
+
+SelectBySize:=function(OPset, k)
+  local OPreturn, u;
+  OPreturn:=[];
+  for u in OPset
+  do
+    if Length(u)=k then
+      OPreturn[Length(OPreturn)+1]:=u;
+    fi;
+  od;
+  return OPreturn;
+end;
+
+BallKendall:=function(OP, order)
+  local SetPerm,k, iter, iTrans, iPerm, L, SetKendall, Elt;
+  k:=Length(OP);
+  SetPerm:=[()];
+  for iter in [1..order]
+  do
+    L:=ShallowCopy(Set([]));
+    for iTrans in [1..k-1]
+    do
+      for iPerm in [1..Length(SetPerm)]
+      do
+	AddSet(L, SetPerm[iPerm]*(iTrans,iTrans+1));
+      od;
+    od;
+    SetPerm:=ShallowCopy(Union(L,SetPerm));
+  od;
+  SetKendall:=[];
+  for Elt in SetPerm
+  do
+    AddSet(SetKendall, Permuted(OP, Elt));
+  od;
+  return SetKendall;
+end;
+
+#
+#
+# We use the linear programming method for testing adjacency
+# The set BSet is a list of facet that help removing irrelevant extreme rays
+TestAdjacency:=function(V1, V2, VECT, BSet)
+  local SYSRED, iVect, iCol, VS, iBS, iSBS, SBSet, test, Mat1, Mat2, Mat12, iSys, r1, r2, r12, Transp, Irr, rank, pos, t, TE, RED, nblines, nbcol, outputCdd, adj, iLine, A, input;
+  SBSet:=[];
+  for iBS in [1..Length(BSet)]
+  do
+    if (V1*BSet[iBS]=0 and V2*BSet[iBS]=0) then
+      SBSet[Length(SBSet)+1]:=BSet[iBS];
+    fi;
+  od;
+  SYSRED:=[];
+  for iVect in [1..Length(VECT)]
+  do
+    VS:=VECT[iVect];
+    if (VS<>V1 and VS<>V2) then
+      test:=1;
+      for iSBS in [1..Length(SBSet)]
+      do
+        if (VS*SBSet[iSBS]>0) then
+	  test:=0;
+        fi;
+      od;
+      if test=1 then
+	SYSRED[Length(SYSRED)+1]:=VS;
+      fi;
+    fi;
+  od;
+  if (Length(SYSRED)<=1) then
+    return "Adjacent";
+  fi;
+  Mat1:=[V1];
+  Mat2:=[V2];
+  Mat12:=[V1, V2];
+  for iSys in [1..Length(SYSRED)]
+  do
+    Mat1[iSys+1]:=SYSRED[iSys];
+    Mat2[iSys+1]:=SYSRED[iSys];
+    Mat12[iSys+2]:=SYSRED[iSys];
+  od;
+  r1:=RankMat(Mat1);
+  r2:=RankMat(Mat2);
+  r12:=RankMat(Mat12);
+#  Print(Mat1,"\n\n");
+#  Print(Mat2,"\n\n");
+#  Print(Mat12,"\n\n");
+  if (r12 > r1 or r12> r2) then
+    return "Adjacent";
+  fi;
+  Transp:=TransposedMat(Mat12);
+  Irr:=[];
+  rank:=0;
+  pos:=1;
+  while (rank<r12)
+  do
+    TE:=ShallowCopy(Irr);
+    TE[Length(TE)+1]:=Transp[pos];
+    t:=RankMat(TE);
+    if (t > rank) then
+      Irr:=ShallowCopy(TE);
+#      Print(Irr,"\n");
+      rank:=t;
+    fi;
+    pos:=pos+1;
+  od;
+  RED:=TransposedMat(Irr);
+  nblines:=Length(RED);
+#  Print("NB lines=", nblines,"\n");
+  nbcol:=Length(RED[1]);
+  Exec("rm -f CDD-WORK/*");
+  outputCdd:=OutputTextFile("CDD-WORK/LP.ine", true);;
+  AppendTo(outputCdd, "H-representation\n");
+  AppendTo(outputCdd, "begin\n");
+  AppendTo(outputCdd, Concatenation(" ", String(nblines-1), " ", String(nbcol+1), " integer\n"));
+  for iLine in [3..Length(RED)]
+  do
+    VS:=RED[iLine];
+    AppendTo(outputCdd, " 0");
+    for iCol in [1..nbcol]
+    do
+      AppendTo(outputCdd, Concatenation(" ", String(VS[iCol])));
+    od;
+    AppendTo(outputCdd, "\n");
+  od;
+  #
+  VS:=-RED[2];
+  AppendTo(outputCdd, " 0");
+  for iCol in [1..nbcol]
+  do
+    AppendTo(outputCdd, Concatenation(" ", String(VS[iCol])));
+  od;
+  AppendTo(outputCdd, "\n");
+  AppendTo(outputCdd, "end\n");
+  AppendTo(outputCdd, "minimize\n");
+  #
+  VS:=RED[1];
+  AppendTo(outputCdd, " 0");
+  for iCol in [1..nbcol]
+  do
+    AppendTo(outputCdd, Concatenation(" ", String(VS[iCol])));
+  od;
+  AppendTo(outputCdd, "\n");
+  CloseStream(outputCdd);
+#  Exec("cddr+_gmp CDD-WORK/LP.ine > CDD-WORK/LP.stuff");
+  Exec("cddr+_gmp CDD-WORK/LP.ine");
+  Exec("./lpcddcleaner CDD-WORK/LP.lps > CDD-WORK/LP.gap");
+  input:=InputTextFile("CDD-WORK/LP.gap");
+  A:=ReadAll(input);
+  CloseStream(input);
+  if A="adj:=1;\n" then   
+    return "Adjacent";
+  else
+    return "Not Adjacent";
+  fi;
+end;
+
+
+PrintVector:=function(outputarg, Vect)
+  local iCol; 
+  for iCol in [1..Length(Vect)]
+  do
+    AppendTo(outputarg, Concatenation(" ", String(Vect[iCol])));
+  od;
+  AppendTo(outputarg, "\n");
+end;
+
+
+
+CddOutput:=function(Filename, OPset)
+  local iOP, VS, output;
+  output:=OutputTextFile(Filename, true);;
+  for iOP in [1..Length(OPset)]
+  do
+    VS:=PartToVector(OPset[iOP],"zero");
+    PrintVector(output, VS);
+  od;
+  CloseStream(output);
+end;
+
+
+
+
+PartOutput:=function(Filename, OPset)
+  local iOP, OP, iP, iS, i, VS, output;
+  output:=OutputTextFile(Filename, true);;
+  for iOP in [1..Length(OPset)]
+  do
+    OP:=OPset[iOP];
+    for iP in [1..Length(OP)]
+    do
+      iS:=OP[iP];
+      for i in [1..Length(iS)]
+      do
+	AppendTo(output, " ");
+	AppendTo(output, iS[i]);
+      od;
+      if iP<Length(OP) then
+	AppendTo(output, " |");
+      fi;
+    od;
+    AppendTo(output, "\n");
+  od;
+  CloseStream(output);
+end;
+
+
+
+
+
+
+
+
+
+
+
+
+ListAdjacent:=function(OP, OPlist, Grp, BoundingSet)
+  local S, iS, Stab, ListOrbit, VECT, iV, ListAdj, iOrb, ORB, iElt, T;
+  S:=Difference(OPlist, [OP]);
+  Print("Length=", Length(S), "\n");
+  Stab:=Stabilizer(Grp,OP, ActionPartition);
+  
+  ListOrbit:=Orbits(Stab,S, ActionPartition);
+  Print("Nb Orbit=",Length(ListOrbit),"\n");
+  VECT:=[];
+  for iV in [1..Length(OPlist)]
+  do
+    VECT[iV]:=PartToVector(OPlist[iV],"noop");
+  od;
+
+  ListAdj:=Set([]);
+  for iOrb in [1..Length(ListOrbit)]
+  do
+    ORB:=ListOrbit[iOrb];
+    Print("Treating ", ORB[1],"\n");
+    T:=TestAdjacency(PartToVector(OP,"noop"),PartToVector(ORB[1],"noop"),VECT, BoundingSet);
+    if T="Adjacent" then
+      Print("Adjacent\n");
+      ListAdj:=Union(ListAdj, ORB);
+    else
+      Print("Non Adjacent\n");
+    fi;
+  od;
+  return ListAdj;
+end;
+
+
+
+
+GraphAndReprMat:=function(n)
+  local QMETfac, OPset, G, O, i, iOrb, iElt, VS, iCol, output, S, iS, outputKeep, outputMatr, outputRepresent, outputList, pos, FileName, Ladj, jOrb;
+  QMETfac:=QMET(n);
+  OPset:=SpanOrientedPart(n);
+  G:=QMETGroup(n);
+  O:=Orbits(G, OPset, ActionPartition);
+  #
+  outputList:=OutputTextFile("FOUND-adj/PositionRepresentant", true);;
+  pos:=1;
+  for iOrb in [1..Length(O)]
+  do
+    AppendTo(outputList,Concatenation(" ", String(pos),"\n"));
+    pos:=pos+Length(O[iOrb]);
+    FileName:=Concatenation("FOUND-work/Orbit", String(100+iOrb));
+    output:=OutputTextFile(FileName, true);;
+    for iElt in [1..Length(O[iOrb])]
+    do
+      PrintVector(output, PartToVector(O[iOrb][iElt],"zero"));
+    od;
+    CloseStream(output);
+  od;
+  CloseStream(outputList);
+  #
+  outputRepresent:=OutputTextFile("FOUND-adj/Representant", true);;
+  for iOrb in [1..Length(O)]
+  do
+    AppendTo(outputRepresent, O[iOrb][1]);
+  od;
+  CloseStream(outputRepresent);
+  #
+  outputMatr:=OutputTextFile("FOUND-adj/RAW_Representation_Matrix", true);;
+  outputKeep:=OutputTextFile("FOUND-adj/KeepAdj", true);;
+  for iOrb in [1..Length(O)]
+  do
+    Ladj:=ListAdjacent(O[iOrb][1], OPset, G, QMETfac);
+    for jOrb in [1..Length(O)]
+    do
+      S:=Intersection(Ladj, O[jOrb]);
+      AppendTo(outputMatr, Concatenation(" ", String(Length(S))));
+      for iS in [1..Length(S)]
+      do
+	PrintVector(outputKeep, PartToVector(O[iOrb][1],"zero"));
+	PrintVector(outputKeep, PartToVector(S[iS],"zero"));
+      od;
+    od;
+    AppendTo(outputMatr, "\n");
+  od;
+  CloseStream(outputKeep);
+  CloseStream(outputMatr);
+end;
+
+n:=4;
+#GraphAndReprMat(n);
+
+QMETfac:=QMET(n);
+OPset:=SpanOrientedPart(n);
+G:=QMETGroup(n);
+
+VECT:=[];
+for iV in [1..Length(OPset)]
+do
+  VECT[iV]:=PartToVector(OPset[iV],"noop");
+od;
+
+
+#CddOutput("OMCUT4.cdd.Nude", OPset);
+
+
+
+
+
+
+OP:=[[1],[2],[3],[4]];
+LA:=ListAdjacent(OP, OPset, G, QMETfac);
+LS:=Difference(Set(OPset), Set(LA));
+LNA:=Difference(LS, [OP]);
+Print(LNA);
+LTA:=Proper(Reversal(OP),"Large");
+#Print(LTA,"\n");
+#Print(LNA,"\n");
+Print(Difference(LTA, LNA),"\n");
+
+
+
+ord:=n-1;
+OPadj:=SelectBySize(LA,n);
+OPkendall:=BallKendall(OP,ord);
+
+Print(OPadj,"\n");
+Print(OPkendall,"\n");
+
+
+
+#output:=OutputTextFile("ListOM2", true);;
+#for iElt in [1..Length(LNA)]
+#do
+#  AppendTo(output, LNA[iElt],"\n");
+#od;
+#CloseStream(output);
+
+
+
+
+
+#Print(TestAdjacency(PartToVector([[1],[2,3,4]]),PartToVector([[4],[1,2,3]]), VECT, QMETfac),"\n");

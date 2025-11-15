@@ -1,0 +1,68 @@
+#!/usr/bin/perl
+
+
+$uu=scalar(@ARGV);
+
+if ($uu ne 1)
+{
+    print "QuasiPermInduced is used as\n\n";
+    print "QuasiPermInduced [file]\n";
+    print "with file a list of elements of some\n";
+    print "fixed Sn\n";
+    die;
+}
+
+$NameFile=$ARGV[0];
+
+
+open(INFILE, $NameFile) or die "impossible to open ".$NameFile."\n";
+@LP=<INFILE>;
+close(INFILE);
+
+
+@exmpl=split(" ", $LP[0]);
+$n=scalar(@exmpl);
+
+
+$mantissa=9;
+
+$level=1;
+for ($i=1; $i<=$n; $i++)
+{
+    for ($j=1; $j<=$n; $j++)
+    {
+	if ($i ne $j)
+	{
+	    $nbr=$i*($mantissa+1)+$j;
+	    $oR[$level]=$nbr;
+	    $RoR[$nbr]=$level;
+	    $iFunc[$nbr]=$i;
+	    $jFunc[$nbr]=$j;
+	    $ijFunc[$i*($mantissa+1)+$j]=$level;
+	    $level++;
+	}
+    }
+}
+
+
+for ($iLine=1; $iLine<=scalar(@LP); $iLine++)
+{
+    $line=$LP[$iLine-1];
+    @LIS=split(" ", $line);
+    for ($i=1; $i<=$n; $i++)
+    {
+	for ($j=1; $j<=$n; $j++)
+	{
+	    if ($i ne $j)
+	    {
+		$nbr=$LIS[$i-1]*($mantissa+1)+$LIS[$j-1];
+		print $RoR[$nbr]." ";
+	    }
+	}
+    }
+    print "\n";
+}
+
+
+
+

@@ -1,0 +1,49 @@
+#!/usr/bin/perl
+
+# This script take a list of extreme rays of facets and returns the number
+# of coordinate that are equal to zero
+
+
+
+$InputFile="perfect-forms-dim8.txt";
+open(INFILE, $InputFile) or die "EXT.in ouverture impossible";
+@IFI= <INFILE>;
+close(INFILE);
+
+print "return [\n";
+for ($iMat=1; $iMat<=10916; $iMat++)
+{
+    print "[";
+    for ($iLine=1; $iLine<=8; $iLine++)
+    {
+	$str=$IFI[($iMat-1)*16+1+$iLine];
+	chomp($str);
+	@L=split(" ", $str);
+	print "[";
+	for ($iC=1; $iC<=$iLine; $iC++)
+	{
+	    print $L[$iC-1];
+	    if ($iC < $iLine)
+	    {
+		print ",";
+	    }
+	}
+	print "]";
+	if ($iLine<8)
+	{
+	    print ",";
+	}
+	print "\n";
+#	print $str;
+    }
+    print "]";
+    if ($iMat < 10916)
+    {
+	print ",\n";
+    }
+#    if ($iMat > 2)
+#    {
+#	die;
+#    }
+}
+print "];\n";

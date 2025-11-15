@@ -1,0 +1,91 @@
+#!/usr/bin/perl
+
+# We take as input a list of Oriented partitions of level k
+# and return as outputs a list of oriented partitions of level k+1
+#
+# the input list must be in the form 1 # 2 3 # 4
+
+
+while (<>)
+{
+    $line=$_;
+    @U=split(" ", $line);
+    # determine the integer $k$
+    @SPS=split("#", $line);
+    $k=scalar(@SPS);
+#    print "k=".$k."\n";
+
+
+    # determine size of partitioned set
+    $size=scalar(@U)-$k+1;
+
+
+	
+    $EltToAdd=$size+1;
+    #
+    #
+    # first way to increase level is to incorpore one more element to each of
+    # the subsets there is k way of doing this
+
+    for ($Padd=1; $Padd<=$k-1; $Padd++)
+    {
+	$swa=1;
+	for ($iC=1; $iC<=scalar(@U); $iC++)
+	{
+	    if ($U[$iC-1] eq "#")
+	    {
+		$swa++;
+		if ($swa-1 eq $Padd)
+		{
+		    print " ".$EltToAdd;
+		}
+	    }
+	    print " ".$U[$iC-1];
+	}
+	print "\n";
+    }
+    #
+    for ($iC=1; $iC<=scalar(@U); $iC++)
+    {
+	print " ".$U[$iC-1];
+    }
+    print " ".$EltToAdd."\n";
+
+
+    #
+    #
+    # second way to add is to add a 1 set to the oriented partition
+    # there are k+1 wa of doing this
+
+    #
+    print " ".$EltToAdd." #";
+    for ($iC=1; $iC<=scalar(@U); $iC++)
+    {
+	print " ".$U[$iC-1];
+    }
+    print "\n";
+    #
+    for ($Padd=1; $Padd<=$k-1; $Padd++)
+    {
+	$swa=1;
+	for ($iC=1; $iC<=scalar(@U); $iC++)
+	{
+	    if ($U[$iC-1] eq "#")
+	    {
+		$swa++;
+		if ($swa-1 eq $Padd)
+		{
+		    print " # ".$EltToAdd;
+		}
+	    }
+	    print " ".$U[$iC-1];
+	}
+	print "\n";
+    }
+    #
+    for ($iC=1; $iC<=scalar(@U); $iC++)
+    {
+	print " ".$U[$iC-1];
+    }
+    print " # ".$EltToAdd."\n";
+}

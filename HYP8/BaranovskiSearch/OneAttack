@@ -1,0 +1,29 @@
+Read("BaranovskiSearch");
+ComputeTheDifference:=function(TheVect)
+  local TheVectMinus, n, TheDifference, k, 5gonal;
+  n:=Length(TheVect);
+  TheVectMinus:=[TheVect[1]-1, TheVect[2]-1, TheVect[3]+1, TheVect[4]+1];
+  TheVectMinus{[5..n]}:=TheVect{[5..n]};
+
+  TheDifference:=FromHypermetricVectorToHypermetricFace(TheVect);
+  TheDifference:=TheDifference-FromHypermetricVectorToHypermetricFace(TheVectMinus);
+  for k in [5..n]
+  do
+    5gonal:=ListWithIdenticalEntries(n, 0);
+    5gonal[k]:=1;
+    if TheVect[k]>0 then
+      5gonal[1]:=1;
+      5gonal[2]:=1;
+      5gonal[3]:=-1;
+      5gonal[4]:=-1;
+    else
+      5gonal[1]:=-1;
+      5gonal[2]:=-1;
+      5gonal[3]:=1;
+      5gonal[4]:=1;
+    fi;
+    TheDifference:=TheDifference-AbsInt(TheVect[k])*FromHypermetricVectorToHypermetricFace(5gonal);
+  od;
+#  Print("TheDifference=", TheDifference, "\n");
+  return DistanceVectorReduction(TheDifference, 4);
+end;

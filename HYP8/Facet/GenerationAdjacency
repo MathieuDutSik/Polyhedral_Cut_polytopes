@@ -1,0 +1,96 @@
+LSE:=ReadAsFunction("ListOrbitConjecturedComplete")();
+
+ListTriangle:=SpanMETsymbol(8);
+
+
+
+TrigFac:=ListTriangle[1];
+
+DropCoordinate:=0;
+VEC:=FromHypermetricVectorToHypermetricFace(TrigFac);
+
+for iCol in [1..Length(VEC)]
+do
+  if DropCoordinate=0 then
+    if VEC[iCol]<>0 then
+      DropCoordinate:=iCol;
+    fi;
+  fi;
+od;
+
+
+
+FuncDropCoordinate:=function(Vector)
+  local iCol, NewVector;
+  NewVector:=[];
+  for iCol in [1..Length(VEC)]
+  do
+    if iCol<>DropCoordinate then
+      Add(NewVector, Vector[iCol]);
+    fi;
+  od;
+  return NewVector;
+end;
+
+ListCut:=[];
+for eCut in ProductList([[1]], BuildSet(8-1,[0,1]))
+do
+  if (Position(eCut, 0)<>fail) and (eCut*TrigFac in [0,1]) then
+    Add(ListCut, FuncDropCoordinate(FromCutToCutVector(eCut, "extreme")));
+  fi;
+od;
+
+
+VListSymbol:=[];
+VList:=[];
+VListDropped:=[];
+for eTrig in ListTriangle
+do
+  if IsConflicting(eTrig, TrigFac)=false and eTrig<>TrigFac then
+    Add(VListSymbol, eTrig);
+    VEC2:=FromHypermetricVectorToHypermetricFace(eTrig);
+    Add(VList, VEC2);
+    Add(VListDropped, FuncDropCoordinate(VEC2));
+  fi;
+od;
+
+
+FuncInsertInList:=function(VEC)
+  local A, Ineq, IneqDropped, VListDroppedNew, VListNew, VListSymbolNew, eV, pos;
+  Ineq:=FromHypermetricVectorToHypermetricFace(VEC);
+  IneqDropped:=FuncDropCoordinate(Ineq);
+
+  A:=LinearProgrammingConeVersion(VListDropped, IneqDropped);
+  Print("A=", A);
+  if A="non zero optimum\n" then
+    Add(VListSymbol, VEC);
+    Add(VList, Ineq);
+    Add(VListDropped, IneqDropped);
+    VListDroppedNew:=EliminationByRedundancy(VListDropped, []);
+    VListNew:=[];
+    VListSymbolNew:=[];
+    for eV in VListDroppedNew
+    do
+      pos:=Position(VListDropped, eV);
+      Add(VListNew, VList[pos]);
+      Add(VListSymbolNew, VListSymbol[pos]);
+    od;
+    VList:=ShallowCopy(VListNew);
+    VListSymbol:=ShallowCopy(VListSymbolNew);
+    VListDropped:=ShallowCopy(VListDroppedNew);
+    Print("The list of facets consist now of ", Length(VListSymbol), " elements");
+  fi;
+end;
+
+
+SymGrp:=SymmetricGroup([1..8]);
+Print("Running the enumeration\n");
+for Repr in LSE
+do
+  Print("Working for orbit ", Repr, "\n");
+  Orb:=Orbit(SymGrp, Repr, Permuted);
+  for eVec in Orb
+  do
+    FuncInsertInList(eVec);
+  od;  
+od;

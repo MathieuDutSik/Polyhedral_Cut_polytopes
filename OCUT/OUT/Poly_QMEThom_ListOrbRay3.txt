@@ -1,0 +1,43 @@
+Vertices of the polytope WQMETP3
+|GRPsymRevSwitch|=48 |FAC|=16
+|GRPsymRev|=12
+nbOrb=2
+iOrb=1/2 |inc|=9 |stab|=12 |O|=4
+ 0 0 0
+ 0 0 0
+ 0 0 0
+   denominator=1
+ under GRPsymRev, the orbit splits into 2 orbits
+iOrbSplit=1/2
+ 0 0 1
+ 0 0 1
+ 1 1 0
+   denominator=1
+iOrbSplit=2/2
+ 0 0 0
+ 0 0 0
+ 0 0 0
+   denominator=1
+
+iOrb=2/2 |inc|=8 |stab|=4 |O|=12
+ 0 0 1
+ 0 0 1
+ 0 0 0
+   denominator=1
+ under GRPsymRev, the orbit splits into 2 orbits
+iOrbSplit=1/2
+ 0 1 1
+ 1 0 1
+ 0 0 0
+   denominator=1
+iOrbSplit=2/2
+ 0 0 1
+ 0 0 1
+ 0 0 0
+   denominator=1
+
+TotalNumberVertices=16
+nbOrbitVertices=2
+|eRec.FAChom|=16
+nbOrb Facet=2
+dim=5

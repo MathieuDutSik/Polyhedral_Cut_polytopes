@@ -1,0 +1,31 @@
+#
+#
+# We are analysing a 7-dim polytope with 39 vertices
+# whose rank is 2.
+# Its two limit forms are schlafli polytopes.
+EXT:=ReadAsFunction("Polytope39")();;
+GRP:=__TheCore_Automorphism(EXT);
+LCASE:=General_FuncSearchSubSym(EXT, GRP);
+eCase:=LCASE[12];
+
+eListOrbit:=LCASE[12].ListOrbit;
+
+ListEXT:=List(eListOrbit, x->EXT{x.Orb});
+GetFromSeqNumber:=function(i, j, k)
+  local TheBasis;
+  TheBasis:=[];
+  Add(TheBasis, __Isobarycenter(ListEXT[i]));
+  Add(TheBasis, __Isobarycenter(ListEXT[j]));
+  Append(TheBasis, ListEXT[k]);
+  return HypermetricCoordinates(TheBasis, EXT);
+end;
+
+EXTsch:=Concatenation(ListEXT[1], ListEXT[2], ListEXT[5]);
+EXTreord:=Concatenation(EXTsch, ListEXT[3], ListEXT[4]);
+
+AffBas:=CreateAffineBasis(EXTsch);
+Add(AffBas, ListEXT[3][1]);
+LCOORD:=HypermetricCoordinates(AffBas, EXTreord);
+
+
+

@@ -1,0 +1,100 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts, amsmath, latexsym, epsfig}
+\usepackage{epsf}
+\usepackage{url}
+\title{Automorphism group of Lorentzian lattices}
+
+\def\QuotS#1#2{\leavevmode\kern-.0em\raise.2ex\hbox{$#1$}\kern-.1em/\kern-.1em\lower.25ex\hbox{$#2$}}
+
+
+%\usepackage{vmargin}
+%\setpapersize{custom}{21cm}{29.7cm}
+%\setmarginsrb{1.7cm}{1cm}{1.7cm}{3.5cm}{0pt}{0pt}{0pt}{0pt}
+%marge gauche, marge haut, marge droite, marge bas.
+
+\begin{document}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\T}{\ensuremath{\mathbb{T}}}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}
+\newtheorem{problem}{Problem}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{claim}{Claim}
+\newtheorem{remark}{Remark}
+\newtheorem{definition}{Definition}
+\newcommand{\qed}{\hfill $\Box$ }
+\newcommand{\proof}{\noindent{\bf Proof.}\ \ }
+
+Number of vertices $n=7$.
+
+Adjacencies of Graph
+\begin{enumerate}
+\item vertex 1 adjacent to 4 5 6 7
+\item vertex 2 adjacent to 4 5 6 7
+\item vertex 3 adjacent to 4 5 6 7
+\item vertex 4 adjacent to 1 2 3 5 6 7
+\item vertex 5 adjacent to 1 2 3 4 6 7
+\item vertex 6 adjacent to 1 2 3 4 5 7
+\item vertex 7 adjacent to 1 2 3 4 5 6
+\end{enumerate}
+Size of automorphism group of the graph=144
+
+Full group: $\vert Aut(polytope) \vert  =9216$
+
+Restricted group: $\vert Aut(G) \times switch \vert = 9216$
+
+Number of orbits for the full group : 4
+
+List of orbits of facets for the full group:
+Total number of orbits = 4
+Total number of facets = 520
+\begin{enumerate}
+\item Inequality 1 with incidence 48 and stabilizer of size 128. Orbit size is 72
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,4) : -1&(1,5) : 0&(1,6) : 0&(1,7) : 1&(2,4) : 0&(2,5) : 0\\
+(2,6) : 0&(2,7) : 0&(3,4) : 0&(3,5) : 0&(3,6) : 0&(3,7) : 0\\
+(4,5) : 0&(4,6) : 0&(4,7) : 1&(5,6) : 0&(5,7) : 0&(6,7) : 0\\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 2 with incidence 48 and stabilizer of size 576. Orbit size is 16
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,4) : 0&(1,5) : 0&(1,6) : 0&(1,7) : 0&(2,4) : 0&(2,5) : 0\\
+(2,6) : 0&(2,7) : 0&(3,4) : 0&(3,5) : 0&(3,6) : 0&(3,7) : 0\\
+(4,5) : 0&(4,6) : -1&(4,7) : 1&(5,6) : 0&(5,7) : 0&(6,7) : 1\\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 3 with incidence 40 and stabilizer of size 192. Orbit size is 48
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,4) : 1&(1,5) : 1&(1,6) : 1&(1,7) : -1&(2,4) : 0&(2,5) : 0\\
+(2,6) : 0&(2,7) : 0&(3,4) : 0&(3,5) : 0&(3,6) : 0&(3,7) : 0\\
+(4,5) : -1&(4,6) : -1&(4,7) : 1&(5,6) : -1&(5,7) : 1&(6,7) : 1\\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 4 with incidence 28 and stabilizer of size 24. Orbit size is 384
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,4) : -1&(1,5) : 1&(1,6) : 1&(1,7) : -1&(2,4) : -1&(2,5) : 1\\
+(2,6) : 1&(2,7) : 1&(3,4) : 0&(3,5) : 0&(3,6) : 0&(3,7) : 0\\
+(4,5) : 1&(4,6) : 1&(4,7) : 0&(5,6) : -1&(5,7) : 0&(6,7) : 0\\
+\hline
+\end{tabular}
+\end{center}
+\end{enumerate}
+\end{document}
+

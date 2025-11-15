@@ -1,0 +1,47 @@
+#!/usr/bin/perl
+
+#
+# This script will create the range of subproblems
+# using linear programming
+
+$uu=scalar(@ARGV);
+
+if ($uu ne 1)
+{
+    print "This little script is used as\n";
+    print "./FindNonRedFac [NB1]\n";
+    print "with [NB1] is a number in [1..374]\n";
+    die;
+}
+$iFile=$ARGV[0];
+
+
+
+
+$order="./GenerateHypermetrics IncidentHyp/Hyp8-".$iFile." > FOUND-Sub/ESfile".$iFile;
+print $order."\n";
+system $order;
+
+$order="./DropCoordinate FOUND-Sub/ESfile".$iFile." 2 > FOUND-Sub/DC-ESfile".$iFile;
+print $order."\n";
+system $order;
+
+$order="./RemoveZeroLines FOUND-Sub/DC-ESfile".$iFile." > FOUND-Sub/NZ-ESfile".$iFile;
+print $order."\n";
+system $order;
+
+$order="./CrackOutRedundant FOUND-Sub/NZ-ESfile".$iFile;
+print $order."\n";
+system $order;
+
+$order="mv FOUND-Sub/NRL FOUND-Sub/NRL-".$iFile;
+print $order."\n";
+system $order;
+
+$order="mv FOUND-Sub/Cracking.Result FOUND-Sub/Crack-".$iFile;
+print $order."\n";
+system $order;
+
+$order="./TranslationFile FOUND-Sub/NRL-".$iFile." FOUND-Sub/DC-ESfile".$iFile." IncidentHyp/Hyp8-".$iFile." > FOUND-Sub/NRL-Math".$iFile;
+print $order."\n";
+system $order;

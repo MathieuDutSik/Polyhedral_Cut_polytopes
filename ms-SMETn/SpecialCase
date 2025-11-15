@@ -1,0 +1,38 @@
+#!/usr/bin/perl
+
+$m=4;
+$k=$m+1;
+$s="9/4";
+$n=$m+2;
+
+$order="rm -f Scene/*";
+print $order."\n";
+system $order;
+
+$order="./Set-mn ".$m." ".$n;
+print $order."\n";
+system $order;
+
+$order="./SetSupermetric ".$m." ".$s." ".$n;
+print $order."\n";
+system $order;
+
+$order="cat Scene/O-NN Scene/O-SSimplex > Scene/NudeFacets";
+print $order."\n";
+system $order;
+
+$order="../Canonic/HAddHeaderFooter Scene/NudeFacets > Scene/Fac.ine";
+print $order."\n";
+system $order;
+
+$order="cddr+_gmp Scene/Fac.ine";
+print $order."\n";
+system $order;
+
+$order="../Canonic/Nudify Scene/Fac.ext > Scene/Fac.ext.Nude";
+print $order."\n";
+system $order;
+
+$order="(cd ../Adjacencies && ./ComputeAdjacencies)";
+print $order."\n";
+system $order;

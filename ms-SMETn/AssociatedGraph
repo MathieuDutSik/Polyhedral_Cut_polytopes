@@ -1,0 +1,153 @@
+#!/usr/bin/perl
+
+# This procedure takes as argument a list of sets and
+# a list of vectors and return the graph obtained by keeping the
+# nonzero coordinate (subgraph of a Johnson Graph)
+
+$uu=scalar(@ARGV);
+
+if ($uu ne 3)
+{
+    print "PerminduitesHMETn is used as:\n\n";
+    print "Perminduites [SetFile] [VectorFile] [nb]\n";
+    print "with [SetFile] a list of sets\n";
+    print "presented as 0/1 vectors\n";
+    print "[VectorFile] a list of vectors\n";
+    print "and [nb] a line number in [VectorFile]\n";
+    die;
+}
+
+$SetFile=$ARGV[0];
+$VectorFile=$ARGV[1];
+$LineNumber=$ARGV[2];
+
+open(INFILE, $SetFile) or die "impossible to open ".$SetFile."\n";
+@SET=<INFILE>;
+close(INFILE);
+
+open(INFILE, $VectorFile) or die "impossible to open ".$VectorFile."\n";
+@VECT=<INFILE>;
+close(INFILE);
+@ESET=split(" ", $SET[0]);
+@EVEC=split(" ", $VECT[$LineNumber-1]);
+$dimension=scalar(@EVEC)-1;
+
+#
+#
+# Get the basic infos
+if ($dimension ne scalar(@SET))
+{
+    print "dimension disagreement between Vectors : dim=".$dimension."\n";
+    print "And number of considered sets :".scalar(@SET).")\n";
+    die;
+}
+$n=scalar(@ESET);
+$Cnk=scalar(@SET);
+
+# find the value of $k
+$k=0;
+for ($u=1; $u<=scalar(@ESET); $u++)
+{
+    if ($ESET[$u-1] eq 1)
+    {
+	$k++;
+    }
+}
+
+# extraction of vertices of the graph.
+$level=1;
+for ($i=1; $i<=$dimension; $i++)
+{
+    if ($EVEC[$i] ne 0)
+    {
+	$FC[$level]=$i;
+	$Value[$level]=$EVEC[$i];
+	$ReFC[$i]=$level;
+	$level++;
+    }
+}
+
+$GraphSize=$level-1;
+
+# We will work in Johnson Graph J(n,k)
+sub IntersectionSize($$)
+{
+    my ($FirstLine, $SecondLine)=@_;
+    my $dim, $NB;
+    @FL=split(" ", $FirstLine);
+    @SL=split(" ", $SecondLine);
+    $dim=scalar(@FL);
+    $NB=0;
+    for ($i=1; $i<=$dim; $i++)
+    {
+	if ($FL[$i-1] eq 1 && $SL[$i-1] eq 1)
+	{
+	    $NB++;
+	}
+    }
+    return $NB;
+}
+
+# print the file to be included in the .tex file
+open(OUT, "> Scene/VertexList.tex");
+print OUT "A graph with \$".$GraphSize."\$ vertices :";
+for ($u=1; $u<=$GraphSize; $u++)
+{
+    print OUT "\$".$u."\$:";
+    if ($Value[$u] ne 1)
+    {
+	print OUT " Value ".$Value[$u];
+    }
+    print OUT " \$(";
+    @l=split(" ", $SET[$FC[$u]-1]);
+    for ($iC=1; $iC<=$n; $iC++)
+    {
+	if ($l[$iC-1] eq 1)
+	{
+	    print OUT $iC;
+	}
+    }
+    print OUT ")\$";
+    if ($u < $GraphSize)
+    {
+	print OUT ", ";
+    }
+}
+print OUT "\n";
+close(OUT);
+
+# print the datas for Graph computations and drawings.
+open(OUT_CAGE, "> Scene/CaGe-Output");
+open(OUT_NAUTY, "> Scene/Gv.nauty");
+print OUT_CAGE ">>writegraph2d planar<<\n\n";
+$NautySize=$GraphSize+1;
+print OUT_NAUTY "n=".$NautySize."\n";
+print OUT_NAUTY "g\n";
+for ($u=1; $u<=$GraphSize; $u++)
+{
+    print OUT_CAGE $u." 0 0";
+    print OUT_NAUTY $u." :";
+    for ($v=1; $v<=$GraphSize; $v++)
+    {
+	if ($u ne $v && IntersectionSize($SET[$FC[$u]-1], $SET[$FC[$v]-1]) eq $k-1)
+	{
+	    print OUT_CAGE " ".$v;
+	    print OUT_NAUTY " ".$v;
+	}
+    }
+    print OUT_CAGE "\n";
+    print OUT_NAUTY ";\n";
+}
+print OUT_CAGE "0\n\n";
+print OUT_NAUTY "x\n";
+print OUT_NAUTY "o\n";
+close(OUT_CAGE);
+close(OUT_NAUTY);
+
+$order="cat Scene/VertexList.tex";
+print $order."\n";
+system $order;
+
+$order="cat Scene/Gv.nauty";
+print $order."\n";
+system $order;

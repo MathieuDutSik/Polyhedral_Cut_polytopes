@@ -1,0 +1,13 @@
+If D is a perfect Delaunay polytopes, then we associate
+to its vector set v1, ...., vM the vector family
+v'1=(1,v1), ...., v'M=(1, vM)
+
+We then have that there D is extreme if and only if there exist
+a unique matrix A such that 
+Tr(A p(v'i) )=0
+
+p(v'i)=t(v'i) v'i
+
+But actually the vectors v'i do not define a perfect form:
+--reason 1: their dimension is one too much
+--reason 2: there exist some vectors of shorter norm a priori.

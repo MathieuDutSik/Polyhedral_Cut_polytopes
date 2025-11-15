@@ -1,0 +1,72 @@
+#!/usr/bin/perl
+
+# This script do a zero extension of a vector from
+# SMET^{m,s}_n to a vector of SMET^{m+1,s}_{n+1}
+
+
+$uu=scalar(@ARGV);
+
+if ($uu ne 3)
+{
+    print "ZeroExtension is used as\n";
+    print "./ZeroExtension [m] [n] [File]\n\n";
+    print "with [m] indicating the order of the supermetric\n";
+    print "with [n] the size of the set on which we consider the supermetric\n";    
+    print "with [File] a file of extreme rays or facets\n";
+    print "it acts from SMET^{m,s}_{n} to SMET^{m+1, s}_{n+1}\n";
+    die;
+}
+
+$m=$ARGV[0];
+$n=$ARGV[1];
+$File=$ARGV[2];
+$k=$m+1;
+
+
+$order="./Set-mn ".$m." ".$n;
+system $order;
+
+$mp1=$m+1;
+$np1=$n+1;
+$kp1=$mp1+1;
+
+$order="./Set-mn ".$mp1." ".$np1;
+system $order;
+
+open(INFILE, "Scene/".$k."-Sets-".$n) or die "impossible to open Scene/".$k."-Sets-".$n."\n";
+@SSET1=<INFILE>;
+close(INFILE);
+
+open(INFILE, "Scene/".$kp1."-Sets-".$np1) or die "impossible to open Scene/".$kp1."-Sets-".$np1."\n";
+@SSET2=<INFILE>;
+close(INFILE);
+
+open(INFILE, $File) or die "impossible to open ".$File."\n";
+@LE=<INFILE>;
+close(INFILE);
+
+for ($iLine=1; $iLine<=scalar(@LE); $iLine++)
+{
+    @LiNe=split(" ", $LE[$iLine-1]);
+    print " ".$LiNe[0];
+    for ($iCol=1; $iCol<=scalar(@SSET2);  $iCol++)
+    {
+	@U=split(" ", $SSET2[$iCol-1]);
+	if ($U[0] eq 0)
+	{
+	    print " 0";
+	}
+	else
+	{
+	    for ($iC=1; $iC<=scalar(@SSET1); $iC++)
+	    {
+		$SV=" 1".$SSET1[$iC-1];
+		if ($SV eq $SSET2[$iCol-1])
+		{
+		    print " ".$LiNe[$iC];
+		}
+	    }
+	}
+    }
+    print "\n";
+}

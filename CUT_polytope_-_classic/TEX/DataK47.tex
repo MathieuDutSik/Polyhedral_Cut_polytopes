@@ -1,0 +1,246 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts, amsmath, latexsym, epsfig}
+\usepackage{epsf}
+\usepackage{url}
+\title{Automorphism group of Lorentzian lattices}
+
+\def\QuotS#1#2{\leavevmode\kern-.0em\raise.2ex\hbox{$#1$}\kern-.1em/\kern-.1em\lower.25ex\hbox{$#2$}}
+
+
+%\usepackage{vmargin}
+%\setpapersize{custom}{21cm}{29.7cm}
+%\setmarginsrb{1.7cm}{1cm}{1.7cm}{3.5cm}{0pt}{0pt}{0pt}{0pt}
+%marge gauche, marge haut, marge droite, marge bas.
+
+\begin{document}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\T}{\ensuremath{\mathbb{T}}}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}
+\newtheorem{problem}{Problem}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{claim}{Claim}
+\newtheorem{remark}{Remark}
+\newtheorem{definition}{Definition}
+\newcommand{\qed}{\hfill $\Box$ }
+\newcommand{\proof}{\noindent{\bf Proof.}\ \ }
+
+Number of vertices $n=11$.
+
+Adjacencies of Graph
+\begin{enumerate}
+\item vertex 1 adjacent to 5 6 7 8 9 10 11
+\item vertex 2 adjacent to 5 6 7 8 9 10 11
+\item vertex 3 adjacent to 5 6 7 8 9 10 11
+\item vertex 4 adjacent to 5 6 7 8 9 10 11
+\item vertex 5 adjacent to 1 2 3 4
+\item vertex 6 adjacent to 1 2 3 4
+\item vertex 7 adjacent to 1 2 3 4
+\item vertex 8 adjacent to 1 2 3 4
+\item vertex 9 adjacent to 1 2 3 4
+\item vertex 10 adjacent to 1 2 3 4
+\item vertex 11 adjacent to 1 2 3 4
+\end{enumerate}
+Size of automorphism group of the graph=120960
+
+Full group: $\vert Aut(polytope) \vert  =123863040$
+
+Restricted group: $\vert Aut(G) \times switch \vert = 123863040$
+
+Number of orbits for the full group : 15
+
+List of orbits of facets for the full group:
+Total number of orbits = 15
+Total number of facets = 271596584
+\begin{enumerate}
+\item Inequality 1 with incidence 512 and stabilizer of size 122880. Orbit size is 
+1008 nature: 4-cycle inequality, C=[ 4, 9, 1, 7 ] F=[ 4, 9 ]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,5) : 0    &    (1,6) : 0    &    (1,7) : 1    &    (1,8) : 0    &    (1,9) : 1    &    (1,10) : 0\\
+(1,11) : 0    &    (2,5) : 0    &    (2,6) : 0    &    (2,7) : 0    &    (2,8) : 0    &    (2,9) : 0\\
+(2,10) : 0    &    (2,11) : 0    &    (3,5) : 0    &    (3,6) : 0    &    (3,7) : 0    &    (3,8) : 0\\
+(3,9) : 0    &    (3,10) : 0    &    (3,11) : 0    &    (4,5) : 0    &    (4,6) : 0    &    (4,7) : 1\\
+(4,8) : 0    &    (4,9) : -1    &    (4,10) : 0    &    (4,11) : 0    &                       &                   \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 2 with incidence 512 and stabilizer of size 2211840. Orbit size is 
+56 nature: edge inequality e=[ 3, 5 ]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,5) : 0    &    (1,6) : 0    &    (1,7) : 0    &    (1,8) : 0    &    (1,9) : 0    &    (1,10) : 0\\
+(1,11) : 0    &    (2,5) : 0    &    (2,6) : 0    &    (2,7) : 0    &    (2,8) : 0    &    (2,9) : 0\\
+(2,10) : 0    &    (2,11) : 0    &    (3,5) : 1    &    (3,6) : 0    &    (3,7) : 0    &    (3,8) : 0\\
+(3,9) : 0    &    (3,10) : 0    &    (3,11) : 0    &    (4,5) : 0    &    (4,6) : 0    &    (4,7) : 0\\
+(4,8) : 0    &    (4,9) : 0    &    (4,10) : 0    &    (4,11) : 0    &                       &                   \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 3 with incidence 192 and stabilizer of size 192. Orbit size is 645120 nature: unknown
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,5) : -1    &    (1,6) : 0    &    (1,7) : 1    &    (1,8) : 0    &    (1,9) : 1    &    (1,10) : 0\\
+(1,11) : -1    &    (2,5) : 0    &    (2,6) : 0    &    (2,7) : 0    &    (2,8) : 0    &    (2,9) : 1\\
+(2,10) : 0    &    (2,11) : 1    &    (3,5) : 2    &    (3,6) : 0    &    (3,7) : 0    &    (3,8) : 0\\
+(3,9) : 1    &    (3,10) : 0    &    (3,11) : -1    &    (4,5) : 1    &    (4,6) : 0    &    (4,7) : 1\\
+(4,8) : 0    &    (4,9) : -1    &    (4,10) : 0    &    (4,11) : 1    &                       &                   \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 4 with incidence 160 and stabilizer of size 96. Orbit size is 1290240 nature: unknown
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,5) : 0    &    (1,6) : 0    &    (1,7) : 1    &    (1,8) : 1    &    (1,9) : 1    &    (1,10) : 0\\
+(1,11) : -1    &    (2,5) : 0    &    (2,6) : 0    &    (2,7) : 0    &    (2,8) : 0    &    (2,9) : 1\\
+(2,10) : 0    &    (2,11) : 1    &    (3,5) : -1    &    (3,6) : 0    &    (3,7) : 0    &    (3,8) : 1\\
+(3,9) : -1    &    (3,10) : 0    &    (3,11) : 1    &    (4,5) : 1    &    (4,6) : 0    &    (4,7) : 1\\
+(4,8) : 0    &    (4,9) : -1    &    (4,10) : 0    &    (4,11) : 1    &                       &                   \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 5 with incidence 128 and stabilizer of size 128. Orbit size is 967680 nature: unknown
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,5) : 0    &    (1,6) : 1    &    (1,7) : 1    &    (1,8) : 0    &    (1,9) : 1    &    (1,10) : 0\\
+(1,11) : -1    &    (2,5) : 0    &    (2,6) : 1    &    (2,7) : -1    &    (2,8) : 0    &    (2,9) : 1\\
+(2,10) : 0    &    (2,11) : 1    &    (3,5) : 2    &    (3,6) : -1    &    (3,7) : -1    &    (3,8) : 0\\
+(3,9) : 1    &    (3,10) : 0    &    (3,11) : -1    &    (4,5) : 2    &    (4,6) : 1    &    (4,7) : 1\\
+(4,8) : 0    &    (4,9) : -1    &    (4,10) : 0    &    (4,11) : 1    &                       &                   \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 6 with incidence 128 and stabilizer of size 384. Orbit size is 322560 nature: unknown
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,5) : -1    &    (1,6) : 0    &    (1,7) : 2    &    (1,8) : 0    &    (1,9) : 2    &    (1,10) : 0\\
+(1,11) : -1    &    (2,5) : 1    &    (2,6) : 0    &    (2,7) : -1    &    (2,8) : 0    &    (2,9) : 2\\
+(2,10) : 0    &    (2,11) : 2    &    (3,5) : -2    &    (3,6) : 0    &    (3,7) : 1    &    (3,8) : 0\\
+(3,9) : -1    &    (3,10) : 0    &    (3,11) : 2    &    (4,5) : 2    &    (4,6) : 0    &    (4,7) : 2\\
+(4,8) : 0    &    (4,9) : -1    &    (4,10) : 0    &    (4,11) : 1    &                       &                   \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 7 with incidence 104 and stabilizer of size 16. Orbit size is 7741440 nature: unknown
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,5) : 0    &    (1,6) : 0    &    (1,7) : 2    &    (1,8) : -1    &    (1,9) : 2    &    (1,10) : 0\\
+(1,11) : -1    &    (2,5) : 0    &    (2,6) : 0    &    (2,7) : -1    &    (2,8) : 1    &    (2,9) : 2\\
+(2,10) : 0    &    (2,11) : 2    &    (3,5) : -1    &    (3,6) : 0    &    (3,7) : 1    &    (3,8) : -1\\
+(3,9) : -1    &    (3,10) : 0    &    (3,11) : 2    &    (4,5) : 1    &    (4,6) : 0    &    (4,7) : 2\\
+(4,8) : 1    &    (4,9) : -1    &    (4,10) : 0    &    (4,11) : 1    &                       &                   \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 8 with incidence 96 and stabilizer of size 16. Orbit size is 7741440 nature: unknown
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,5) : 0    &    (1,6) : 0    &    (1,7) : 2    &    (1,8) : -1    &    (1,9) : 2    &    (1,10) : 0\\
+(1,11) : -1    &    (2,5) : -1    &    (2,6) : 0    &    (2,7) : -1    &    (2,8) : 1    &    (2,9) : 2\\
+(2,10) : 0    &    (2,11) : 1    &    (3,5) : 2    &    (3,6) : 0    &    (3,7) : -1    &    (3,8) : 1\\
+(3,9) : 1    &    (3,10) : 0    &    (3,11) : -1    &    (4,5) : 1    &    (4,6) : 0    &    (4,7) : 2\\
+(4,8) : 1    &    (4,9) : -1    &    (4,10) : 0    &    (4,11) : 1    &                       &                   \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 9 with incidence 88 and stabilizer of size 8. Orbit size is 15482880 nature: unknown
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,5) : -1    &    (1,6) : 0    &    (1,7) : 1    &    (1,8) : -1    &    (1,9) : 2    &    (1,10) : 0\\
+(1,11) : -1    &    (2,5) : 1    &    (2,6) : 0    &    (2,7) : 0    &    (2,8) : 1    &    (2,9) : 2\\
+(2,10) : 1    &    (2,11) : 1    &    (3,5) : 2    &    (3,6) : 0    &    (3,7) : 0    &    (3,8) : 1\\
+(3,9) : 1    &    (3,10) : -1    &    (3,11) : -1    &    (4,5) : 2    &    (4,6) : 0    &    (4,7) : 1\\
+(4,8) : -1    &    (4,9) : -1    &    (4,10) : 0    &    (4,11) : 1    &                       &                   \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 10 with incidence 80 and stabilizer of size 4. Orbit size is 30965760 nature: unknown
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,5) : 0    &    (1,6) : 0    &    (1,7) : 2    &    (1,8) : -1    &    (1,9) : 2    &    (1,10) : 0\\
+(1,11) : -1    &    (2,5) : 0    &    (2,6) : 0    &    (2,7) : -1    &    (2,8) : 1    &    (2,9) : 2\\
+(2,10) : 1    &    (2,11) : 1    &    (3,5) : -1    &    (3,6) : 0    &    (3,7) : 1    &    (3,8) : -1\\
+(3,9) : -1    &    (3,10) : 1    &    (3,11) : 1    &    (4,5) : 1    &    (4,6) : 0    &    (4,7) : 2\\
+(4,8) : 1    &    (4,9) : -1    &    (4,10) : 0    &    (4,11) : 1    &                       &                   \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 11 with incidence 76 and stabilizer of size 2. Orbit size is 61931520 nature: unknown
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,5) : 0    &    (1,6) : -1    &    (1,7) : 1    &    (1,8) : -1    &    (1,9) : 2    &    (1,10) : 0\\
+(1,11) : -1    &    (2,5) : -1    &    (2,6) : 1    &    (2,7) : 0    &    (2,8) : 1    &    (2,9) : 2\\
+(2,10) : 0    &    (2,11) : 1    &    (3,5) : 2    &    (3,6) : 1    &    (3,7) : 0    &    (3,8) : 1\\
+(3,9) : 1    &    (3,10) : 0    &    (3,11) : -1    &    (4,5) : 1    &    (4,6) : 1    &    (4,7) : 1\\
+(4,8) : -1    &    (4,9) : -1    &    (4,10) : 0    &    (4,11) : 1    &                       &                   \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 12 with incidence 64 and stabilizer of size 2. Orbit size is 61931520 nature: unknown
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,5) : 0    &    (1,6) : -1    &    (1,7) : 1    &    (1,8) : -1    &    (1,9) : 2    &    (1,10) : 0\\
+(1,11) : -1    &    (2,5) : 0    &    (2,6) : 1    &    (2,7) : 0    &    (2,8) : 1    &    (2,9) : 2\\
+(2,10) : 1    &    (2,11) : 1    &    (3,5) : 1    &    (3,6) : 1    &    (3,7) : 0    &    (3,8) : 1\\
+(3,9) : 1    &    (3,10) : -1    &    (3,11) : -1    &    (4,5) : 1    &    (4,6) : 1    &    (4,7) : 1\\
+(4,8) : -1    &    (4,9) : -1    &    (4,10) : 0    &    (4,11) : 1    &                       &                   \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 13 with incidence 64 and stabilizer of size 8. Orbit size is 15482880 nature: unknown
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,5) : 0    &    (1,6) : -1    &    (1,7) : 2    &    (1,8) : -1    &    (1,9) : 1    &    (1,10) : 0\\
+(1,11) : -1    &    (2,5) : -1    &    (2,6) : 1    &    (2,7) : 1    &    (2,8) : 1    &    (2,9) : 1\\
+(2,10) : 0    &    (2,11) : 1    &    (3,5) : 2    &    (3,6) : 1    &    (3,7) : 0    &    (3,8) : 1\\
+(3,9) : 1    &    (3,10) : 0    &    (3,11) : -1    &    (4,5) : 1    &    (4,6) : 1    &    (4,7) : 1\\
+(4,8) : -1    &    (4,9) : -1    &    (4,10) : 0    &    (4,11) : 1    &                       &                   \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 14 with incidence 56 and stabilizer of size 2. Orbit size is 61931520 nature: unknown
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,5) : 0    &    (1,6) : -1    &    (1,7) : 2    &    (1,8) : -1    &    (1,9) : 1    &    (1,10) : 0\\
+(1,11) : -1    &    (2,5) : 0    &    (2,6) : 1    &    (2,7) : 1    &    (2,8) : 1    &    (2,9) : 1\\
+(2,10) : 1    &    (2,11) : 1    &    (3,5) : 1    &    (3,6) : 1    &    (3,7) : 0    &    (3,8) : 1\\
+(3,9) : 1    &    (3,10) : -1    &    (3,11) : -1    &    (4,5) : 1    &    (4,6) : 1    &    (4,7) : 1\\
+(4,8) : -1    &    (4,9) : -1    &    (4,10) : 0    &    (4,11) : 1    &                       &                   \\
+\hline
+\end{tabular}
+\end{center}
+\item Inequality 15 with incidence 56 and stabilizer of size 24. Orbit size is 5160960 nature: unknown
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+(1,5) : 0    &    (1,6) : 0    &    (1,7) : 1    &    (1,8) : -1    &    (1,9) : 1    &    (1,10) : 0\\
+(1,11) : -1    &    (2,5) : 0    &    (2,6) : -1    &    (2,7) : 1    &    (2,8) : 1    &    (2,9) : 0\\
+(2,10) : 1    &    (2,11) : 0    &    (3,5) : 1    &    (3,6) : 0    &    (3,7) : 0    &    (3,8) : -1\\
+(3,9) : 0    &    (3,10) : 1    &    (3,11) : 1    &    (4,5) : 1    &    (4,6) : 1    &    (4,7) : 0\\
+(4,8) : 1    &    (4,9) : 1    &    (4,10) : 0    &    (4,11) : 0    &                       &                   \\
+\hline
+\end{tabular}
+\end{center}
+\end{enumerate}
+\end{document}
+

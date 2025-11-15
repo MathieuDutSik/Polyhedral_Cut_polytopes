@@ -1,0 +1,6 @@
+return rec(
+  ListNbDiag := [ 20, 240 ],
+  ListNbOff := [ 600, 4560, 18790, 7920, 1800 ],
+  ListValDiag := [ 1/49, 4/49 ],
+  ListValOff := [ -2/49, -1/49, 0, 1/49, 2/49 ],
+  n := 20 );

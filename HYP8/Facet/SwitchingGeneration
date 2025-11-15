@@ -1,0 +1,125 @@
+CompleteSwitchingClass:=function(eHYP)
+  local ListClass, n, eSet, eNew, i, SumS;
+  ListClass:=[];
+  n:=Length(eHYP);
+  for eSet in Combinations([1..n])
+  do
+    eNew:=[];
+    for i in [1..n-1]
+    do
+      if i in eSet then
+        Add(eNew, -eHYP[i]);
+      else
+        Add(eNew, eHYP[i]);
+      fi;
+    od;
+    Add(eNew, eHYP[n]);
+    SumS:=0;
+    for i in [1..n]
+    do
+      SumS:=SumS+eNew[i];
+    od;
+    if SumS>0 then
+      Add(ListClass, eNew);
+    else
+      Add(ListClass, -eNew);
+    fi;
+  od;
+  return ListClass;
+end;
+
+LinearInequalitySwitchingClass:=function(eHYP)
+  local NewList, n, eV, SumS, i;
+  NewList:=[];
+  n:=Length(eHYP);
+  for eV in CompleteSwitchingClass(eHYP)
+  do
+    SumS:=0;
+    for i in [1..n]
+    do
+      SumS:=SumS+eV[i];
+    od;
+    if SumS=1 then
+      Add(NewList, eV);
+    fi;
+  od;
+  return NewList;
+end;
+
+ClassicalCanonicalizer:=function(eHyp)
+  local EV, i;
+  EV:=[];
+  for i in [1..Length(eHyp)]
+  do
+    EV[i]:=eHyp[i];
+  od;
+  Sort(EV);
+  return ShallowCopy(EV);
+end;
+
+CanonicalizerSwitchingClass:=function(eHYP)
+  local eV, i;
+  eV:=[];
+  for i in [1..Length(eHYP)]
+  do
+    Add(eV, AbsInt(eHYP[i]));
+  od;
+  Sort(eV);
+  return ShallowCopy(eV);
+end;
+
+FromSwitchingClassToOrbitList:=function(eHYP)
+  local eV, ListClass;
+  ListClass:=[];
+  for eV in LinearInequalitySwitchingClass(eHYP)
+  do
+    AddSet(ListClass, ClassicalCanonicalizer(eV));
+  od;
+  return ListClass;
+end;
+
+
+
+LF1:=ReadAsFunction("GossetFacetOfHYP8")();
+LF2:=ReadAsFunction("NewEXT7facetHYP8")();
+LF3:=Union(LF1, LF2);
+
+ListSwitchingClass:=[];
+for eFac in LF3
+do
+  AddSet(ListSwitchingClass, CanonicalizerSwitchingClass(eFac));
+od;
+
+HypFacetCUT8:=[
+[2, 1, 1, 1, -1, -1, -1, -1],
+[3, 1, 1, 1, -1, -1, -1, -2],
+[2, 2, 1, 1, -1, -1, -1, -2],
+[4, 1, 1, -1, -1, -1, -1, -1],
+[3, 2, 2, -1, -1, -1, -1, -2]];
+
+for eFac in HypFacetCUT8
+do
+  AddSet(ListSwitchingClass, CanonicalizerSwitchingClass(eFac));
+od;
+
+Print("find ", Length(ListSwitchingClass), " switching classes\n");
+
+output:=OutputTextFile("DataForBaranovski", true);;
+
+ListOrbit:=[];
+for eClass in ListSwitchingClass
+do
+  LOrb:=FromSwitchingClassToOrbitList(eClass);
+  ListOrbit:=Union(ListOrbit, LOrb);
+  Diff1:=Difference(LOrb, LF3);
+  AppendTo(output, eClass, "\n");
+  for eOrb in LOrb
+  do
+    AppendTo(output, eOrb, "\n");
+  od;
+  AppendTo(output, "\n");
+  Print("eV=", eClass, "\n");
+  Print("missed ones=", Diff1, "\n");
+od;
+CloseStream(output);
+SaveDataToFile("ListOrbitConjecturedComplete", ListOrbit);

@@ -1,0 +1,65 @@
+ListOrbit:=ReadVectorFile("GossetListExtremRays");
+
+ListExtreme:=[];
+ListInv:=[];
+Read("FuncInsertDatabase.g");
+
+
+FuncCanonicalize:=function(eHyp)
+  local EV, i;
+  EV:=[];
+  for i in [1..Length(eHyp)]
+  do
+    EV[i]:=eHyp[i];
+  od;
+  Sort(EV);
+  return ShallowCopy(EV);
+end;
+
+IsExtremeRay:=function(FAC, OneExt)
+  local ListIncident, eFac;
+  ListIncident:=[];
+  for eFac in FAC
+  do
+    if eFac*OneExt=0 then
+      Add(ListIncident, eFac);
+    fi;
+  od;
+  if RankMat(ListIncident)=Length(OneExt)-2 then
+    return true;
+  else
+    return false;
+  fi;
+end;
+
+
+
+ListOrbitFacetOfHYP8:=[];
+ListOrbitNonFacetOfHYP8:=[];
+
+for iOrb in [1..Length(ListOrbit)]
+do
+  d:=ListOrbit[iOrb];
+  test:=IsHypermetric(d, 8);
+  Hcoord:=ListIncidentHypermetric(d, 8);
+  INEXT:=SettingListAdjacentHypermetric(d, 8, "total", Hcoord);
+  for iHyp in [1..Length(INEXT.LPINC)]
+  do
+    eHyp:=INEXT.LPINC[iHyp];
+    if IsExtremeRay(INEXT.LPEXT, eHyp)=true then
+      AddSet(ListOrbitFacetOfHYP8, FuncCanonicalize(INEXT.LINChyp[iHyp]));
+    else
+      AddSet(ListOrbitNonFacetOfHYP8, FuncCanonicalize(INEXT.LINChyp[iHyp]));
+    fi;
+  od;
+  Ladj:=ListAdjacentHypermetric(INEXT, d, 8, 7);
+  Print("Find ", Length(Ladj), " adjacent ones\n");
+  Print("Find following orbits of facets:\n", ListOrbitFacetOfHYP8, "\n");
+  for iV in [1..Length(Ladj)]
+  do
+    Print("iV=", iV);
+    V:=Ladj[iV];
+    FuncInsertDatabase(V);
+  od;
+od;
+

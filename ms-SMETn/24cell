@@ -1,0 +1,123 @@
+
+m:=4;
+
+
+Seto:=BuildSet(4,[-1,1]);
+LS:=[[2,0,0,0],[0,2,0,0],[0,0,2,0],[0,0,0,2],[-2,0,0,0],[0,-2,0,0],[0,0,-2,0],[0,0,0,-2]];
+
+
+Lvertices:=Union(Seto, LS);
+
+
+
+
+
+
+nbV:=Length(Lvertices);
+
+
+FuncSquareDist:=function(S1, S2)
+  local Dis, i;
+  Dis:=0;
+  for i in [1..Length(S1)]
+  do
+    Dis:=Dis+(S1[i]-S2[i])^2;
+  od;
+  return Dis;
+end;
+
+AdjMat:=NullMat(nbV, nbV);
+for i in [1..nbV]
+do
+  for j in [1..nbV]
+  do
+    if FuncSquareDist(Lvertices[i], Lvertices[j])=4 then
+      AdjMat[i][j]:=1;
+    fi;
+  od;
+od;
+
+Grap:=Graph(Group(()), [1..nbV], OnPoints, function(x,y) return AdjMat[x][y]=1; end, true);
+Grp:=AutGroupGraph(Grap);
+
+
+FuncSelectTriv:=function(S)
+  return true;
+end;
+
+
+FuncSelect:=function(S)
+  local Mat, i;
+  Mat:=[];
+  for i in [2..Length(S)]
+  do
+    AddSet(Mat, Lvertices[S[i]]-Lvertices[S[1]]);
+  od;
+  if Length(S)=1 then
+    return true;
+  else
+    if RankMat(Mat)=Length(S)-1 then
+      return true;
+    else
+#      Print(Mat, "\n");
+      return false;
+    fi;
+  fi;
+end;
+
+
+
+Cand:=FindOrbitSubGraphs(Grap, Grp, FuncSelectTriv, m+2);
+Lsol:=[];
+for eCand in Cand
+do
+  LS:=[];
+  for i in eCand
+  do
+    Add(LS, Lvertices[i]);
+  od;
+  Add(Lsol, LS);
+od;
+
+
+
+
+FileOutput:="DcubeSconstant";
+output:=OutputTextFile(FileOutput, true);;
+
+FileTranslation:="Correspondance";
+outputCorr:=OutputTextFile(FileTranslation, true);;
+
+for eS in Lsol
+do
+  ListSQR:=[];
+  for i in [1..m+2]
+  do
+    Add(ListSQR, FuncSquareMvolume(Difference(eS, [eS[i]])));
+  od;
+  for i in [1..m+2]
+  do
+    AppendTo(output, " ", ListSQR[i]);
+    LSE:=[];
+    for u in [1..m+2]
+    do
+      if i<>u then
+        Add(LSE, ListSQR[u]);
+      fi;
+    od;
+    Sort(LSE);
+    SRM:=[ListSQR[i]];
+    for u in [1..m+1]
+    do
+      Add(SRM, LSE[u]);
+    od;
+    AppendTo(outputCorr, SRM, ":", eS, "\n");
+    for W in LSE
+    do
+      AppendTo(output, " ", W);
+    od;
+    AppendTo(output, "\n");
+  od;
+od;
+CloseStream(output);
+CloseStream(outputCorr);

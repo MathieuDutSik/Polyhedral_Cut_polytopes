@@ -1,0 +1,36 @@
+Read("GapHYP");
+
+m:=1;
+
+Grap:=ReadAsFunction("GrapeIcos")();
+Grp:=AutGroupGraph(Grap);
+
+FuncSelectTriv:=function(S)
+  return true;
+end;
+
+
+FuncSelect:=function(S)
+  local Mat, i;
+  Mat:=[];
+  for i in [2..Length(S)]
+  do
+    AddSet(Mat, Lvertices[S[i]]-Lvertices[S[1]]);
+  od;
+  if Length(S)=1 then
+    return true;
+  else
+    if RankMat(Mat)=Length(S)-1 then
+      return true;
+    else
+#      Print(Mat, "\n");
+      return false;
+    fi;
+  fi;
+end;
+
+
+
+Cand:=FindOrbitSubGraphs(Grap, Grp, FuncSelectTriv, m+2);
+
+Print(Cand,"\n");

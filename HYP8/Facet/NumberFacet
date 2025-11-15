@@ -1,0 +1,12 @@
+LSE:=ReadAsFunction("ListOrbitConjecturedComplete")();
+
+Sym8:=SymmetricGroup(8);
+nbFac:=0;
+nbElt:=Factorial(8);
+for eOrb in LSE
+do
+  Stab:=Stabilizer(Sym8, eOrb, Permuted);
+  nbFac:=nbFac+nbElt/Order(Stab);
+od;
+
+Print("nbF=", nbFac, "\n");

@@ -1,0 +1,92 @@
+#!/usr/bin/perl
+
+# This little script set minimal necessary informations
+# in order to avoid repeated basic computations
+
+$uu=scalar(@ARGV);
+
+if ($uu ne 2)
+{
+    print "Set-mn is used as\n";
+    print "./Set-mn [m] [n]\n\n";
+    print "with [m] indicating the order of the supermetric\n";
+    print "with [n] the size of the set on which we consider the supermetric\n";
+    die;
+}
+
+$m=$ARGV[0];
+$n=$ARGV[1];
+#print "m=".$m."  n=".$n."\n";
+
+$File="Scene/Sets-".$n;
+if (-e $File)
+{
+#    print "List of subsets file ".$File." already existing\n";
+}
+else
+{
+    $order="./GenerateSets ".$n." 1 1 > ".$File;
+#    print $order."\n";
+    system $order;
+}
+
+$k=$m+1;
+$File="Scene/".$k."-Sets-".$n;
+if (-e $File)
+{
+#    print "List of ".$k."-subsets file ".$File." already existing\n";
+}
+else
+{
+    $order="./SelectSets Scene/Sets-".$n." ".$k." | sort -r > ".$File;
+#    print $order."\n";
+    system $order;
+}
+
+
+
+$ks=$m+2;
+$File="Scene/".$ks."-Sets-".$n;
+if (-e $File)
+{
+#    print "List of ".$ks."-subsets file ".$File." already existing\n";
+}
+else
+{
+    $order="./SelectSets Scene/Sets-".$n." ".$ks." | sort -r > ".$File;
+#    print $order."\n";
+    system $order;
+}
+
+
+#
+#
+# The Permutation 
+
+$File="Scene/Sym-".$n;
+if (-e $File)
+{
+#    print "Permutation file ".$File." already existing\n";
+}
+else
+{
+    $order="./PermGen ".$n." > ".$File;
+#    print $order."\n";
+    system $order;
+}
+
+$fi=$k."-ReprSym-".$n;
+$File="Scene/".$fi;
+$order="ln -sf ".$fi." Scene/ReprGrp";
+#print $order."\n";
+system $order;
+if (-e $File)
+{
+#    print "Group representation file ".$File." already existing\n";
+}
+else
+{
+    $order="./PerminduitesHMETn Scene/".$k."-Sets-".$n." Scene/Sym-".$n." > ".$File;
+#    print $order."\n";
+    system $order;
+}

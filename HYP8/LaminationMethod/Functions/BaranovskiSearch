@@ -1,0 +1,370 @@
+ListOrbitHYP:=[
+rec(dim:=3, ListRep:=[
+[1,1,-1]
+]),
+rec(dim:=5, ListRep:=[
+[1,1,1,-1,-1]
+]),
+rec(dim:=6, ListRep:=[
+[1,1,1, 1,-1,-2],
+[2,1,1,-1,-1,-1]
+]),
+rec(dim:=7, ListRep:=[
+[1,1,1, 1,-1,-1,-1],
+[2,2,1,-1,-1,-1,-1],
+[1,1,1, 1, 1,-2,-2],
+[2,1,1, 1,-1,-1,-2],
+[3,1,1,-1,-1,-1,-1],
+[1,1,1, 1, 1,-1,-3],
+[2,2,1, 1,-1,-1,-3],
+[3,1,1, 1,-1,-2,-2],
+[3,2,1,-1,-1,-1,-2],
+[2,1,1, 1, 1,-2,-3]
+])];
+
+ListSwitching8points:=[
+[1,1,1,1,1,1,1,2],
+[1,1,1,1,1,1,1,4],
+[1,1,1,1,1,1,2,3],
+[1,1,1,1,1,2,2,2],
+[1,1,1,1,1,2,2,4],
+[1,1,1,1,1,2,3,3],
+[1,1,1,1,1,3,3,4],
+[1,1,1,1,2,2,2,3],
+[1,1,1,1,2,2,2,5],
+[1,1,1,1,2,2,3,4],
+[1,1,1,1,2,3,3,5],
+[1,1,1,2,2,2,3,3],
+[1,1,1,2,2,3,3,4],
+[1,1,1,2,2,3,4,5],
+[1,1,2,2,2,3,3,5]];
+
+
+
+
+
+FuncGenerateFromSwitchingClass:=function(eVect)
+  local TheGeneratedList, FuncInsert, n, eSet, fVect;
+  TheGeneratedList:=[];
+  FuncInsert:=function(fVect)
+    local gVect;
+    gVect:=ShallowCopy(fVect);
+    Sort(gVect);
+    AddSet(TheGeneratedList, gVect);
+  end;
+  n:=Length(eVect);
+  for eSet in Combinations([1..n])
+  do
+    fVect:=ShallowCopy(eVect);
+    fVect{eSet}:=-fVect{eSet};
+    if Sum(fVect)=1 then
+      FuncInsert(fVect);
+    fi;
+  od;
+  return TheGeneratedList;
+end;
+
+
+
+
+FuncAddConjListDim8:=function()
+  local eLR, eCl;
+  eLR:=[];
+  for eCl in ListSwitching8points
+  do
+    Append(eLR, FuncGenerateFromSwitchingClass(eCl));
+  od;
+  Add(ListOrbitHYP, rec(dim:=8, ListRep:=eLR));
+end;
+FuncAddConjListDim8();
+
+GetConjecturalListFacetHYPn:=function(n)
+  local ListConjecturalOrbitFacet, eCase, TheDim, V, eOrb;
+  ListConjecturalOrbitFacet:=[];
+  for eCase in ListOrbitHYP
+  do
+    TheDim:=eCase.dim;
+    if TheDim<=n then
+      for eOrb in eCase.ListRep
+      do
+        V:=Concatenation(eOrb, ListWithIdenticalEntries(n-TheDim, 0));
+        Add(ListConjecturalOrbitFacet, V);
+      od;
+    fi;
+  od;
+  return ListConjecturalOrbitFacet;
+end;
+
+
+GetListIncidentHypermetricFacet:=function(ListCuts, n)
+  local LORB, FileMeta, FileHyps, FileCuts, FileOut, output, eOrbHyp, eCut, V, BinaryFile, TheResult;
+  LORB:=GetConjecturalListFacetHYPn(n);
+  FileMeta:=Filename(POLYHEDRAL_tmpdir, "CUT_HYP_meta");
+  FileHyps:=Filename(POLYHEDRAL_tmpdir, "CUT_HYP_hyps");
+  FileCuts:=Filename(POLYHEDRAL_tmpdir, "CUT_HYP_cuts");
+  FileOut:=Filename(POLYHEDRAL_tmpdir, "CUT_HYP_out");
+  RemoveFileIfExist(FileMeta);
+  RemoveFileIfExist(FileHyps);
+  RemoveFileIfExist(FileCuts);
+  RemoveFileIfExist(FileOut);
+  #
+  output:=OutputTextFile(FileMeta, true);
+  AppendTo(output, n, " ", Length(LORB), " ", Length(ListCuts), "\n");
+  CloseStream(output);
+  #
+  output:=OutputTextFile(FileHyps, true);
+  for eOrbHyp in LORB
+  do
+    WriteVector(output, eOrbHyp);
+  od;
+  CloseStream(output);
+  #
+  output:=OutputTextFile(FileCuts, true);
+  for eCut in ListCuts
+  do
+    V:=ListWithIdenticalEntries(n, 0);
+    V{eCut}:=ListWithIdenticalEntries(Length(eCut), 1);
+    WriteVector(output, V);
+  od;
+  CloseStream(output);
+  #
+  BinaryFile:="Functions/Generation.prog";
+  Exec(BinaryFile, " ", FileMeta, " ", FileHyps, " ", FileCuts, " ", FileOut);
+  TheResult:=ReadAsFunction(FileOut)();
+#  Print(NullMat(5));
+  RemoveFile(FileMeta);
+  RemoveFile(FileHyps);
+  RemoveFile(FileCuts);
+  RemoveFile(FileOut);
+  return TheResult;
+end;
+
+
+
+
+
+
+FincTheN:=function(nb)
+  local TheN, nb1;
+  TheN:=1;
+  while(true)
+  do
+    nb1:=1+TheN*(TheN-1)/2;
+    if nb1=nb then
+      return TheN;
+    fi;
+    TheN:=TheN+1;
+    if TheN>100 then
+      Print("There is shit here\n");
+      Print(NullMat(5));
+    fi;
+  od;
+end;
+
+
+
+
+FormListHypermetrics:=function(n)
+  local ListFacetSymbol, GRP, V, ListFacetIneq;
+  ListFacetSymbol:=[];
+  GRP:=SymmetricGroup(n);
+  for V in GetConjecturalListFacetHYPn(n)
+  do
+    Append(ListFacetSymbol, Orbit(GRP, V, Permuted));
+  od;
+  ListFacetIneq:=List(ListFacetSymbol, FromHypermetricVectorToHypermetricFace);
+  return rec(ListSymbol:=ListFacetSymbol, ListInequalities:=ListFacetIneq);
+end;
+
+FindIncidentCuts:=function(eVect)
+  local n, eSet, ListIncd, TheSum;
+  n:=Length(eVect);
+  ListIncd:=[];
+  for eSet in Combinations([1..n-1])
+  do
+    if Length(eSet)>0 then
+      TheSum:=Sum(eVect{eSet});
+      if TheSum=0 or TheSum=1 then
+        Add(ListIncd, eSet);
+      fi;
+    fi;
+  od;
+  return ListIncd;
+end;
+
+
+
+SelectionHypermetric:=function(TheDesc, ListCUT)
+  local FuncTest, SelectedSymbol, SelectedIneq;
+  FuncTest:=function(TheSymb)
+    local eCut, TheSum;
+    for eCut in ListCUT
+    do
+      TheSum:=Sum(TheSymb{eCut});
+      if TheSum<>0 and TheSum<>1 then
+        return false;
+      fi;
+    od;
+    return true;
+  end;
+  SelectedSymbol:=Filtered(TheDesc.ListSymbol, FuncTest);
+  return SelectedSymbol;
+end;
+
+
+ListHypermetricSymbolAbsoluteBound:=function(TheBound, n)
+  local ListPoss, i, iCol, NewListPoss, ePoss, LastVal, u, NewPoss;
+  ListPoss:=[];
+  for i in [-TheBound..-1]
+  do
+    Add(ListPoss, [i]);
+  od;
+  for iCol in [2..n]
+  do
+    NewListPoss:=[];
+    for ePoss in ListPoss
+    do
+      LastVal:=ePoss[iCol-1];
+      for u in Difference([LastVal..TheBound], [0])
+      do
+        NewPoss:=Concatenation(ePoss, [u]);
+        if not(u>0 and Sum(NewPoss)>1) then
+          Add(NewListPoss, NewPoss);
+        fi;
+      od;
+    od;
+    ListPoss:=NewListPoss;
+  od;
+  return Filtered(ListPoss, x->Sum(x)=1 and Maximum(List(x, AbsInt))=TheBound);
+end;
+
+
+
+
+FindBaranovskiFormulaKernel:=function(LinearFunc, ListCuts, n)
+  local TheSelectSymbol, TheSelectIneq, LinRes, TheExpression, TheSum, eCa, TheIndex, TheMult;
+  Print("|Incident cuts|=", Length(ListCuts), "\n");
+  TheSelectSymbol:=GetListIncidentHypermetricFacet(ListCuts, n);
+  TheSelectIneq:=List(TheSelectSymbol, FromHypermetricVectorToHypermetricFace);
+  Print("|Rel ineq|=", Length(TheSelectSymbol), "\n");
+#  NEED TO DEBUG HERE
+#  LinRes:=LinearProgrammingConeVersion(TheSelectIneq, LinearFunc);
+  TheExpression:=[];
+  TheSum:=ListWithIdenticalEntries(Length(LinearFunc),0);
+  for eCa in LinRes.dual_solution
+  do
+    TheIndex:=eCa[1];
+    TheMult:=-eCa[2];
+    if TheMult<0 then
+      Print("We have in negative coefficient here, PANIC\n");
+      Print(NullMat(5));
+    fi;
+    if TheMult<>0 then
+      Add(TheExpression, rec(TheMult:=TheMult, HypIn:=TheSelectSymbol[TheIndex]));
+      TheSum:=TheSum+TheMult*TheSelectIneq[TheIndex];
+    fi;
+  od;
+  if TheSum<>LinearFunc then
+    Print("We found wrong expression for the inequality, BIG problem\n");
+    Print(NullMat(5));
+  fi;
+  return TheExpression;
+end;
+
+
+DistanceVectorReduction:=function(DistVect, TargetDim)
+  local n, ListCoeff, i, j, DistVectRed, pos;
+  n:=FincTheN(Length(DistVect));
+  ListCoeff:=[];
+  for i in [1..n-1]
+  do
+    for j in [i+1..n]
+    do
+      Add(ListCoeff, [i,j]);
+    od;
+  od;
+  #
+  DistVectRed:=[0];
+  for i in [1..TargetDim-1]
+  do
+    for j in [i+1..TargetDim]
+    do
+      pos:=Position(ListCoeff, [i,j]);
+      Add(DistVectRed, DistVect[pos+1]);
+    od;
+  od;
+  for i in [1..TargetDim-1]
+  do
+    for j in [i+1..TargetDim]
+    do
+      if i> TargetDim or j>TargetDim then
+        pos:=Position(ListCoeff, [i,j]);
+        if DistVect[pos+1]<>0 then
+          Print("We cannot do the asked reduction\n");
+          Print(NullMat(5));
+        fi;
+      fi;
+    od;
+  od;
+  return DistVectRed;
+end;
+
+
+
+FindBaranovskiFormula:=function(eVect)
+  local n, eIneq, TheDesc, LinRes, TheExpression, TheSum, eCa, TheIndex, TheMult, TheSelect, ListCuts;
+  n:=Length(eVect);
+  if Sum(eVect)<>1 then
+    Print("INPUT ERROR: The sum is not 1, please try again\n");
+    Print(NullMat(5));
+  fi;
+  eIneq:=FromHypermetricVectorToHypermetricFace(eVect);
+  ListCuts:=FindIncidentCuts(eVect);
+  #
+  return FindBaranovskiFormulaKernel(eIneq, ListCuts, n);
+end;
+
+
+MyCutVect:=function(eSet, n)
+  local V, i, j;
+  V:=[0];
+  for i in [1..n-1]
+  do
+    for j in [i+1..n]
+    do
+      if Length(Intersection(eSet, [i,j]))=1 then
+        Add(V, 1);
+      else
+        Add(V, 0);
+      fi;
+    od;
+  od;
+  return V;
+end;
+
+
+
+FindIncidentCutLinear:=function(LinearFunc, n)
+  local ListIncd, eSet, TheCut;
+  ListIncd:=[];
+  for eSet in Combinations([1..n-1])
+  do
+    if Length(eSet)>0 then
+      TheCut:=MyCutVect(eSet, n);
+      if TheCut*LinearFunc=0 then
+        Add(ListIncd, eSet);
+      fi;
+    fi;
+  od;
+  return ListIncd;
+end;
+
+
+FindBaranovskiFormulaSpecificExpression:=function(LinearFunc)
+  local n, ListCuts;
+  n:=FincTheN(Length(LinearFunc));
+  ListCuts:=FindIncidentCutLinear(LinearFunc, n);
+  return FindBaranovskiFormulaKernel(LinearFunc, ListCuts, n);
+end;
+
+

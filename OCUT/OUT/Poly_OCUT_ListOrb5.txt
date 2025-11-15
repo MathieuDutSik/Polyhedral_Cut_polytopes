@@ -1,0 +1,18 @@
+Facets of the polytope OCUTP5
+c d12 d13 d14 d15 d23 d24 d25 d34 d35 d45 w2 w3 w4 w5
+nbOrb=5
+iOrb=1 |inc|=144 |stab|=96 |O|=40
+ 0 1 -1 0 0 1 0 0 0 0 0 0 0 0 0
+iOrb=2 |inc|=128 |stab|=96 |O|=40
+ 1 0 0 0 0 0 0 0 -1 0 0 0 0 0 0
+iOrb=3 |inc|=100 |stab|=240 |O|=16
+ 0 1 -1 1 -1 1 -1 1 1 -1 1 0 0 0 0
+iOrb=4 |inc|=20 |stab|=6 |O|=640
+ 2 -1 1 1 -2 1 1 -2 -1 1 2 0 0 0 1
+iOrb=5 |inc|=16 |stab|=12 |O|=320
+ 2 0 0 0 0 2 1 -1 -2 2 1 0 0 0 -2
+TotalNumberFacets=1056
+nbOrb Facet=5
+|EXT|=256
+nbOrb Vertices=3
+dim=14

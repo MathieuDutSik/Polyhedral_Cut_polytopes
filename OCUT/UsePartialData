@@ -1,0 +1,11 @@
+Read("ListFunc.g");
+
+
+n:=7;
+
+eRec:=FCT__CutPolytope(n);
+EXTred:=List(eRec.EXT, x->GetWeightedPresentation(eRec, x));
+GRP:=LinPolytope_Automorphism(eRec.EXT);
+
+ThePrefix:=Concatenation("./tmp", String(n), "/");
+Tmp_PresentResult(EXTred, GRP, ThePrefix);

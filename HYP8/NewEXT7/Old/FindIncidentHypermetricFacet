@@ -1,0 +1,36 @@
+R:=ReadAsFunction("NewExt7")();
+EXT:=R.EXT;
+SymGrp:=ReadAsFunction("SymGrp")();
+
+
+FuncCanonicalize:=function(eHyp)
+  local EV, i;
+  EV:=[];
+  for i in [1..Length(eHyp)]
+  do
+    EV[i]:=eHyp[i];
+  od;
+  Sort(EV);
+  return ShallowCopy(EV);
+end;
+
+OrbAffBas:=ReadAsFunction("OrbitAffineBasis")();
+
+ListIncidentHypermetricFacet:=[];
+nbDone:=0;
+for eOrb in OrbAffBas
+do
+  Matr:=[];
+  for eElt in eOrb
+  do
+    Add(Matr, EXT[eElt]);
+  od;
+  for iVert in Difference([1..35], eOrb)
+  do
+    Solu:=SolutionMat(Matr, EXT[iVert]);
+    AddSet(ListIncidentHypermetricFacet, FuncCanonicalize(Solu));
+  od;
+  nbDone:=nbDone+1;
+  Print("Number Treated=", nbDone, "\n");
+#  Print("ListINCD=", ListIncidentHypermetricFacet, "\n");
+od;

@@ -1,0 +1,62 @@
+EXTinitial:=ReadAsFunction("Functions/TheSchlafli")();
+
+
+AB:=CreateAffineBasis(EXTinitial);
+EXT:=HypermetricCoordinates(AB, EXTinitial);
+
+
+DDA:=DualDescriptionAdjacencies(EXT);
+Print("|Fac|=", Length(DDA.FAC), "\n");
+
+GroupEXT:=AutGroupGraph(DDA.SkeletonGraph);
+Print("|G|=", Order(GroupEXT), "\n");
+
+
+HackFindPossibleSpannings:=function(Polytope, TheGroup)
+  local LPN, Dimension, FuncLinear, eCand, Cand;
+  Dimension:=RankMat(Polytope);
+  FuncLinear:=function(eCand)
+    local Matr, ePos, iVert, Solu, eV;
+    Matr:=Polytope{eCand};
+    if RankMat(Matr)<Length(eCand) and Length(eCand) < 8 then
+      return false;
+    fi;
+    return true;
+  end;
+  return FindOrbitSubGraphs(Length(Polytope), TheGroup, FuncLinear, Dimension+1);
+end;
+
+
+OrbAffBas:=HackFindPossibleSpannings(EXT, GroupEXT);
+
+MatId:=[];
+for i in [1..8]
+do
+  LineM:=[];
+  for j in [1..7]
+  do
+    if i=j then
+      Add(LineM, 1);
+    else
+      Add(LineM, 0);
+    fi;
+  od;
+  Add(MatId, LineM);
+od;
+
+
+ListInHYP8:=[];
+ListHNF:=[];
+for eOrb in OrbAffBas
+do
+  Matr:=[];
+  for eElt in eOrb
+  do
+    Add(Matr, EXT[eElt]);
+  od;
+  HNF:=HermiteNormalFormIntegerMat(Matr);
+  Add(ListHNF, HNF);
+  if HNF=MatId then
+    Add(ListInHYP8, eOrb);
+  fi;
+od;
